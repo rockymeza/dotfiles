@@ -20,7 +20,6 @@ fi
 export DISPLAY=:0
 export TZ="America/Denver"
 export PAGER='less'
-export EDITOR='nano'
 
 #--------------------------------------------------
 #    Language parameters

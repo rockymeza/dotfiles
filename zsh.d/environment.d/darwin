@@ -1,9 +1,10 @@
 #!/bin/zsh
 #--------------------------------------------------
-#  OSX-specific exports    
+#  OSX-specific parameters    
 #--------------------------------------------------
 export CLICOLOR=1;
 export EVENT_NOKQUEUE=1
+export EDITOR='mate -w'
 
 #--------------------------------------------------
 #  OSX-specific path exports    

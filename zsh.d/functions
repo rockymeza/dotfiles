@@ -9,12 +9,13 @@
 #    OS-specific parameters
 #--------------------------------------------------
 # Go through zsh.d one file at a time and source everything.
-for function in ./functions.d/*[^~]; do
+dir=$(dirname $0)
+for function in ${dir}/functions.d/*[^~]; do
   source $function
 done
 
-if [ -d "./functions.d/${os}" ]; then
-  for function in ./functions.d/${os}/*[^~]; do
+if [ -d "${dir}/functions.d/${os}" ]; then
+  for function in ${dir}/functions.d/${os}/*[^~]; do
     source $function
   done
 fi

@@ -1,6 +1,11 @@
 #!/bin/zsh
 #--------------------------------------------------
-#  Linux-specific exports    
+#  Linux-specific parameters    
+#--------------------------------------------------
+export EDITOR='nano'
+
+#--------------------------------------------------
+#  Linux-specific path exports    
 #--------------------------------------------------
 ANDROID_PATH=/home/aaron/Code/android-sdk-linux_86/tools
 export PATH=${ANDROID_PATH}:${PATH}
