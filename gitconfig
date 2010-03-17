@@ -9,6 +9,7 @@
 	mg = merge
 	newbr = !sh -c 'git branch $1 && git push origin $1 && git branch -f $1 origin/$1 && git checkout $1' -
 	pp = !git pull -- && git push --
+	rank = !~/.zsh.d/functions.d/git-rank-contributers.rb
 	rmbr = !sh -c 'git branch -D $1 && git push origin :$1' -
 	rmdel = !git ls-files -d | xargs git rm --ignore-unmatch
 	st = status

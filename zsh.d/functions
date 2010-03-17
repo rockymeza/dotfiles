@@ -10,12 +10,12 @@
 #--------------------------------------------------
 # Go through zsh.d one file at a time and source everything.
 dir=$(dirname $0)
-for function in ${dir}/functions.d/*[^~]; do
+for function in ${dir}/functions.d/*.sh; do
   source $function
 done
 
 if [ -d "${dir}/functions.d/${os}" ]; then
-  for function in ${dir}/functions.d/${os}/*[^~]; do
+  for function in ${dir}/functions.d/${os}/*.sh; do
     source $function
   done
 fi
