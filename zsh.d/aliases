@@ -23,7 +23,6 @@ alias mv='nocorrect mv'
 alias psh='~/.zsh.d/functions.d/psh.pl'
 alias pscp='psh --scp'
 alias psftp='psh --sftp'
-alias realpath='~/.zsh.d/functions.d/realpath.py'
 alias rf='rm -rf'
 alias rsrc='source ~/.zshrc'
 
