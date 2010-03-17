@@ -1,0 +1,20 @@
+# Include the common preferences
+include common
+
+# Roots for synchronization
+root = /home/aaron
+#root = ssh://aaron@localhost:9999//home/aaron
+
+# Paths for synchronization
+path = Documents
+path = .ssh
+
+# Names to ignore
+ignore = Name known_hosts
+ignore = Name authorized_keys*
+ignore = Name *.pages
+ignore = Name *.numbers
+ignore = Name *.keynote
+
+# Paths to ignore
+ignore = Path Documents/Personal/Financial/Moneydance
