@@ -38,7 +38,8 @@ alias ifb='./fbmvc ifb'
 #   Git aliases
 #--------------------------------------------------
 alias gd='git diff'
-alias gs='git st'
+alias gl='git lg'
+alias gs='git status'
 
 #--------------------------------------------------
 #   SSH aliases
