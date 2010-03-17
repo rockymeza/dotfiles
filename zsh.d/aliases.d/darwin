@@ -1,9 +1,8 @@
 #--------------------------------------------------
 #    OSX-specific aliases
 #--------------------------------------------------
-alias ls='ls -h'
-alias ll='ls -alh'
 alias dnsflush='dscacheutil -flushcache'
+alias ll='ls -alh'
+alias ls='ls -h'
 alias portup='sudo port selfupdate && sudo port upgrade outdated'
 alias sync='unison sync'
-alias dotmate='mate ~/.zsh.d'

@@ -15,42 +15,50 @@ fi
 #--------------------------------------------------
 #    Bash command aliases
 #--------------------------------------------------
-alias rf='rm -rf'
-alias df='df -H'
 alias cl='clear'
-alias mv='nocorrect mv'
 alias cp='nocorrect cp'
+alias df='df -H'
 alias mkdir='nocorrect mkdir'
-alias rsrc='source ~/.zshrc'
+alias mv='nocorrect mv'
+alias psh='~/.zsh.d/functions.d/psh.pl'
 alias pscp='psh --scp'
 alias psftp='psh --sftp'
+alias realpath='~/.zsh.d/functions.d/realpath.py'
+alias rf='rm -rf'
+alias rsrc='source ~/.zshrc'
 
 #--------------------------------------------------
 #    Bash FBMVC aliases
 #--------------------------------------------------
 alias fbmvc='./fbmvc'
-alias ifb='./fbmvc ifb'
 alias gut='git'
+alias ifb='./fbmvc ifb'
 
 #--------------------------------------------------
-#    Bash ssh aliases
+#   Git aliases
+#--------------------------------------------------
+alias gd='git diff'
+alias gs='git st'
+
+#--------------------------------------------------
+#   SSH aliases
 #--------------------------------------------------
 alias bap='psh --ssh $bap'
 alias brep='psh --ssh $brep'
-alias wk='psh --ssh $wk'
 alias bstar='psh --ssh $bstar'
 alias harmonic='psh --ssh $harmonic'
+alias wk='psh --ssh $wk'
 
 #--------------------------------------------------
-#    Bash ssh aliases (Fusionbox)
+#    SSH aliases (Fusionbox)
 #--------------------------------------------------
-alias fbt='psh --ssh $fbt'
 alias buggy='psh --ssh $buggy'
-alias fbcom='psh --ssh $fbcom'
-alias ft='psh --ssh $ft'
-alias elements='psh --ssh $elements'
-alias luminate='psh --ssh $luminate'
-alias mvoy='psh --ssh $mvoy'
 alias cims='psh --ssh $cims'
 alias dg='psh --ssh $dg'
+alias elements='psh --ssh $elements'
+alias fbcom='psh --ssh $fbcom'
+alias fbt='psh --ssh $fbt'
+alias ft='psh --ssh $ft'
+alias luminate='psh --ssh $luminate'
+alias mvoy='psh --ssh $mvoy'
 alias nord='psh --ssh $nordsted'
