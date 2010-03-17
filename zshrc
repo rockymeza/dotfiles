@@ -13,7 +13,6 @@ os=${OSTYPE//[0-9.]/}
 
 # Go through zsh.d one file at a time and source everything.
 for zshrc_snipplet in ~/.zsh.d/*[^~]; do
-  echo "Sourcing ${zshrc_snipplet}..."
   source $zshrc_snipplet
 done
 
