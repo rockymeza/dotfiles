@@ -1,0 +1,19 @@
+#--------------------------------------------------
+#    Hosts
+#--------------------------------------------------
+export bap='bachya@bachyaproductions.com'
+export brep='brepadmin@bachpartners.com'
+export wk='aaron@localhost:9999'
+export bstar='root@bachya.dnsdojo.com:33077'
+export harmonic='aaron@harmonic.cs.colorado.edu'
+export fbt='aaronbach@fusionboxtesting.com'
+export buggy='aaron@buggy.fusionbox.com'
+export fb='agroth@74.52.107.50:2222'
+export ft='fitnesst@corp.fitnesstogether.com'
+export elements='corptoe@corp.touchofelements.com'
+export luminate='luminate@luminatellc.com'
+export mvoy='musicvoy@musicvoyager.com'
+export cims='fusionbox@69.1.104.68'
+export dg='fusionbox@dreamgarage.com'
+export nord='nordsted@69.1.104.161'
+export fbcom='agroth@74.52.107.50:2222'

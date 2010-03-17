@@ -1,0 +1,56 @@
+#!/bin/zsh
+#-------------------------------------------------------
+#   Overview
+#-------------------------------------------------------
+#   All system aliases are stored here.
+
+#--------------------------------------------------
+#    OS-specific aliases
+#--------------------------------------------------
+dir=$(dirname $0)
+if [ -f "${dir}/aliases.d/${os}" ]; then
+  source ${dir}/aliases.d/${os}
+fi
+
+#--------------------------------------------------
+#    Bash command aliases
+#--------------------------------------------------
+alias rf='rm -rf'
+alias df='df -H'
+alias cl='clear'
+alias mv='nocorrect mv'
+alias cp='nocorrect cp'
+alias mkdir='nocorrect mkdir'
+alias rsrc='source ~/.zshrc'
+alias pscp='psh --scp'
+alias psftp='psh --sftp'
+
+#--------------------------------------------------
+#    Bash FBMVC aliases
+#--------------------------------------------------
+alias fbmvc='./fbmvc'
+alias ifb='./fbmvc ifb'
+alias gut='git'
+
+#--------------------------------------------------
+#    Bash ssh aliases
+#--------------------------------------------------
+alias bap='psh --ssh $bap'
+alias brep='psh --ssh $brep'
+alias wk='psh --ssh $wk'
+alias bstar='psh --ssh $bstar'
+alias harmonic='psh --ssh $harmonic'
+
+#--------------------------------------------------
+#    Bash ssh aliases (Fusionbox)
+#--------------------------------------------------
+alias fbt='psh --ssh $fbt'
+alias buggy='psh --ssh $buggy'
+alias fbcom='psh --ssh $fbcom'
+alias ft='psh --ssh $ft'
+alias elements='psh --ssh $elements'
+alias luminate='psh --ssh $luminate'
+alias mvoy='psh --ssh $mvoy'
+alias cims='psh --ssh $cims'
+alias dg='psh --ssh $dg'
+alias nord='psh --ssh $nordsted'

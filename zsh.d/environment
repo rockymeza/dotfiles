@@ -1,0 +1,30 @@
+#!/bin/zsh
+#-------------------------------------------------------
+#   Overview
+#-------------------------------------------------------
+#   This file exports environment variables.  It figures
+#   out what OS we're on and loads vars specific to that
+#   OS, as well.
+
+#--------------------------------------------------
+#    OS-specific parameters
+#--------------------------------------------------
+dir=$(dirname $0)
+if [ -f "${dir}/environment.d/${os}" ]; then
+  source ${dir}/environment.d/${os}
+fi
+
+#--------------------------------------------------
+#    Exported parameters
+#--------------------------------------------------
+export DISPLAY=:0
+export TZ="America/Denver"
+export PAGER='less'
+export EDITOR='nano'
+
+#--------------------------------------------------
+#    Language parameters
+#--------------------------------------------------
+export LC_ALL='en_US.UTF-8'
+export LANG='en_US.UTF-8'
+export LC_CTYPE=C

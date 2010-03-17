@@ -1,0 +1,9 @@
+#!/bin/zsh
+#--------------------------------------------------
+#  Linux-specific exports    
+#--------------------------------------------------
+ANDROID_PATH=/home/aaron/Code/android-sdk-linux_86/tools
+export PATH=${ANDROID_PATH}:${PATH}
+
+RUBY_GEMS_PATH=/var/lib/gems/1.8/bin
+export PATH=${RUBY_GEMS_PATH}:${PATH}

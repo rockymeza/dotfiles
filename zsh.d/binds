@@ -1,0 +1,16 @@
+#!/bin/zsh
+#-------------------------------------------------------
+#   Overview
+#-------------------------------------------------------
+#   Keybindings (generic and OS-specific) are stored here.
+
+autoload -U compinit
+compinit
+
+#--------------------------------------------------
+#    OS-specific binds
+#--------------------------------------------------
+dir=$(dirname $0)
+if [ -f "${dir}/binds.d/${os}" ]; then
+  source ${dir}/binds.d/${os}
+fi

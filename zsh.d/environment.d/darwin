@@ -1,0 +1,32 @@
+#!/bin/zsh
+#--------------------------------------------------
+#  OSX-specific exports    
+#--------------------------------------------------
+export CLICOLOR=1;
+export EVENT_NOKQUEUE=1
+
+#--------------------------------------------------
+#  OSX-specific path exports    
+#--------------------------------------------------
+USR_LOCAL_BIN_PATH=/usr/local/bin
+export PATH=${USR_LOCAL_BIN_PATH}:${PATH}
+
+MAMP_PATH=/Applications/MAMP/bin/apache2/bin:/Applications/MAMP/bin/php5/bin
+export PATH=${MAMP_PATH}:${PATH}
+
+MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
+export PATH=${PATH}:${MACPORTS_PATH}
+
+MACPORTS_MAN_PATH=/opt/local/man
+export MANPATH=${MANPATH}:${MACPORTS_MAN_PATH}
+
+ANDROID_PATH=/Developer/Android/tools
+export PATH=${PATH}:${ANDROID_PATH}
+
+#--------------------------------------------------
+#  Create the socket for SSHKeychain if it 
+#  doesn't already exist
+#--------------------------------------------------
+if [ -e "/tmp/${UID}/SSHKeychain.socket" ]; then
+  export SSH_AUTH_SOCK=/tmp/${UID}/SSHKeychain.socket
+fi

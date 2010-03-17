@@ -1,0 +1,7 @@
+#--------------------------------------------------
+#    Cygwin-specific aliases
+#--------------------------------------------------
+alias shutdown='shutdown -s -f -t 0'
+alias reboot='shutdown -r -f -t 0'
+alias unison='unison-2.27'
+alias dnsflush='ipconfig /flushdns'

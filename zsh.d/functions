@@ -1,0 +1,20 @@
+#!/bin/zsh
+#-------------------------------------------------------
+#   Overview
+#-------------------------------------------------------
+#   This file sources functions on a general level and
+#   an OS-specific level
+
+#--------------------------------------------------
+#    OS-specific parameters
+#--------------------------------------------------
+# Go through zsh.d one file at a time and source everything.
+for function in ./functions.d/*[^~]; do
+  source $function
+done
+
+if [ -d "./functions.d/${os}" ]; then
+  for function in ./functions.d/${os}/*[^~]; do
+    source $function
+  done
+fi
