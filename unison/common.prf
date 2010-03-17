@@ -1,0 +1,24 @@
+# Helps out a lot on Windows
+fastcheck = true
+
+# Place new files at the top of the list
+sortnewfirst = true
+
+# Turn on SSH compression
+rshargs = -C
+
+# Don't mess with permission bits
+perms = 0
+
+# Prefer the newer file
+prefer = newer
+times = true
+
+ignore = Name Thumbs.db
+ignore = Name *~*
+ignore = Name *.tmp
+ignore = Name .DS_Store
+ignore = Name .localized
+ignore = Name Icon?
+ignore = Name *.old
+ignore = Name .*
