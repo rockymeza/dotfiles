@@ -17,6 +17,7 @@
 	unstage = reset HEAD --
 	unstash = !git stash show -p | git apply -R
 	who = !git shortlog -s -- | sort -r
+	wtf = !~/.zsh.d/functions.d/git-wtf.rb
 [push]
 	default = matching
 [color]
