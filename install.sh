@@ -11,8 +11,8 @@ gitconfig_setup()
     cp ${PWD}/gitconfig ${HOME}/.gitconfig
   fi
   
-  read -p "Git Name: (leave blank to default to '${name}'): " new_name
-  read -p "Git Email: (leave blank to default to '${email}'): " new_email
+  read -p "Git Name (leave blank to default to '${name}'): " new_name
+  read -p "Git Email (leave blank to default to '${email}'): " new_email
   
   if [ -z "$new_name" ]; then
     git config --global user.name "${name}"
@@ -35,7 +35,8 @@ help_message()
   echo "Possible options: install, gc"
 }
 
-in_array () {
+in_array ()
+{
   haystack=( "$@" )
   haystack_size=( "${#haystack[@]}" )
   needle=${haystack[$((${haystack_size}-1))]}
@@ -76,19 +77,11 @@ else
             else
               read -p "Overwrite ~/.${file}? [yNaq]: " response
               case $response in
-                a)
-                  replace_all=true
-                  replace_file $file
-                  ;;
-                y)
-                  replace_file $file
-                  ;;
-                q)
-                  exit
-                  ;;
-                *)
-                  echo "Skipping ~/.${file}"
-                  ;;
+                a) replace_all=true
+                   replace_file $file;;
+                y) replace_file $file;;
+                q) exit;;
+                *) echo "Skipping ~/.${file}";;
               esac
             fi
           else
@@ -96,12 +89,8 @@ else
           fi
         fi
       done;
-      gitconfig_setup
-      ;;
-    gc)
-      gitconfig_setup
-      ;;
-    *)
-      help_message
+      gitconfig_setup;;
+    gc) gitconfig_setup;;
+    *)  help_message;;
   esac
 fi
