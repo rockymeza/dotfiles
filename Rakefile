@@ -1,5 +1,6 @@
 task :default do
-  puts "Run `rake install` to install the dotfiles configuration system."
+  puts "Usage: rake [option]"
+  puts "Possible options: install, gc"
 end
 
 task :gc do
@@ -52,12 +53,12 @@ def gitconfig_setup
   puts "Git Email: (leave blank to default to '#{email}')"
   new_email = STDIN.gets.strip
   
-  if new_email == ""
-    new_email = email
-  end
-  
   if new_name == ""
     new_name = name
+  end
+  
+  if new_email == ""
+    new_email = email
   end
 
   `git config --global user.name "#{new_name}"`
