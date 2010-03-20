@@ -15,15 +15,17 @@ gitconfig_setup()
   read -p "Git Email: (leave blank to default to '${email}'): " new_email
   
   if [ -z "$new_name" ]; then
-    $new_name="$name"
+    git config --global user.name "${name}"
+  else
+    git config --global user.name "${new_name}"
   fi
   
   if [ -z "$new_email" ]; then
-    $new_email="$email"
+    git config --global user.email "${email}"
+  else
+    git config --global user.email "${new_email}"
   fi
   
-  git config --global user.name "${new_name}"
-  git config --global user.email "${new_email}"
   git config --global core.excludesfile ~/.gitignore
 }
 
