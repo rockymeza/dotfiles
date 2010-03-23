@@ -65,7 +65,7 @@ else
   case $1 in
     install)
       replace_all=false
-      skipped_files=(Rakefile README LICENSE gitconfig install.sh *~)
+      skipped_files=(Rakefile gitconfig install.sh *~)
       for i in *
       do
         file=$i
