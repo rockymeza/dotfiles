@@ -35,7 +35,7 @@ help_message()
   echo "Possible options: install, gc"
 }
 
-in_array ()
+in_array()
 {
   haystack=( "$@" )
   haystack_size=( "${#haystack[@]}" )
