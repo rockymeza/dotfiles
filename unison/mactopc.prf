@@ -1,5 +1,5 @@
 # Include the common preferences
-include common
+include default
 
 # Roots for synchronization
 root = /Users/bachya
