@@ -3,7 +3,7 @@ include default
 
 # Roots for synchronization
 root = /home/aaron
-#root = ssh://aaron@localhost:9999//home/aaron
+root = ssh://bachya@192.168.1.146//Users/bachya
 
 # Paths for synchronization
 path = Documents

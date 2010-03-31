@@ -1,0 +1,15 @@
+;
+; BIND data file for fbmvc sites
+;
+$TTL    604800
+@       IN      SOA     fbmvc. root.fbmvc. (
+                     2008101920         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      fbmvc.
+@       IN      A       127.0.0.1
+*.fbmvc.  14400   IN      A       127.0.0.1
+
