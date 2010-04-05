@@ -25,6 +25,7 @@ alias pscp='psh --scp'
 alias psftp='psh --sftp'
 alias rf='rm -rf'
 alias rsrc='source ~/.zshrc'
+alias topcmds='cut -d\  -f 1 ~/.histfile | sort | uniq -c | sort -rn | head -n 10 | sed "s/.*/    &/g"'
 
 #--------------------------------------------------
 #    Bash FBMVC aliases
