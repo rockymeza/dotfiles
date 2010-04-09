@@ -4,6 +4,7 @@
 	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
 	ci = commit
 	co = checkout
+	ftp = !~/.zsh.d/functions.d/git-ftp.py
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
 	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Cblue (%cn)%Creset' --abbrev-commit --date=relative
 	mg = merge
