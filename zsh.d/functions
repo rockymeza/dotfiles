@@ -2,22 +2,39 @@
 #-------------------------------------------------------
 #   Overview
 #-------------------------------------------------------
-#   This file sources shell functions on a general level
-#   and on OS-specific level
+#   This file sources functions in the autoload folder
+#   regardless of OS.  Right now, only autoloading of
+#   shell functions is accepted.
 
 #--------------------------------------------------
-#    Generic shell functions
+#    Generic shell functions to autoload
 #--------------------------------------------------
 dir=$(dirname $0)
-for function in ${dir}/functions.d/*.sh; do
-  source $function
+for function in ${dir}/functions.d/autoload/*; do
+  if [[ "$function" =~ .+\.sh$ ]]; then
+    source $function
+  else 
+    if [ -d $function ]; then
+      continue
+    else
+      echo "Not autoloading ${function} (only .sh allowed)"
+    fi
+  fi
 done
 
 #--------------------------------------------------
-#    OS-specific shell functions
+#    OS-specific shell functions to autoload
 #--------------------------------------------------
 if [ -d "${dir}/functions.d/${os}" ]; then
-  for function in ${dir}/functions.d/${os}/*.sh; do
-    source $function
+  for function in ${dir}/functions.d/autoload/${os}/*; do
+    if [[ "$function" =~ .+\.sh$ ]]; then
+      source $function
+    else 
+      if [ -d $function ]; then
+        continue
+      else
+        echo "Not autoloading ${function} (only .sh allowed)"
+      fi
+    fi
   done
 fi
