@@ -65,13 +65,13 @@ else
   case $1 in
     install)
       replace_all=false
-      skipped_files=(Rakefile install.sh gitconfig apache bind9 dotfiles.d)
+      copied_files=(gitconfig gitignore zshrc)
       for i in *
       do
         file=$i
         [[ $file =~ .*~$ ]] && continue
-        in_array "${skipped_files[@]}" "$i"
-        if [ $? -ne 0 ]; then
+        in_array "${copied_files[@]}" "$i"
+        if [ $? -eq 0 ]; then
           if [ -a ${HOME}/.${file} ]; then
             if $replace_all; then
               replace_file $file
