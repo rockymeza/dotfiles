@@ -4,7 +4,6 @@
 #-------------------------------------------------------
 #   Various zsh-specific completion features are stored
 #   and configured here.
-
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list
 zstyle ':completion:*' menu select=1

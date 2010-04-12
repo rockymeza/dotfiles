@@ -65,7 +65,7 @@ else
   case $1 in
     install)
       replace_all=false
-      skipped_files=(Rakefile install.sh gitconfig apache bind9)
+      skipped_files=(Rakefile install.sh gitconfig apache bind9 dotfiles.d)
       for i in *
       do
         file=$i

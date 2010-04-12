@@ -7,9 +7,8 @@
 #--------------------------------------------------
 #    OS-specific aliases
 #--------------------------------------------------
-dir=$(dirname $0)
-if [ -f "${dir}/aliases.d/${os}" ]; then
-  source ${dir}/aliases.d/${os}
+if [ -f "${dotfile_dir}/dotfiles.d/aliases.d/${os}" ]; then
+  source ${dotfile_dir}/dotfiles.d/aliases.d/${os}
 fi
 
 #--------------------------------------------------
@@ -20,7 +19,7 @@ alias cp='nocorrect cp'
 alias df='df -H'
 alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
-alias psh='${dir}/functions.d/psh.pl'
+alias psh='${dotfile_dir}/dotfiles.d/functions.d/psh.pl'
 alias pscp='psh --scp'
 alias psftp='psh --sftp'
 alias rf='rm -rf'
