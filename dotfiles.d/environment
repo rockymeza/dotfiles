@@ -9,9 +9,8 @@
 #--------------------------------------------------
 #    OS-specific parameters
 #--------------------------------------------------
-dir=$(dirname $0)
-if [ -f "${dir}/environment.d/${os}" ]; then
-  source ${dir}/environment.d/${os}
+if [ -f "${dotfile_dir}/dotfiles.d/environment.d/${os}" ]; then
+  source ${dotfile_dir}/dotfiles.d/environment.d/${os}
 fi
 
 #--------------------------------------------------

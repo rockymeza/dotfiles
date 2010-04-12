@@ -9,8 +9,7 @@
 #--------------------------------------------------
 #    Generic shell functions to autoload
 #--------------------------------------------------
-dir=$(dirname $0)
-for function in ${dir}/functions.d/autoload/*; do
+for function in ${dotfile_dir}/dotfiles.d/functions.d/autoload/*; do
   if [[ "$function" =~ .+\.sh$ ]]; then
     source $function
   else 
@@ -25,8 +24,8 @@ done
 #--------------------------------------------------
 #    OS-specific shell functions to autoload
 #--------------------------------------------------
-if [ -d "${dir}/functions.d/${os}" ]; then
-  for function in ${dir}/functions.d/autoload/${os}/*; do
+if [ -d "${dotfile_dir}/dotfiles.d/functions.d/${os}" ]; then
+  for function in ${dotfile_dir}/dotfiles.d/functions.d/autoload/${os}/*; do
     if [[ "$function" =~ .+\.sh$ ]]; then
       source $function
     else 

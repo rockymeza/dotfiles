@@ -9,9 +9,10 @@
 # Also figure out what OS we're on.
 autoload colors zsh/terminfo
 os=${OSTYPE//[0-9.]/}
+dotfile_dir=$(dirname $(readlink "${PWD}/.zshrc"))
 
 # Go through dotfiles.d one file at a time and source everything.
-for zshrc_snipplet in ~/.dotfiles.d/*[^~]; do
+for zshrc_snipplet in ${dotfile_dir}/dotfiles.d/*[^~]; do
   source $zshrc_snipplet
 done
 
