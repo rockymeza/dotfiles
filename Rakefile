@@ -11,6 +11,7 @@ task :install do
   replace_all = false
   Dir['*'].each do |file|
     next if %w(Rakefile install.sh gitconfig apache bind9).include? file
+    next if file =~ /.*~$/
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
       if replace_all
         replace_file(file)

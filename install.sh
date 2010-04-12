@@ -69,6 +69,7 @@ else
       for i in *
       do
         file=$i
+        [[ $file =~ .*~$ ]] && continue
         in_array "${skipped_files[@]}" "$i"
         if [ $? -ne 0 ]; then
           if [ -a ${HOME}/.${file} ]; then
