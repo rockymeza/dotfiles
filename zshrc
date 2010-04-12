@@ -10,8 +10,8 @@
 autoload colors zsh/terminfo
 os=${OSTYPE//[0-9.]/}
 
-# Go through zsh.d one file at a time and source everything.
-for zshrc_snipplet in ~/.zsh.d/*[^~]; do
+# Go through dotfiles.d one file at a time and source everything.
+for zshrc_snipplet in ~/.dotfiles.d/*[^~]; do
   source $zshrc_snipplet
 done
 
