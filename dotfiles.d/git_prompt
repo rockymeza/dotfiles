@@ -56,7 +56,7 @@ get_git_prompt_info() {
 
   local state="$__ZSH_GIT_STATE"
   if [[ -n "$state" ]] ; then
-    state="$state "
+    state=":${state} "
 
   # NOTE: This code take a long time to execute on large repos,
   # but can show if the repo is dirty or not.  It cannot be 
@@ -64,7 +64,7 @@ get_git_prompt_info() {
   # change this state.  Enable it if you work on only small
   # repositories.
   elif ! git diff --quiet || [[ -n $(git ls-files --others --exclude-standard) ]] ; then
-    state=":dirty"
+    state="dirty"
   fi
   
   res=${res//\%s/$state}
