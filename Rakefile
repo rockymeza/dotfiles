@@ -41,10 +41,10 @@ def gitconfig_setup
   email = `git config --global user.email`.strip
   
   if File.exist?(File.join(ENV['HOME'], ".gitconfig"))
-    system %Q{rm "$HOME/.gitconfig"}
-    system %Q{cp "$PWD/gitconfig" "$HOME/.gitconfig"}
+    system `rm "$HOME/.gitconfig"`
+    system `cp "$PWD/gitconfig" "$HOME/.gitconfig"`
   else
-    system %Q{cp "$PWD/gitconfig" "$HOME/.gitconfig"}
+    system `cp "$PWD/gitconfig" "$HOME/.gitconfig"`
   end
   
   puts "Git Name: (leave blank to default to '#{name}')"
@@ -68,11 +68,11 @@ end
 
 def link_file(file)
   puts "Linking ~/.#{file}..."
-  system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+  system `ln -s "$PWD/#{file}" "$HOME/.#{file}"`
 end
 
 def replace_file(file)
   puts "Removing old ~/.#{file}..."
-  system %Q{rm "$HOME/.#{file}"}
+  system `rm "$HOME/.#{file}"`
   link_file(file)
 end
