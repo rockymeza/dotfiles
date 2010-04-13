@@ -65,7 +65,7 @@ else
   case $1 in
     install)
       replace_all=false
-      copied_files=(gitconfig gitignore zshrc)
+      copied_files=(gitignore zshrc)
       for i in *
       do
         file=$i
