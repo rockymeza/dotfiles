@@ -5,18 +5,22 @@
 #   This file is the gateway to configuring the entire
 #   dotfiles system for zsh.
 
-# Autoload zsh color and terminal info support.
-# Also figure out what OS we're on.
-autoload colors zsh/terminfo
+# Determine operating system
 os=${OSTYPE//[0-9.]/}
-dotfile_dir=$(dirname $(readlink "${PWD}/.zshrc"))
 
-# Go through dotfiles.d one file at a time and source everything.
-for zshrc_snipplet in ${dotfile_dir}/dotfiles.d/*[^~]; do
-  source $zshrc_snipplet
+# Determine root directory of dotfiles
+dotfile_dir=$(dirname $(readlink "${HOME}/.zshrc"))
+
+# Autoload zsh color and terminal info support.
+autoload colors zsh/terminfo
+
+# Go through dotfiles.d one file at a time and source everything
+# at the first level
+for snippet in ${dotfile_dir}/dotfiles.d/*[^~]; do
+  source $snippet
 done
 
-# Some shorthand vars for colors in zsh.
+# Some shorthand vars for colors in zsh
 if [[ "$terminfo[colors]" -ge 8 ]]; then
   colors
 fi
@@ -26,12 +30,13 @@ for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
   (( count = $count + 1 ))
 done
 
+# Shorthand var for "no color"
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
-# Set up both the left and right prompt.
+# Determine the git branch and status
 git_br='$(get_git_prompt_info "%b")'
-git_dirty='$(get_git_prompt_info "%s")'
-r_prompt="($PR_GREEN$git_br$PR_RED$git_dirty$PR_NO_COLOR)"
+git_state='$(get_git_prompt_info "%s")'
 
+# Set up both the left and right prompt
 PS1="[$PR_BLUE%n$PR_NO_COLOR@$PR_GREEN%U%m%u$PR_NO_COLOR:$PR_RED%2c$PR_NO_COLOR]%(!.#.$) "
-RPS1=$r_prompt
+RPS1="($PR_GREEN$git_br$PR_RED$git_state$PR_NO_COLOR)"
