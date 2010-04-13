@@ -23,7 +23,7 @@ alias psh='${dotfile_dir}/dotfiles.d/functions.d/psh.pl'
 alias pscp='psh --scp'
 alias psftp='psh --sftp'
 alias rf='rm -rf'
-alias rsrc='source ~/.zshrc'
+alias rsrc='source ${dotfile_dir}/zshrc'
 alias topcmds='cut -d\  -f 1 ~/.histfile | sort | uniq -c | sort -rn | head -n 10 | sed "s/.*/    &/g"'
 
 #--------------------------------------------------
