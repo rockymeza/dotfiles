@@ -33,54 +33,70 @@
 #-------------------------------------------------------------------------------------------------------------
 use warnings;
 use strict;
-use Getopt::Long;
 use Switch;
+
+my $userRegex = '(?:[a-z0-9+!*(),;?&=\$_.-]+(?::[a-z0-9+!*(),;?&=\$_.-]+)?@)?';
+my $hostRegex = '[a-z0-9-.]*\.[a-z]{2,3}';
+my $portRegex = '(?::[0-9]{2,5})?';
+my $pathRegex = '~?[*\w/\\\.\\s-]+';
 
 #|
 #|  Regex to define user/host combos in the
 #|  form user@host:port
 #|
-my $userHostRegex = '\w+@[.\w\d-]+(?::\d+)?';
-
-#|
-#|  Regex to define *nix paths.
-#|
-my $pathRegex = '~?[*\w/\\\.\\s-]+';
+my $userHostRegex = "$userRegex$hostRegex$portRegex";
 
 #|
 #|  Regex to define scp combinations; since
 #|  these are such unique beasts, we have to
-#|  form a special regex just for them.
+#|  form a special regex just for them
 #|
 my $scpRegex = "($pathRegex\\s$userHostRegex:(?:$pathRegex)?|$userHostRegex:$pathRegex\\s$pathRegex)";
 
 #|
-#|  Assembles a ssh/sftp/scp command and
-#|  executes it.  It expects 3 parameters:
+#|  Simple function to determine whether a
+#|  key exists in an array
+#|
+sub array_contains {
+	my $array = shift;
+	my $key = shift;
+
+	my $contains = 0;
+	foreach(@$array) {
+		$contains = 1 if ($_ eq $key);
+	}
+	return $contains;
+}
+
+#|
+#|  Assembles a ssh/sftp/scp command with
+#|  expects 3 parameters:
 #|    1. $option  - ssh|sftp|scp
 #|    2. $command - basically whatever comes after #1
 #|    3. $regex   - the regex to test the command against
 #|
-sub parseAndRun
+sub createCommand
 {
-  my ($option, $command, $regex) = @_;
-  if ($command =~ m/$regex/i)
+  my ($command, $optionString, $regex) = @_;
+  
+  if ($optionString =~ m/$regex/i)
   {
-    my $newCommand = "$option";
-    if ($& =~ m/:(\d+)/)
+    my $newCommand = "$command";
+    if ($& =~ m/:(\d+)/i)
     {
       my $portString = '';
-      $command =~ s/:(\d+)//;
-      switch ($option)
+      switch ($command)
       {
         case ('ssh')      { $portString = "-p $1"; }
         case (/sftp|scp/) { $portString = "-oPort=$1"; }
-      }      
+      }
+      
+      $optionString =~ s/$&//;
       $newCommand .= " $portString";
     }
-
-    $newCommand .= " $command";
-    system($newCommand);
+    
+    $newCommand .= " $optionString";
+    return "$newCommand\n";
   }
   else
   {
@@ -90,7 +106,20 @@ sub parseAndRun
 }
 
 #|
-#|  Prints the usage message.
+#|  Takes a raw string of ssh/scp/sftp options and assembles
+#|  them into an executable command
+#|
+sub execute
+{
+  my $optionString = '';
+  my ($args, $command, $regex) = @_;
+
+  foreach (@{$args}) { if ( $_ ne "--$command" ) { $optionString .= $_ . ' '; } }
+  system(createCommand($command, $optionString, $regex));
+}
+
+#|
+#|  Prints the usage message
 #|
 sub printUsageMessage 
 { 
@@ -109,19 +138,7 @@ sub printUsageMessage
 #|  is specified, the first one will be run.  If no valid
 #|  option is passed, the usage message is printed.
 #|
-my ($ssh, $sftp) = '', my @scp;
-GetOptions('ssh=s' => \$ssh, 'sftp=s' => \$sftp, 'scp=s{2}' => \@scp);
-
-if    ($ssh)  { parseAndRun('ssh', $ssh, "^$userHostRegex\$"); }
-elsif ($sftp) { parseAndRun('sftp', $sftp, "^$userHostRegex\$"); }
-elsif (@scp)
-{
-  # Since scp really has two arguments - a user/host combo and
-  # a path - we need to assemble it into one string that
-  # parseAndRun can accept.
-  my $scpString = '';
-  foreach (@scp) { $scpString .= $_ . ' '; }
-  $scpString =~ s/\s+$//;
-  parseAndRun('scp', $scpString, "$scpRegex\$");
-}
+if (array_contains(\@ARGV, '--ssh'))     { execute(\@ARGV, 'ssh', $userHostRegex); }
+elsif (array_contains(\@ARGV, '--scp'))  { execute(\@ARGV, 'scp', $scpRegex) ; }
+elsif (array_contains(\@ARGV, '--sftp')) { execute(\@ARGV, 'sftp', $userHostRegex); }
 else { printUsageMessage(); }
