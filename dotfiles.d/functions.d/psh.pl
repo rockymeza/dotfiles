@@ -36,7 +36,7 @@ use strict;
 use Switch;
 
 my $userRegex = '(?:[a-z0-9+!*(),;?&=\$_.-]+(?::[a-z0-9+!*(),;?&=\$_.-]+)?@)?';
-my $hostRegex = '[a-z0-9-.]*\.[a-z]{2,3}';
+my $hostRegex = '(?:[a-z0-9-.]*\.[a-z]{2,3}|(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))';
 my $portRegex = '(?::[0-9]{2,5})?';
 my $pathRegex = '~?[*\w/\\\.\\s-]+';
 
@@ -100,8 +100,7 @@ sub createCommand
   }
   else
   {
-    print "Bad match for $command (using $regex)\n";
-    return 1;
+    printUsageMessage();
   }
 }
 
