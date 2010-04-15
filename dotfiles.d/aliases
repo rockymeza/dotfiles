@@ -52,6 +52,7 @@ alias wk='psh --ssh $wk'
 #--------------------------------------------------
 #    SSH aliases (Fusionbox)
 #--------------------------------------------------
+alias bp='psh --ssh $bp'
 alias buggy='psh --ssh $buggy'
 alias cims='psh --ssh $cims'
 alias dg='psh --ssh $dg'
