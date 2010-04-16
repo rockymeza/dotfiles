@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 #--------------------------------------------------
-#    Hosts
+#    hosts - Overview
+#--------------------------------------------------
+#    Hosts are defined as environment variables
+#    in this file.  This is done primarily as an
+#    interface for psh.pl
+
+#--------------------------------------------------
+#    Personal Hosts
 #--------------------------------------------------
 export bap='bachya@bachyaproductions.com'
 export brep='brepadmin@bachpartners.com'
