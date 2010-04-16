@@ -12,7 +12,7 @@ export EDITOR='mate -w'
 USR_LOCAL_BIN_PATH=/usr/local/bin
 export PATH=${USR_LOCAL_BIN_PATH}:${PATH}
 
-MAMP_PATH=/Applications/MAMP/bin/apache2/bin:/Applications/MAMP/bin/php5/bin
+MAMP_PATH=/Applications/MAMP/bin/apache2/bin:/Applications/MAMP/bin/php5.3/bin
 export PATH=${MAMP_PATH}:${PATH}
 
 MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
