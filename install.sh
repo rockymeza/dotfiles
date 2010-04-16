@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
+#-------------------------------------------------------
+#   Rakefile - Overview
+#-------------------------------------------------------
+#   This is the shell-based method to install dotfiles.
+#   This does the exact same thing as the Rakefile, but
+#   is primarily intended for those who do not have
+#   access to Ruby on their system.
+
+#--------------------------------------------------
+#   Function to regenerate .gitconfig and place it
+#   in the user's home directory
+#--------------------------------------------------
 gitconfig_setup()
 {
   name=$(git config --global user.name)
@@ -29,12 +41,20 @@ gitconfig_setup()
   git config --global core.excludesfile ~/.gitignore
 }
 
+#--------------------------------------------------
+#   If the user simply runs `./install.sh`, display
+#   the possible options
+#--------------------------------------------------
 help_message()
 {
   echo "Usage: ./install.sh [option]"
   echo "Possible options: install, gc"
 }
 
+#--------------------------------------------------
+#   Function to determine whether a given entry
+#   exists in an array
+#--------------------------------------------------
 in_array()
 {
   haystack=( "$@" )
@@ -46,12 +66,20 @@ in_array()
   done
 }
 
+#--------------------------------------------------
+#   Creates a symbolically linked "." version of a
+#   file in the user's home directory
+#--------------------------------------------------
 link_file()
 {
   echo "Linking ~/.${1}..."
   ln -s ${PWD}/${1} ${HOME}/.${1}
 }
 
+#--------------------------------------------------
+#   Replaces a "." symlink in the user's home 
+#   directory
+#--------------------------------------------------
 replace_file()
 {
   echo "Removing old ~/.${1}..."
@@ -59,6 +87,9 @@ replace_file()
   link_file $1
 }
 
+#--------------------------------------------------
+#   Main program
+#--------------------------------------------------
 if [ $# -ne 1 ] || [ $1 == "-h" ] || [ $1 == "--help" ]; then
   help_message
 else

@@ -1,18 +1,20 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 #-------------------------------------------------------
-#   Overview
+#   aliases - Overview
 #-------------------------------------------------------
-#   All system aliases are stored here.
+#   Stores global alias for use on every system.  Also
+#   sources aliases that are specific to the current
+#   operating system.
 
 #--------------------------------------------------
-#    OS-specific aliases
+#   OS-specific aliases
 #--------------------------------------------------
 if [ -f "${dotfile_dir}/dotfiles.d/aliases.d/${os}" ]; then
   source ${dotfile_dir}/dotfiles.d/aliases.d/${os}
 fi
 
 #--------------------------------------------------
-#    Bash command aliases
+#   Bash command aliases
 #--------------------------------------------------
 alias cl='clear'
 alias cp='nocorrect cp'
@@ -27,7 +29,7 @@ alias rsrc='source ${dotfile_dir}/zshrc'
 alias topcmds='cut -d\  -f 1 ~/.histfile | sort | uniq -c | sort -rn | head -n 10 | sed "s/.*/    &/g"'
 
 #--------------------------------------------------
-#    Bash FBMVC aliases
+#   Bash FBMVC aliases
 #--------------------------------------------------
 alias fbmvc='./fbmvc'
 alias gut='git'
@@ -50,7 +52,7 @@ alias harmonic='psh --ssh $harmonic'
 alias wk='psh --ssh $wk'
 
 #--------------------------------------------------
-#    SSH aliases (Fusionbox)
+#   SSH aliases (Fusionbox)
 #--------------------------------------------------
 alias bp='psh --ssh $bp'
 alias buggy='psh --ssh $buggy'

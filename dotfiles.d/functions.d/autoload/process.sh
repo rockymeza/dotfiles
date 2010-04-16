@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #-------------------------------------------------------
 #    Wrapper for ps auwxx that removes the 'grep'
 #    result

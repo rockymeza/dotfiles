@@ -1,12 +1,31 @@
+#-------------------------------------------------------
+#   install.sh - Overview
+#-------------------------------------------------------
+#   This is the Ruby-based method to install dotfiles. I
+#   realize that install.sh does exactly the same thing,
+#   but in the interest of experimenting with Rakefiles,
+#   I thought I would give Ruby enthusiasts a way to
+#   accomplish installation. :)
+
+#--------------------------------------------------
+#   If the user simply runs `rake`, display the
+#   possible options
+#--------------------------------------------------
 task :default do
   puts "Usage: rake [option]"
   puts "Possible options: install, gc"
 end
 
+#--------------------------------------------------
+#   Task to regenerate .gitconfig
+#--------------------------------------------------
 task :gc do
   gitconfig_setup
 end
 
+#--------------------------------------------------
+#   Task to install the entirety of dotfiles
+#--------------------------------------------------
 task :install do
   replace_all = false
   Dir['*'].each do |file|
@@ -36,6 +55,10 @@ task :install do
   gitconfig_setup
 end
 
+#--------------------------------------------------
+#   Generates a new .gitconfig with user-supplied
+#   input and places it in the user's home directory
+#--------------------------------------------------
 def gitconfig_setup
   name = `git config --global user.name`.strip
   email = `git config --global user.email`.strip
@@ -66,11 +89,19 @@ def gitconfig_setup
   `git config --global core.excludesfile ~/.gitignore`
 end
 
+#--------------------------------------------------
+#   Creates a symbolically linked "." version of a
+#   file in the user's home directory
+#--------------------------------------------------
 def link_file(file)
   puts "Linking ~/.#{file}..."
   system `ln -s "$PWD/#{file}" "$HOME/.#{file}"`
 end
 
+#--------------------------------------------------
+#   Replaces a "." symlink in the user's home 
+#   directory
+#--------------------------------------------------
 def replace_file(file)
   puts "Removing old ~/.#{file}..."
   system `rm "$HOME/.#{file}"`

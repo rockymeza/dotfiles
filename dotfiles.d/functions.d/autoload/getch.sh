@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #--------------------------------------------------
 #    Fetches, diffs, and prompts user to merge
 #    (using current branch and it's associated 

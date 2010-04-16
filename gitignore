@@ -1,3 +1,12 @@
+#-------------------------------------------------------
+#   gitignore - Overview
+#-------------------------------------------------------
+#   A global .gitignore file.  This is symlinked to the
+#   user's home directory (so as to keep it up to date)
+#   with the central repository; because the path to this
+#   file must be an absolute path in .gitconfig, `rake gc`
+#   and `./install.sh gc` copy it to .gitconfig.
+
 .DS_Store
 *~
 *#

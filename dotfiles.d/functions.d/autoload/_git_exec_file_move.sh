@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #-------------------------------------------------------
 #   Generic function that most of my git "moving"
 #   functions extend.  Basically ties git execution to

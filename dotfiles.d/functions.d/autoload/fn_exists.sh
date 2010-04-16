@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #-------------------------------------------------------
 #    Determines whether a function is recognized by
 #    the shell

@@ -1,6 +1,6 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 #-------------------------------------------------------
-#   Overview
+#   environment - Overview
 #-------------------------------------------------------
 #   This file exports environment variables.  It figures
 #   out what OS we're on and loads vars specific to that

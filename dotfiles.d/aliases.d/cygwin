@@ -1,5 +1,6 @@
+#!/usr/bin/env bash
 #--------------------------------------------------
-#    Cygwin-specific aliases
+#   Cygwin-specific aliases
 #--------------------------------------------------
 alias dnsflush='ipconfig /flushdns'
 alias reboot='shutdown -r -f -t 0'

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #-------------------------------------------------------
 #    Easy wrapper for starting, stopping, and restarting 
 #    BIND

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #-------------------------------------------------------
 #    Complicated function to install an SSH key on a
 #    remote server

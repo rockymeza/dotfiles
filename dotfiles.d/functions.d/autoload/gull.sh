@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #--------------------------------------------------
 #    Does a git pull on the current branch (using
 #    it's associated remote, if present)
