@@ -29,39 +29,8 @@ alias rsrc='source ${dotfile_dir}/zshrc'
 alias topcmds='cut -d\  -f 1 ~/.histfile | sort | uniq -c | sort -rn | head -n 10 | sed "s/.*/    &/g"'
 
 #--------------------------------------------------
-#   Bash FBMVC aliases
-#--------------------------------------------------
-alias fbmvc='./fbmvc'
-alias gut='git'
-alias ifb='./fbmvc ifb'
-
-#--------------------------------------------------
 #   Git aliases
 #--------------------------------------------------
 alias gd='git diff'
 alias gl='git lg'
 alias gs='git status'
-
-#--------------------------------------------------
-#   SSH aliases
-#--------------------------------------------------
-alias bap='psh --ssh $bap'
-alias brep='psh --ssh $brep'
-alias bstar='psh --ssh $bstar'
-alias harmonic='psh --ssh $harmonic'
-alias wk='psh --ssh $wk'
-
-#--------------------------------------------------
-#   SSH aliases (Fusionbox)
-#--------------------------------------------------
-alias bp='psh --ssh $bp'
-alias buggy='psh --ssh $buggy'
-alias cims='psh --ssh $cims'
-alias dg='psh --ssh $dg'
-alias elements='psh --ssh $elements'
-alias fbcom='psh --ssh $fbcom'
-alias fbt='psh --ssh $fbt'
-alias ft='psh --ssh $ft'
-alias luminate='psh --ssh $luminate'
-alias mvoy='psh --ssh $mvoy'
-alias nord='psh --ssh $nordsted'
