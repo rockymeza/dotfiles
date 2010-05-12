@@ -49,5 +49,5 @@ done
 #--------------------------------------------------
 git_br='$(get_git_prompt_info "%b")'
 git_state='$(get_git_prompt_info "%s")'
-PS1="[$PR_BLUE%n$PR_NO_COLOR@$PR_GREEN%U%m%u$PR_NO_COLOR:$PR_RED%2c$PR_NO_COLOR]%(!.#.$) "
+PS1="$PR_MAGENTA%~$PR_NO_COLOR$ "
 RPS1="($PR_GREEN$git_br$PR_RED$git_state$PR_NO_COLOR)"
