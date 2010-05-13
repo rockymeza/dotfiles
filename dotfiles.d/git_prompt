@@ -1,5 +1,45 @@
 #!/usr/bin/env zsh
 #-------------------------------------------------------
+# get_git_prompt_info()
+#-------------------------------------------------------
+# This function returns info on the current git
+# branch. It takes a string with printf-like
+# arguments:
+# '%P' path to top of repository
+# '%p' path to top of repository, with s/$HOME/~/
+# '%b' current branch
+# '%s' state of rebase/merge/bisect/am
+# '%%' a '%' character
+# Providing no arguments is equivalent to "%p %b %s"
+#-------------------------------------------------------
+get_git_prompt_info() {
+  local def fmt res
+  def='%p %b %s'
+  fmt=$@
+  res=${fmt:-$def}
+  res=${res//\%P/$__ZSH_GIT_FULL_DIR}
+  res=${res//\%p/$__ZSH_GIT_DIR}
+  res=${res//\%b/$__ZSH_GIT_BRANCH}
+
+  local state="$__ZSH_GIT_STATE"
+  if [[ -n "$state" ]] ; then
+    state=":${state} "
+
+  # NOTE: This code take a long time to execute on large repos,
+  # but can show if the repo is dirty or not. It cannot be
+  # cached because it's too hard to figure out which commands
+  # change this state. Enable it if you work on only small
+  # repositories.
+  elif ! git diff --quiet || [[ -n $(git ls-files --others --exclude-standard) ]] ; then
+    state=":dirty"
+  fi
+  
+  res=${res//\%s/$state}
+  res=${res//\%%/%}
+  echo -n "${res}"
+}
+
+#-------------------------------------------------------
 #   git_prompt - Overview
 #-------------------------------------------------------
 #   Thanks 
