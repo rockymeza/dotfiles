@@ -21,6 +21,18 @@ autoload colors zsh/terminfo
 autoload -U compinit
 autoload run-help
 compinit
+bindkey -v
+
+case $TERM in
+  xterm)
+      bindkey '\eOH' beginning-of-line
+      bindkey '\eOF' end-of-line
+      bindkey '\e[2~' overwrite-mode
+      bindkey '\e[5~' beginning-of-buffer-or-history
+      bindkey '\e[6~' end-of-buffer-or-history
+      bindkey "\e[3~" delete-char
+      ;;
+esac
 
 #--------------------------------------------------
 #   Sets shorthand variables for some common colors
