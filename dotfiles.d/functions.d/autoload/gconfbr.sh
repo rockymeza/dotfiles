@@ -9,12 +9,12 @@ gconfbr()
     return 1
   fi
 
-  local is_git=$(get_git_prompt_info "%b")
-  if [ -n "$is_git" ]; then
-    cat >> .git/config <<BLOCK
+  check_git || echo "Not a git repository" && exit 1
+  
+  git_dir=$(git_info -g)
+  cat >> $git_dir/config <<BLOCK
 [branch "${2}"]
         remote = ${1}
         merge = refs/heads/${2}
 BLOCK
-  fi
 }

@@ -28,6 +28,10 @@ git_info() {
     git diff --no-ext-diff --ignore-submodules --quiet --exit-code || echo '*'
     return 1
     ;;
+  -g | --dir | --git-dir)
+    echo $git_dir
+    return 1
+    ;;
   *)
     echo 'no help for you'
     return 1

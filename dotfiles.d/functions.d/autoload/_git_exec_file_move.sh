@@ -7,7 +7,7 @@
 __git_exec_file_move()
 {
   local remote=""
-  local branch=$(get_git_prompt_info "%b")
+  local branch=$(git_info -b)
   local command=$1
   shift
 
