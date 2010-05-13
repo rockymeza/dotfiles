@@ -34,6 +34,8 @@ case $TERM in
       ;;
 esac
 
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/rocky/bin:.
+
 #--------------------------------------------------
 #   Sets shorthand variables for some common colors
 #   that we're going to use

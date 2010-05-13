@@ -24,11 +24,13 @@ git_info() {
     echo "${branch#refs/heads/}"
     return 1
     ;;
-  -d | --dirty)
-    git diff --no-ext-diff --ignore-submodules --quiet --exit-code || echo '*'
+  -s | --dirty)
+    if [[ ! "$(git status 2>/dev/null)" =~ 'nothing to commit' ]]; then
+      echo '*'
+    fi
     return 1
     ;;
-  -g | --dir | --git-dir)
+  -d | --dir | --git-dir)
     echo $git_dir
     return 1
     ;;
@@ -60,7 +62,7 @@ update_current_git_vars() {
   check_git || return
   
   __CURRENT_GIT_BRANCH="$(git_info -b)"
-  __CURRENT_GIT_DIRTY="$(git_info -d)"
+  __CURRENT_GIT_DIRTY="$(git_info -s)"
 }
 
 prompt_git_info() {
