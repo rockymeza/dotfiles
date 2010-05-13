@@ -43,11 +43,8 @@ for snippet in ${dotfile_dir}/dotfiles.d/*[^~]; do
 done
 
 #--------------------------------------------------
-#   Determine the git branch and status if we're in
-#   a git repository.  Also sets up both the left 
+#   Sets up both the left 
 #   and right prompt
 #--------------------------------------------------
-git_br='$(get_git_prompt_info "%b")'
-git_state='$(get_git_prompt_info "%s")'
-PS1="$PR_MAGENTA%~$PR_NO_COLOR$ "
-RPS1="($PR_GREEN$git_br$PR_RED$git_state$PR_NO_COLOR)"
+PROMPT="$PR_LIGHT_MAGENTA%~$PR_NO_COLOR$ "
+RPROMPT='$(prompt_git_info)'
