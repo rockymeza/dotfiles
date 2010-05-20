@@ -9,7 +9,7 @@ gconfbr()
     return 1
   fi
 
-  check_git || echo "Not a git repository" && exit 1
+  check_git || echo "Not a git repository" && return 1
   
   git_dir=$(git_info -g)
   cat >> $git_dir/config <<BLOCK
