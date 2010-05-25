@@ -31,6 +31,8 @@ case $TERM in
       bindkey '\e[5~' beginning-of-buffer-or-history
       bindkey '\e[6~' end-of-buffer-or-history
       bindkey "\e[3~" delete-char
+      bindkey '^R' history-incremental-search-backward
+      bindkey '^E' history-beginning-search-backward
       ;;
 esac
 
