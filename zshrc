@@ -21,20 +21,6 @@ autoload colors zsh/terminfo
 autoload -U compinit
 autoload run-help
 compinit
-bindkey -v
-
-case $TERM in
-  xterm)
-      bindkey '\eOH' beginning-of-line
-      bindkey '\eOF' end-of-line
-      bindkey '\e[2~' overwrite-mode
-      bindkey '\e[5~' beginning-of-buffer-or-history
-      bindkey '\e[6~' end-of-buffer-or-history
-      bindkey "\e[3~" delete-char
-      bindkey '^R' history-incremental-search-backward
-      bindkey '^E' history-beginning-search-backward
-      ;;
-esac
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/rocky/bin:.
 
@@ -64,3 +50,5 @@ done
 #--------------------------------------------------
 PROMPT="$PR_LIGHT_MAGENTA%~$PR_NO_COLOR$ "
 RPROMPT='$(prompt_git_info)'
+
+bindkey -e
