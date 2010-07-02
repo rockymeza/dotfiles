@@ -10,8 +10,8 @@ gconfbr()
   fi
 
   check_git || echo "Not a git repository" && return 1
-  
-  git_dir=$(git_info -g)
+
+  git_dir=$(git_info -d)
   cat >> $git_dir/config <<BLOCK
 [branch "${2}"]
         remote = ${1}

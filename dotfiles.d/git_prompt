@@ -77,8 +77,4 @@ pre_update_git_vars() {
   update_current_git_vars
 }
 
-check_git() {
-  test "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = true
-}
-
 update_current_git_vars
