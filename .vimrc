@@ -68,7 +68,7 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 
 "tab bindings
-imap <S-Tab> <C-o><<
+imap <S-Tab> <ESC>v<<<ESC>i
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
