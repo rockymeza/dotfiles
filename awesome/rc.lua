@@ -32,6 +32,7 @@ dmenu_cmd = "exe=`dmenu_path | dmenu -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+altkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
@@ -39,8 +40,8 @@ layouts =
     awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
+    awful.layout.suit.max
 }
 -- }}}
 
@@ -61,7 +62,7 @@ naughty.config.hover_timeout    = nil
 shifty.config.tags = {
    ["octavio"] = { position = 1, persist = true                            },
      ["tulia"] = { position = 2, init = true                            },
-  ["thaddeus"] = { position = 3, init = true                            },
+  ["thaddeus"] = { position = 3, init = true, layout = layouts[5]                            },
      ["frida"] = { position = 4, init = true                            },
    ["facundo"] = { position = 5, init = true                            },
     ["simone"] = { position = 6, persist = true                            },
@@ -279,7 +280,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "w", function () awful.util.spawn_with_shell(theme.wallpaper_cmd[1]) end),
     
     -- lock screen
-    awful.key({ "Control", "Alt"}, "l",     function () awful.util.spawn_with_shell('slock') end),
+    awful.key({ "Control", altkey}, "l",     function () awful.util.spawn_with_shell('slock') end),
     
     -- scratchpad
     awful.key({ modkey            }, "s",
