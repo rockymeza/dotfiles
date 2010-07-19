@@ -7,9 +7,15 @@
 
 """ basic
 set nocompatible
+set shm=I
+
+" filetype stuff
 filetype on
 filetype plugin on
 filetype indent on
+
+" for sup
+au BufRead *-sup.*        set ft=mail
 
 
 """ look
@@ -47,11 +53,14 @@ set foldmethod=syntax
 set mouse=a
 
 "" mappings
+" for saving files more quickly
+cmap W w
+
 " buffer management
-map <F5> <ESC>:buffers<RETURN>:buffer<Space>
+map <F5> <ESC>:FufBuffer<RETURN>
 
 " file opening
-map <F8> <ESC>:FufFile<RETURN>
+map <F8> <ESC>:FufFile **/<RETURN>
 map <F9> <ESC>:NERDTreeToggle<RETURN>
 
 " ctags
@@ -60,6 +69,7 @@ map <F12> <ESC>:TlistToggle<RETURN>
 " for editing vimrc
 nmap <Leader>s :source $MYVIMRC
 nmap <Leader>v :e $MYVIMRC
+nmap <Leader>r :exec ReloadAllSnippets()
 
 " split view motions
 map <C-l> <C-W>l

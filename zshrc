@@ -22,7 +22,8 @@ autoload -U compinit
 autoload run-help
 compinit
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/rocky/bin:.
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/rocky/bin:.:/home/rocky/source/sup/bin
+export RUBYLIB=RUBYLIB:/home/rocky/source/sup/lib
 
 #--------------------------------------------------
 #   Sets shorthand variables for some common colors
