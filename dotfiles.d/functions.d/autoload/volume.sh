@@ -3,12 +3,15 @@
 #    Wrapper for ps auwxx that removes the 'grep'
 #    result
 #-------------------------------------------------------
-process() 
+volume() 
 {
-  if [ "$#" -ne 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-    echo "Usage: process [process-name]" >&2
+  if [ "$#" -ne 1 ]; then
+    amixer sget Master,0
+  fi
+
+  if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    echo "Usage: volume [0-64]" >&2
     return 1
   fi
-  
-  ps auwxx | grep -i "$1" | grep -v grep
+  amixer sset Master,0 $1
 }

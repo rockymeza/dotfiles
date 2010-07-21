@@ -2,7 +2,7 @@
 #--------------------------------------------------
 #  Linux-specific parameters    
 #--------------------------------------------------
-export EDITOR='nano'
+export EDITOR='gedit'
 
 #--------------------------------------------------
 #  Linux-specific path exports    
