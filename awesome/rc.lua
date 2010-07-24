@@ -77,6 +77,7 @@ shifty.config.apps = {
   { match = { "Google Chrome"   }, tag="frida",               screen = 1, },
   { match = { "Mozilla Firefox" }, tag="frida",               screen = 1, },
   { match = { "Mozilla Thunderbird"           }, tag="facundo",             screen = 1, },
+  { match = { "Sup"           }, tag="facundo",             screen = 1, },
 
         { match = { "" }, buttons = {
                              button({ }, 1, function (c) client.focus = c; c:raise() end),
