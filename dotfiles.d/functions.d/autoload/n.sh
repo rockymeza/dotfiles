@@ -13,7 +13,12 @@ n()
     do
       task="$task$arg "
     done
-    $@ && notify-send 'completed task' $task
+    $@
+    if [[ "$?" -eq 0 ]]; then
+      notify-send 'completed task' $task
+    else
+      notify-send -u critical 'task failed!' $task
+    fi
   fi
 }
 
