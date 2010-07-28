@@ -77,9 +77,12 @@ map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 
-"tab bindings
+" tab bindings
 imap <S-Tab> <ESC>v<<<ESC>i
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+" super tab
+let g:SuperTabSetDefaultCompletionType='context'
 
 """" }}} general
