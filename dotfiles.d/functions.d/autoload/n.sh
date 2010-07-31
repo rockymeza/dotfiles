@@ -25,10 +25,12 @@ n()
 __n_usage()
 {
   cat <<HEREDOC
-b, a little notification program
+n, a little notification program
+n runs a command and then notifies you that the
+command has finished running using notify-send.
 
 Usage:
-      b command
+      n command
 
 Options:
       -h, --help            Show this help screen
