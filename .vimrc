@@ -41,6 +41,9 @@ set hlsearch
 set incsearch
 set smartcase
 
+" clear search
+map <F3> <ESC>:let @/ = ''<RETURN>
+
 " line breaks
 set showbreak=">"
 
