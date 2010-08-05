@@ -23,7 +23,7 @@ beautiful.init("/home/rocky/.config/awesome/rocky_theme.lua")
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "gedit"
 editor_cmd = terminal .. " -e " .. editor
-browser = "google-chrome"
+browser = "chromium-browser"
 dmenu_cmd = "exe=`dmenu_path | dmenu -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && exec $exe"
 
 -- Default modkey.
@@ -76,6 +76,7 @@ shifty.config.apps = {
   { match = { "^conversation$"  }, tag="octavio", slave = true,  screen = 1, },
   { match = { "VIM"  }, tag="thaddeus",  screen = 1, },
   { match = { "Google Chrome"   }, tag="frida",               screen = 1, },
+  { match = { "Chromium"   }, tag="frida",               screen = 1, },
   { match = { "Mozilla Firefox" }, tag="frida",               screen = 1, },
   { match = { "Mozilla Thunderbird"           }, tag="facundo",             screen = 1, },
   { match = { "Sup"           }, tag="facundo",             screen = 1, },
