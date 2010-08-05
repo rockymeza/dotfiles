@@ -39,7 +39,7 @@ set autoindent
 " searching
 set hlsearch
 set incsearch
-set smartcase
+set ignorecase
 
 " clear search
 map <F3> <ESC>:let @/ = ''<RETURN>
