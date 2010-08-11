@@ -75,15 +75,20 @@ nmap <Leader>v :e $MYVIMRC
 nmap <Leader>r :exec ReloadAllSnippets()
 
 " split view motions
-map <C-l> <C-W>l
-map <C-h> <C-W>h
-map <C-j> <C-W>j
-map <C-k> <C-W>k
+nmap <C-l> <C-W>l
+nmap <C-h> <C-W>h
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <Leader>= <C-W>+
+nmap <Leader>- <C-W>-
 
 " tab bindings
 imap <S-Tab> <ESC>v<<<ESC>i
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+" vim tabs
+nmap <Leader><Tab> :tabn<RETURN>
 
 " super tab
 let g:SuperTabSetDefaultCompletionType='context'
