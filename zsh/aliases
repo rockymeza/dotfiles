@@ -34,3 +34,26 @@ alias topcmds='cut -d\  -f 1 ~/.histfile | sort | uniq -c | sort -rn | head -n 1
 alias gd='git diff'
 alias gl='git lg'
 alias gs='git status'
+#!/usr/bin/env bash
+#--------------------------------------------------
+#    Linux-specific aliases
+#--------------------------------------------------
+
+# Enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias egrep='egrep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias grep='grep --color=auto'
+  alias ll='ls --color=auto -alh'
+  alias ls='ls --color=auto -h'
+fi
+
+alias ack='ack-grep'
+alias albumgain='mp3gain -a -k *.mp3'
+alias aptup='sudo apt-get update && sudo apt-get upgrade'
+alias configtest='sudo /usr/sbin/apache2ctl configtest'
+alias g='gnome-open'
+alias shutdown='sudo shutdown -h 0'
+alias sync='unison pctomac'
+alias trackgain='mp3gain -r -k *.mp3'

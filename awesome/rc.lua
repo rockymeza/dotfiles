@@ -24,7 +24,7 @@ terminal = "urxvt"
 editor = os.getenv("EDITOR") or "gedit"
 editor_cmd = terminal .. " -e " .. editor
 browser = "chromium-browser"
-dmenu_cmd = "exe=`dmenu_path | dmenu -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && exec $exe"
+dmenu_cmd = "exe=`cat /home/rocky/projects/dotfiles/resources/dmenu | dmenu -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && exec $exe"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -248,7 +248,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('xclip -i ~/projects/dotfiles/dotfiles.d/resources/lorem') end),
+    awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('cat ~/projects/dotfiles/resources/lorem | xclip -i') end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "b",      function () awful.util.spawn(browser)  end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
