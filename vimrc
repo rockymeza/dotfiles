@@ -22,7 +22,7 @@ au BufRead *-sup.*        set ft=mail
 " theme
 syntax enable
 set number
-colors zenburn
+colors zenburn|+
 
 "statusline
 set showmode
@@ -58,6 +58,9 @@ set mouse=a
 "" mappings
 " for saving files more quickly
 cmap W w
+
+" remap ZZ for safer saving
+nmap ZZ :q<RETURN>
 
 " buffer management
 map <F5> <ESC>:FufBuffer<RETURN>

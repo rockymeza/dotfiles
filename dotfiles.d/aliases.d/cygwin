@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-#--------------------------------------------------
-#   Cygwin-specific aliases
-#--------------------------------------------------
-alias dnsflush='ipconfig /flushdns'
-alias reboot='shutdown -r -f -t 0'
-alias shutdown='shutdown -s -f -t 0'
-alias unison='unison-2.27'

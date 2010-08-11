@@ -248,7 +248,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('xclip -i ~/projects/dotfiles/dotfiles.d/resources/lorem') end),
+    awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('xclip -i ~/projects/dotfiles/resources/lorem') end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "b",      function () awful.util.spawn(browser)  end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),

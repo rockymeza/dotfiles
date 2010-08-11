@@ -14,7 +14,6 @@
 #   of dotfiles, and autoloads several basic zsh
 #   options
 #--------------------------------------------------
-os=${OSTYPE//[0-9.]/}
 dotfile_dir=$(dirname $(readlink "${HOME}/.zshrc"))
 typeset -U path manpath fpath
 autoload colors zsh/terminfo
@@ -22,8 +21,10 @@ autoload -U compinit
 autoload run-help
 compinit
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/rocky/bin:.:/home/rocky/source/sup/bin:/home/rocky/source/shoes/dist
-export RUBYLIB=RUBYLIB:/home/rocky/source/sup/lib
+#-------------------------------------------------
+#   Set the PATH
+#-------------------------------------------------
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$dotfile_dir/bin:.:/home/rocky/source/shoes/dist
 
 #--------------------------------------------------
 #   Sets shorthand variables for some common colors
@@ -38,17 +39,16 @@ for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
 done
 
 #--------------------------------------------------
-#   Go through dotfiles.d one file at a time and
-#   source files at the first level
+#   Source some stuff
 #--------------------------------------------------
-for snippet in ${dotfile_dir}/dotfiles.d/*[^~]; do
+for snippet in ${dotfile_dir}/zsh/*[^~]; do
   source $snippet
 done
 
 #--------------------------------------------------
 #   Set the title
 #--------------------------------------------------
-echo -n "\033]0;${USER}@${HOST}\007"
+echo -n "\033]0;${USER}@${HOST} - ${PWD}\007"
 
 #--------------------------------------------------
 #   Sets up both the left 
