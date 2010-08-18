@@ -91,7 +91,9 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 " vim tabs
-nmap <Leader><Tab> :tabn<RETURN>
+nmap <Leader>j :tabp<RETURN>
+nmap <Leader>k :tabn<RETURN>
+nmap <Leader>t :tabnew<RETURN>
 
 " super tab
 let g:SuperTabSetDefaultCompletionType='context'
