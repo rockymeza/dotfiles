@@ -66,7 +66,7 @@ nmap ZZ :q<RETURN>
 map <F5> <ESC>:FufBuffer<RETURN>
 
 " file opening
-map <F8> <ESC>:FufFile **/<RETURN>
+map <F8> <ESC>:CommandT<RETURN>
 map <F9> <ESC>:NERDTreeToggle<RETURN>
 
 " ctags
