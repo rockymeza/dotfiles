@@ -42,7 +42,7 @@ set incsearch
 set ignorecase
 
 " clear search
-map <F3> <ESC>:let @/ = ''<RETURN>
+map <F3> <ESC>:noh<RETURN>
 
 " line breaks
 set showbreak=">"
