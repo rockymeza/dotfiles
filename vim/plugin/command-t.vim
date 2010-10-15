@@ -30,9 +30,7 @@ let g:command_t_loaded = 1
 command -nargs=? -complete=dir CommandT call <SID>CommandTShow(<q-args>)
 command CommandTFlush call <SID>CommandTFlush()
 
-if !hasmapto('CommandT')
-  silent! nmap <unique> <silent> <Leader>t :CommandT<CR>
-endif
+silent! nmap <unique> <silent> <Leader>t :CommandT<CR>
 
 function s:CommandTRubyWarning()
   echohl WarningMsg
@@ -129,12 +127,12 @@ ruby << EOF
   # require Ruby files
   begin
     # prepare controller
-    require 'command-t/vim'
+    require 'vim'
     require 'command-t/controller'
     $command_t = CommandT::Controller.new
   rescue LoadError
     load_path_modified = false
-    ::VIM::evaluate('&runtimepath').to_s.split(',').each do |path|
+    VIM::evaluate('&runtimepath').to_s.split(',').each do |path|
       lib = "#{path}/ruby"
       if !$LOAD_PATH.include?(lib) and File.exist?(lib)
         $LOAD_PATH << lib
@@ -143,8 +141,7 @@ ruby << EOF
     end
     retry if load_path_modified
 
-    # could get here if C extension was not compiled, or was compiled
-    # for the wrong architecture or Ruby version
+    # could get here if C extension was not compiled
     require 'command-t/stub'
     $command_t = CommandT::Stub.new
   end
