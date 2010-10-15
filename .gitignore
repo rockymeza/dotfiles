@@ -3,4 +3,5 @@ unison/ar972b2b9fbd6265680fbc3410a938e31e
 unison/unison.log
 *.swp
 vim/.netwrhist
-
+vim/.VimballRecord
+vim/ruby/command-t
