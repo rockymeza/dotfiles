@@ -211,8 +211,6 @@ in_scratchpad = false
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
-    awful.key({ modkey,           }, "Prior",  awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Next",   awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
     awful.key({ modkey, "Control" }, "Left",   shifty.shift_prev        ),
     awful.key({ modkey, "Control" }, "Right",  shifty.shift_next        ),
@@ -231,6 +229,8 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
+    awful.key({ modkey,           }, "h",  awful.tag.viewprev       ),
+    awful.key({ modkey,           }, "l",   awful.tag.viewnext       ),
     awful.key({ "Control",        }, "Escape", function () mymainmenu:show(true)      end),
 
     -- Layout manipulation
@@ -254,10 +254,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey,           }, "=",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "-",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "`",
