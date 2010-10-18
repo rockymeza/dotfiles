@@ -33,6 +33,8 @@ snippet enum
 	\begin{enumerate}
 		\item ${1}
 	\end{enumerate}
+snippet i
+	\item ${1}
 # Itemize
 snippet item
 	\begin{itemize}
@@ -43,6 +45,8 @@ snippet desc
 	\begin{description}
 		\item[${1}] ${2}
 	\end{description}
+snippet d
+	\item[${1}] ${2}
 # Matrix
 snippet mat
 	\begin{${1:p/b/v/V/B/small}matrix}
@@ -113,3 +117,5 @@ snippet section
 	${1:Section}~\ref{${2:sec:}}${3}
 snippet page
 	${1:page}~\pageref{${2}}${3}
+snippet em
+	\emph{${1}}$2
