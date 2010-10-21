@@ -209,8 +209,6 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 in_scratchpad = false
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
     awful.key({ modkey, "Control" }, "Left",   shifty.shift_prev        ),
     awful.key({ modkey, "Control" }, "Right",  shifty.shift_next        ),
