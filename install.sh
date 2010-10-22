@@ -75,5 +75,6 @@ link_file vim
 link_file Xdefaults
 link_file xinitrc
 link_file xsession
+link_file apvlvrc
 
 gitconfig_setup
