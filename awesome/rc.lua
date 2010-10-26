@@ -6,9 +6,6 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
--- Load menu stuff
-require('freedesktop.menu')
-require('freedesktop.utils')
 -- Scratchpad
 require('scratch')
 -- Shifty
@@ -94,40 +91,6 @@ shifty.config.defaults = {
 
 shifty.init()
 -- }}}
-
--- {{{ Menu
--- Create a laucher widget and a main menu
-freedesktop.utils.icon_theme = beautiful.icon_theme 
-freedesktop.utils.icon_sizes = {beautiful.icon_theme_size}
-
-local myawesomemenu = { 
-    { "Manual", terminal .. " -e man awesome", freedesktop.utils.lookup_icon({ icon = 'help' }) },
-    { "Edit config", editor .. awful.util.getdir("config") .. "/rc.lua", 
-        freedesktop.utils.lookup_icon({ icon = 'package_settings' }) 
-    },
-    { "Edit theme", editor .. awful.util.getdir("config") .. "/current_theme" ,
-        freedesktop.utils.lookup_icon({ icon = 'package_settings' })
-    },
-    { "Restart", awesome.restart, freedesktop.utils.lookup_icon({ icon = 'gtk-refresh' }) }
-}
-
-local mymainmenu_items_head = {
-    { "Awesome", myawesomemenu, beautiful.awesome_icon },
-    {"", nil, nil} --separator
-}
-
-local mymainmenu_items_tail = {
-    { "", nil, nil}, --separator
-    { "Run", run, nil },
-    { "Quit", awesome.quit, freedesktop.utils.lookup_icon({ icon = 'gnome-logout' }) } 
-}
-
-local mymainmenu_items = {}
-for _, item in ipairs(mymainmenu_items_head) do table.insert(mymainmenu_items, item) end
-for _, item in ipairs(freedesktop.menu.new()) do table.insert(mymainmenu_items, item) end
-for _, item in ipairs(mymainmenu_items_tail) do table.insert(mymainmenu_items, item) end
-
-mymainmenu = awful.menu.new({ items = mymainmenu_items })
 
 -- {{{ Wibox
 -- Create a systray
@@ -229,7 +192,6 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "h",  awful.tag.viewprev       ),
     awful.key({ modkey,           }, "l",   awful.tag.viewnext       ),
-    awful.key({ "Control",        }, "Escape", function () mymainmenu:show(true)      end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
