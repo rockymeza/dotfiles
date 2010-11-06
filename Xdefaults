@@ -7,7 +7,6 @@ URxvt*saveLines: 12000
 URxvt*scrollBar: false
 URxvt*scrollstyle: rxvt
 
-URxvt.visualBell: true
 URxvt.insecure: true
 
 URxvt*font: xft:Terminus:pixelsize=13 
