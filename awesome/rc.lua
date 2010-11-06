@@ -67,25 +67,20 @@ shifty.config.tags = {
 }
 
 shifty.config.apps = {
-  { match = { "Buddy List"      }, tag="octavio",                screen = 1, },
-  { match = { "Contact List"      }, tag="octavio",                screen = 1, },
-  { match = { "Elenco conoscenti"      }, tag="octavio",                screen = 1, },
+  { match = { "Buddy List", "Contact List"      }, tag="octavio",                screen = 1, },
   { match = { "^conversation$"  }, tag="octavio", slave = true,  screen = 1, },
   { match = { "VIM"  }, tag="thaddeus",  screen = 1, },
-  { match = { "Google Chrome"   }, tag="frida",               screen = 1, },
-  { match = { "Chromium"   }, tag="frida",               screen = 1, },
-  { match = { "Mozilla Firefox" }, tag="frida",               screen = 1, },
+  { match = { "Google Chrome", "Chromium", "Mozilla Firefox"   }, tag="frida",               screen = 1, },
   { match = { "Mozilla Thunderbird"           }, tag="facundo",             screen = 1, },
-  { match = { "Sup"           }, tag="facundo",             screen = 1, },
 
-        { match = { "" }, buttons = {
-                             button({ }, 1, function (c) client.focus = c; c:raise() end),
-                             button({ modkey }, 1, function (c) awful.mouse.client.move() end),
-                             button({ modkey }, 3, awful.mouse.client.resize ), }, },
+  { match = { "" }, buttons = {
+                       button({ }, 1, function (c) client.focus = c; c:raise() end),
+                       button({ modkey }, 1, function (c) awful.mouse.client.move() end),
+                       button({ modkey }, 3, awful.mouse.client.resize ), }, },
 }
 
 shifty.config.defaults = {
-  layout = layouts[2], 
+  layout = awful.layout.suit.tile, 
   run = function(tag) naughty.notify({ text = tag.name }) end,
 }
 
@@ -287,7 +282,7 @@ end
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i=1,9 do
+for i=1, ( shifty.config.maxtags or 9 ) do
   
   globalkeys = awful.util.table.join(globalkeys, awful.key({ modkey }, i,
   function ()
