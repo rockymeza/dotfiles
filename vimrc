@@ -62,12 +62,8 @@ cmap W w
 " remap ZZ for safer saving
 nmap ZZ :q<RETURN>
 
-" buffer management
-map <F5> <ESC>:FufBuffer<RETURN>
-
 " file opening
-map <F8> <ESC>:CommandT<RETURN>
-map <F9> <ESC>:NERDTreeToggle<RETURN>
+map <Leader>o <ESC>:CommandT<RETURN>
 
 " ctags
 map <F12> <ESC>:TlistToggle<RETURN>
@@ -91,8 +87,6 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 " vim tabs
-nmap <Leader>j :tabp<RETURN>
-nmap <Leader>k :tabn<RETURN>
 nmap <Leader>t :tabnew<RETURN>
 
 " super tab
