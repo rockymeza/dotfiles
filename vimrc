@@ -63,10 +63,7 @@ cmap W w
 nmap ZZ :q<RETURN>
 
 " file opening
-map <Leader>o <ESC>:CommandT<RETURN>
-
-" ctags
-map <F12> <ESC>:TlistToggle<RETURN>
+map <Leader>o :CommandT<RETURN>
 
 " for editing vimrc
 nmap <Leader>s :source $MYVIMRC
