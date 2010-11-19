@@ -14,18 +14,18 @@ o()
       type=$(file -b --mime-type $1 | sed 's/^\([a-z]\+\)\/.*$/\1/')
       if [[ "$type" == "text" ]]; then
         if [[ ! -z $EDITOR ]]; then
-          return $EDITOR $1
+          $EDITOR $1
         else
-          return $PAGER $1
+          $PAGER $1
         fi
       fi
     else
       curl_response=$(curl -I -s -m 1 $1 | head -n 1 | sed 's/^.*\([0-9]\{3\}\).*$/\1/')
       if [[ "$curl_response" == "200" ]] || [[ "$curl_response" == "301" ]]; then # returns a successful HTTP status
         if [[ ! -z $BROWSER ]]; then 
-          return $BROWSER $1
+          $BROWSER $1
         else
-          return /usr/bin/x-www-browser $1
+          /usr/bin/x-www-browser $1
         fi
       else
         echo "I don't know what to do" # give up
