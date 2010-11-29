@@ -203,7 +203,9 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('cat ~/projects/dotfiles/resources/lorem | xclip -i') end),
+    awful.key({ modkey,           }, "p",      function () awful.util.spawn('cat ~/projects/dotfiles/resources/lorem | xclip -i') end),
+    awful.key({}, "XF86AudioRaiseVolume",      function () awful.util.spawn('/home/rocky/projects/dotfiles/bin/pvol -c 2') end),
+    awful.key({}, "XF86AudioLowerVolume",      function () awful.util.spawn('/home/rocky/projects/dotfiles/bin/pvol -c -2') end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "b",      function () awful.util.spawn(browser)  end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
