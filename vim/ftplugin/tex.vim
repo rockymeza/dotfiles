@@ -8,8 +8,6 @@
 set spell
 
 " pdflatex
-map <F4> <ESC>:w <RETURN>:! pdflatex %<RETURN>
-map <F5> <ESC>:! bibtex %<RETURN>
-
+map <F4> :w <RETURN>:! pdflatex %<RETURN>
 
 """" }}} tex

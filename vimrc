@@ -47,7 +47,7 @@ set incsearch
 set ignorecase
 
 " clear search
-map <F3> <ESC>:noh<RETURN>
+nmap <F3> :noh<RETURN>
 
 " line breaks
 set showbreak=">"
