@@ -67,7 +67,7 @@ shifty.config.tags = {
 }
 
 shifty.config.apps = {
-  { match = { "Buddy List", "Contact List"      }, tag="octavio",                screen = 1, },
+  { match = { "Buddy List", "Contact List", "Skype" }, tag="octavio",                screen = 1, },
   { match = { "^conversation$"  }, tag="octavio", slave = true,  screen = 1, },
   { match = { "VIM"  }, tag="thaddeus",  screen = 1, },
   { match = { "Google Chrome", "Chromium", "Mozilla Firefox"   }, tag="frida",               screen = 1, },
