@@ -9,6 +9,10 @@
 set nocompatible
 set shm=I
 
+" pathogen stuff (must be before filetype stuff)
+filetype off
+call pathogen#runtime_append_all_bundles()
+
 " filetype stuff
 filetype on
 filetype plugin on
@@ -16,6 +20,7 @@ filetype indent on
 
 " for sup
 au BufRead *-sup.*        set ft=mail
+au BufRead *.shpaml       so ~/.vim/ftplugin/shpaml.vim
 
 
 """ look
