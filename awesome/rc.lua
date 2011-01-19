@@ -73,10 +73,12 @@ shifty.config.apps = {
   { match = { "Google Chrome", "Chromium", "Mozilla Firefox"   }, tag="frida",               screen = 1, },
   { match = { "Mozilla Thunderbird"           }, tag="facundo",             screen = 1, },
 
-  { match = { "" }, buttons = {
-                       button({ }, 1, function (c) client.focus = c; c:raise() end),
-                       button({ modkey }, 1, function (c) awful.mouse.client.move() end),
-                       button({ modkey }, 3, awful.mouse.client.resize ), }, },
+  { match = { "" }, buttons = awful.util.table.join(
+      awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
+      awful.button({ modkey }, 1, function (c) awful.mouse.client.move() end),
+      awful.button({ modkey }, 3, awful.mouse.client.resize )
+    )
+  },
 }
 
 shifty.config.defaults = {
