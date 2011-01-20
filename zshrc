@@ -24,7 +24,7 @@ compinit
 #-------------------------------------------------
 #   Set the PATH
 #-------------------------------------------------
-export PATH=$HOME/local/bin:$dotfile_dir/bin:.:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$HOME/local/bin:$dotfile_dir/bin:.:$HOME/.cabal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 export EDITOR='vim'
 
