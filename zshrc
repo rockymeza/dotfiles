@@ -24,8 +24,7 @@ compinit
 #-------------------------------------------------
 #   Set the PATH
 #-------------------------------------------------
-export PATH=$HOME/local/bin:$dotfile_dir/bin:.:$HOME/.cabal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
+export PATH=$HOME/bin:$HOME/local/bin:$dotfile_dir/bin:.:$HOME/.cabal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export EDITOR='vim'
 
 #--------------------------------------------------
@@ -58,5 +57,13 @@ echo -n "\033]0;${USER}@${HOST} - ${PWD}\007"
 #--------------------------------------------------
 PROMPT="$PR_LIGHT_MAGENTA%~$PR_NO_COLOR$ "
 RPROMPT='$(prompt_git_info)'
+
+
+#--------------------------------------------------
+#  For local customization
+#--------------------------------------------------
+if [[ -f $HOME/.aliases ]]; then
+  source $HOME/.aliases
+fi
 
 bindkey -e
