@@ -1,13 +1,7 @@
 #!/bin/sh
 
-# gnome-settings-daemon & # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
-  # D-bus
-  if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-    eval `dbus-launch --sh-syntax --exit-with-session`
-  fi
   nm-applet &             # assuming you're using Network Manager
   gnome-power-manager &   # for laptops and stuff
   gnome-volume-manager &  # for mounting CDs, USB sticks, and such
-  xcompmgr -c -t-5 -l-5 -r4.2 -o.55 &
   gnome-do &              # for things I can't otherwise do
   exec awesome            # awesome receives xinit's process id; when it terminates, X will be terminated
