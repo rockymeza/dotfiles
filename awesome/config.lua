@@ -1,17 +1,12 @@
--- Standard awesome library
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
--- Theme handling library
 require("beautiful")
--- Notification library
 require("naughty")
--- Scratchpad
 require('scratch')
--- Shifty
 require('shifty')
--- Rodentbane
 require('rodentbane')
+require('volume')
 
 --if true then return end
 -- {{{ Variable definitions
@@ -60,13 +55,13 @@ naughty.config.hover_timeout    = nil
 
 -- {{{ Shifty
 shifty.config.tags = {
-   ["octavio"] = { position = 1, persist = true                            },
+   ["octavio"] = { position = 1, persist = true                         },
      ["tulia"] = { position = 2, init = true                            },
-  ["thaddeus"] = { position = 3, init = true, layout = layouts[5]                            },
+  ["thaddeus"] = { position = 3, init = true, layout = layouts[6]       },
      ["frida"] = { position = 4, init = true                            },
    ["facundo"] = { position = 5, init = true                            },
-    ["simone"] = { position = 6, persist = true                            },
-     ["sybil"] = { position = 7, persist = true                            }
+    ["simone"] = { position = 6, persist = true                         },
+     ["sybil"] = { position = 7, persist = true                         }
 }
 
 shifty.config.apps = {
@@ -86,7 +81,6 @@ shifty.config.apps = {
 
 shifty.config.defaults = {
   layout = awful.layout.suit.tile, 
-  run = function(tag) naughty.notify({ text = tag.name }) end,
 }
 
 shifty.init()
@@ -153,6 +147,7 @@ for s = 1, screen.count() do
             mytaglist[s],
             layout = awful.widget.layout.horizontal.leftright
         },
+        volume.volume_widget,
         mypromptbox[s],
         mysystray,
         mytasklist[s],
@@ -229,6 +224,10 @@ globalkeys = awful.util.table.join(
             naughty.notify({text = awful.layout.getname(awful.layout.get(1))}) 
         end),
 
+    awful.key({ },      "XF86AudioRaiseVolume", volume.up     ),
+    awful.key({ },      "XF86AudioLowerVolume", volume.down   ),
+    awful.key({ },      "XF86AudioMute",        volume.mute   ),
+
     -- dmenu
     awful.key({ modkey }, "space", function() awful.util.spawn_with_shell( dmenu_cmd )   end),
     
@@ -245,17 +244,6 @@ globalkeys = awful.util.table.join(
     awful.key({ "Control", altkey}, "l",     function () awful.util.spawn_with_shell('slock') end),
     
     -- scratchpad
-    awful.key({ modkey            }, "s",
-          function ()
-                scratch.pad.toggle()
-                local notify_text = (in_scratchpad) and "exiting scratchpad mode" or "entering scratchpad mode"
-                naughty.notify({text = notify_text})
-                in_scratchpad = not in_scratchpad
-          end),
-    awful.key({ modkey, "Shift"   }, "b",
-          function ()
-                scratch.drop(browser, "center", "center", 0.50, 0.50, true)
-          end),
     awful.key({ modkey, "Shift"   }, "Return",
           function ()
                 scratch.drop(terminal, "center", "center", 0.50, 0.50, true)
