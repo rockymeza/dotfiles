@@ -1,11 +1,13 @@
 URxvt*perl-ext:           default,matcher
-URxvt*urlLauncher:        google-chrome
+URxvt*urlLauncher:        chromium-browser
 URxvt*keysym.C-Delete:    perl:matcher
 URxvt*underlineURLs:      true
 
 URxvt*saveLines: 12000
 URxvt*scrollBar: false
 URxvt*scrollstyle: rxvt
+
+URxvt.urgentOnBell: True
 
 URxvt.insecure: true
 
