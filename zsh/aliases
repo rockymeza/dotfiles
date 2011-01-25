@@ -1,39 +1,12 @@
 #!/usr/bin/env bash
-#-------------------------------------------------------
-#   aliases - Overview
-#-------------------------------------------------------
-#   Stores global alias for use on every system.  Also
-#   sources aliases that are specific to the current
-#   operating system.
-
-#--------------------------------------------------
-#   OS-specific aliases
-#--------------------------------------------------
-if [ -f "${dotfile_dir}/dotfiles.d/aliases.d/${os}" ]; then
-  source ${dotfile_dir}/dotfiles.d/aliases.d/${os}
-fi
 
 #--------------------------------------------------
 #   Bash command aliases
 #--------------------------------------------------
-alias cl='clear'
-alias cp='nocorrect cp'
-alias df='df -H'
-alias mkdir='nocorrect mkdir'
-alias mv='nocorrect mv'
-alias psh='${dotfile_dir}/dotfiles.d/functions.d/psh.pl'
-alias pscp='psh --scp'
-alias psftp='psh --sftp'
 alias rf='rm -rf'
 alias rsrc='source ${dotfile_dir}/zshrc'
 alias topcmds='cut -d\  -f 1 ~/.histfile | sort | uniq -c | sort -rn | head -n 10 | sed "s/.*/    &/g"'
 
-#--------------------------------------------------
-#   Git aliases
-#--------------------------------------------------
-alias gd='git diff'
-alias gl='git lg'
-alias gs='git status'
 #!/usr/bin/env bash
 #--------------------------------------------------
 #    Linux-specific aliases
@@ -50,10 +23,5 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias ack='ack-grep'
-alias albumgain='mp3gain -a -k *.mp3'
-alias aptup='sudo apt-get update && sudo apt-get upgrade'
 alias configtest='sudo /usr/sbin/apache2ctl configtest'
-alias g='gnome-open'
 alias shutdown='sudo shutdown -h 0'
-alias sync='unison pctomac'
-alias trackgain='mp3gain -r -k *.mp3'

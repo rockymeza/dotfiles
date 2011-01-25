@@ -24,7 +24,6 @@ setopt always_to_end        # The cursor is moved to the end of the word if eith
 														# performed.
 setopt append_history       # zsh sessions will append their history list to the 
 														# history file, rather than overwrite it.
-setopt auto_cd              # Do cd path if only 'path' is given as command.
 setopt auto_continue        # Send SIGCONT to disowned jobs.
 setopt auto_list            # Automatically list choices on an ambiguous completion.
 setopt auto_menu            # Show menu for completion.

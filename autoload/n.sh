@@ -16,8 +16,13 @@ n()
     $@
     if [[ "$?" -eq 0 ]]; then
       notify-send 'completed task' $task
+
+      return 0
     else
       notify-send -u critical 'task failed!' $task
+      echo -ne '\a'
+
+      return 1
     fi
   fi
 }
