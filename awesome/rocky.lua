@@ -112,22 +112,29 @@ function power.update(widget)
   local percent = p / 100
 
   local hour, min = string.match(status, "([1-9]?[1-9]?):(%d%d):%d%d")
-  if string.len(hour) > 0 then
-    time = hour .. ":" .. min
-  else
-    time = min .. "m"
+  if hour and min then
+    if string.len(hour) > 0 then
+      time = hour .. ":" .. min
+    else
+      time = min .. "m"
+    end
   end
 
   if string.find(status, "Discharging", 1, true) then
+    if percent < .05 then
+      naughty.notify({
+        title = "I'm dying!",
+        text = "Please plug in my adaptor",
+        timeout = 0,
+        fg = '#DCDCCC',
+        bg = '#CC9393'
+      })
+    end
     text = "↓(" .. time .. ")"
   elseif string.find(status, "Charging", 1, true) then
     text = "↑(" .. time .. ")"
   else
     text = "⚡"
-  end
-
-  if percent < .05 then
-    naughty.notify({title = "Battery low", text = "Please plug in your adaptor", timeout = 0})
   end
 
   widget.text = gradient(text, percent, power.colors)

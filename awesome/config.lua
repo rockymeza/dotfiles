@@ -17,7 +17,7 @@ beautiful.init("/home/rocky/.config/awesome/rocky_theme.lua")
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "gedit"
 editor_cmd = terminal .. " -e " .. editor
-browser = "chromium-browser"
+browser = os.getenv("BROWSER") or "chromium-browser"
 dmenu_cmd = "exe=`echo | /home/rocky/.cabal/bin/yeganesh -- -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && exec $exe"
 
 -- Default modkey.
@@ -147,10 +147,10 @@ for s = 1, screen.count() do
             mytaglist[s],
             layout = awful.widget.layout.horizontal.leftright
         },
+        mysystray,
         rocky.volume.widget,
         rocky.power.widget,
         mypromptbox[s],
-        mysystray,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
@@ -346,10 +346,3 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
-
-
-
-
-
-
