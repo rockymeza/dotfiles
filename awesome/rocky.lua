@@ -83,7 +83,7 @@ end
 
 function volume.change(percent)
   awful.util.spawn("amixer set Master " .. percent)
-  volume.update(volume_widget)
+  volume.update(volume.widget)
 end
 
 function volume.up(percent)
@@ -156,5 +156,5 @@ end
 volume.update(volume.widget)
 power.update(power.widget)
 
-awful.hooks.timer.register(1, function () volume.update(volume.widget) end)
+awful.hooks.timer.register(10, function () volume.update(volume.widget) end)
 awful.hooks.timer.register(60, function () power.update(power.widget) end)
