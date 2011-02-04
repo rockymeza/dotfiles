@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
-if [[ -f fbmvc ]]; then
-  ./fbmvc $@
-else
-  while [ 1 ]; do
-    if [[ "$PWD" == "/" ]]; then
-      echo 'this is not an fbmvc directory'
-      exit 1
-    fi
-
-    cd ..
+orig_dir=`pwd`
+while [ 1 ]; do
     if [[ -f fbmvc ]]; then
-      ./fbmvc $@
-      exit 0
+        fbmvc_dir=`pwd`
+        cd $orig_dir
+        $fbmvc_dir/fbmvc "$@"
+        exit $?
+    elif [[ "$PWD" == "/" ]]; then
+        echo 'this is not an fbmvc directory'
+        exit 1
     fi
-  done
-fi
+    cd ..
+done

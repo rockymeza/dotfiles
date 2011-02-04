@@ -66,4 +66,7 @@ if [[ -f $HOME/.aliases ]]; then
   source $HOME/.aliases
 fi
 
+# this was never useful
+stty -ixon
+
 bindkey -e
