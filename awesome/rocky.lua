@@ -3,6 +3,7 @@
 
 local widget = widget
 local awful = require('awful')
+local timer = timer
 local io = io
 local string = string
 local tonumber = tonumber
@@ -156,5 +157,9 @@ end
 volume.update(volume.widget)
 power.update(power.widget)
 
-awful.hooks.timer.register(10, function () volume.update(volume.widget) end)
-awful.hooks.timer.register(60, function () power.update(power.widget) end)
+volume.timer = timer({ timeout = 10 })
+volume.timer:add_signal("timeout", function() volume.update(volume.widget) end)
+volume.timer:start()
+power.timer = timer({ timeout = 60 })
+power.timer:add_signal("timeout", function() power.update(power.widget) end)
+power.timer:start()
