@@ -9,6 +9,7 @@ local string = string
 local tonumber = tonumber
 local naughty = require('naughty')
 local beautiful = require('beautiful')
+local os = os
 module('rocky')
 
 -- colors
@@ -46,8 +47,10 @@ end
 -- volume, power stuff
 volume = {}
 power = {}
-volume.widget = widget({ type = "textbox", name = "tb_volume", align = "right" })
-power.widget = widget({ type = "textbox", name = "tb_power", align = "right" })
+clock = {}
+volume.widget = widget({ type = "textbox", name = "rocky_volume", align = "right" })
+power.widget = widget({ type = "textbox", name = "rocky_power", align = "right" })
+clock.widget = widget({ type = "textbox", name = "rocky_clock", align = "right" })
 
 -- volume stuff
 function volume.update(widget)
@@ -115,9 +118,9 @@ function power.update(widget)
   local hour, min = string.match(status, "([1-9]?[1-9]?):(%d%d):%d%d")
   if hour and min then
     if string.len(hour) > 0 then
-      time = hour .. ":" .. min
+      time = hour .. "点" .. min
     else
-      time = min .. "m"
+      time = min .. "分"
     end
   end
 
@@ -125,10 +128,10 @@ function power.update(widget)
     if percent < .05 then
       naughty.notify({
         title = "I'm dying!",
-        text = "Please plug in my adaptor",
+        text = "Please plug me in",
         timeout = 0,
-        fg = '#DCDCCC',
-        bg = '#CC9393'
+        fg = '#FFFFFF',
+        bg = '#FF0000'
       })
     end
     text = "↓(" .. time .. ")"
@@ -154,8 +157,29 @@ function power.colors(which)
   return c[1], c[2], c[3]
 end
 
+function clock.time()
+  return chinese(function() return os.date("%k点%M") end)
+end
+
+function clock.date()
+  return chinese(function() return os.date("%Y年%m月%d号%A") end)
+end
+
+function clock.update(widget)
+  widget.text = clock.time()
+end
+
+function chinese(callback)
+  os.setlocale('zh_CN.utf8')
+  local text = callback()
+  os.setlocale('en_US.utf8')
+
+  return text
+end
+
 volume.update(volume.widget)
 power.update(power.widget)
+clock.update(clock.widget)
 
 volume.timer = timer({ timeout = 10 })
 volume.timer:add_signal("timeout", function() volume.update(volume.widget) end)
@@ -163,3 +187,6 @@ volume.timer:start()
 power.timer = timer({ timeout = 60 })
 power.timer:add_signal("timeout", function() power.update(power.widget) end)
 power.timer:start()
+clock.timer = timer({ timeout = 30 })
+clock.timer:add_signal("timeout", function() clock.update(clock.widget) end)
+clock.timer:start()

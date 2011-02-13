@@ -144,6 +144,7 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
+            rocky.clock.widget,
             mytaglist[s],
             layout = awful.widget.layout.horizontal.leftright
         },
@@ -235,7 +236,7 @@ globalkeys = awful.util.table.join(
     -- cool time idea
     awful.key({ modkey }, "d",
         function ()
-            naughty.notify({text = os.date('%a, %d %b %Y, %H.%M')})
+            naughty.notify({text = rocky.clock.date()})
         end),
     
     -- switch background
