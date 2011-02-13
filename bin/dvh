@@ -64,7 +64,7 @@ if [ -n $1 ] && [ -n $2 ]; then
   b $2 "`readlink -f $1`"
 
   sudo chattr -i /etc/hosts
-  sudo sed -i "s/\(127\.0\.0\.1.*\)/\1 $3/" /etc/hosts 
+  sudo sed -i "s/\(127\.0\.0\.1.*\)/\1 $2/" /etc/hosts 
   sudo chattr +i /etc/hosts
   exit
 fi
