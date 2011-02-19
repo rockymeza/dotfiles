@@ -44,7 +44,6 @@ set autoindent
 " searching
 set hlsearch
 set incsearch
-set ignorecase
 
 " clear search
 nmap <F3> :noh<RETURN>
@@ -75,13 +74,14 @@ nmap <Leader>s :source $MYVIMRC
 nmap <Leader>v :e $MYVIMRC
 nmap <Leader>r :exec ReloadAllSnippets()
 
-" split view motions
-nmap <C-l> <C-W>l
-nmap <C-h> <C-W>h
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <Leader>= <C-W>+
-nmap <Leader>- <C-W>-
+" undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" relativenumber
+set relativenumber
 
 " tab bindings
 imap <S-Tab> <ESC>v<<<ESC>i
