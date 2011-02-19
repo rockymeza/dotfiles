@@ -6,8 +6,8 @@
     eval `dbus-launch --sh-syntax --exit-with-session`
   fi
   nm-applet &             # assuming you're using Network Manager
-  gnome-power-manager &   # for laptops and stuff
-  gnome-volume-manager &  # for mounting CDs, USB sticks, and such
-  xcompmgr -c -t-5 -l-5 -r4.2 -o.55 &
-  chromium-browser &
+#  gnome-power-manager &   # for laptops and stuff
+#  wicd &
+#  wicd-client &
+#  xcompmgr -c -t-5 -l-5 -r4.2 -o.55 &
   exec awesome            # awesome receives xinit's process id; when it terminates, X will be terminated
