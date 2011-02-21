@@ -8,6 +8,7 @@
 set spell
 
 " pdflatex
-map <F4> :w <RETURN>:! pdflatex %<RETURN>
+map <Leader>l :! xelatex %<RETURN>
+map <Leader>b :! basename % \| sed -e 's/\.tex$//' \| xargs bibtex<RETURN>
 
 """" }}} tex
