@@ -8,6 +8,9 @@
 """ basic
 set nocompatible
 set shm=I
+set bs=2
+nmap <F1> <Esc>
+imap <F1> <Esc>
 
 " pathogen stuff (must be before filetype stuff)
 filetype off
@@ -90,8 +93,5 @@ vmap <S-Tab> <gv
 
 " vim tabs
 nmap <Leader>t :tabnew<RETURN>
-
-" super tab
-let g:SuperTabSetDefaultCompletionType='context'
 
 """" }}} general
