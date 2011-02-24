@@ -8,6 +8,7 @@
 """ basic
 set nocompatible
 set shm=I
+set bs=2
 
 " pathogen stuff (must be before filetype stuff)
 filetype off
@@ -66,9 +67,6 @@ cmap W w
 " remap ZZ for safer saving
 nmap ZZ :q<RETURN>
 
-" file opening
-map <Leader>o :CommandT<RETURN>
-
 " for editing vimrc
 nmap <Leader>s :source $MYVIMRC
 nmap <Leader>v :e $MYVIMRC
@@ -80,18 +78,9 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
-" relativenumber
-set relativenumber
-
 " tab bindings
 imap <S-Tab> <ESC>v<<<ESC>i
 vmap <Tab> >gv
 vmap <S-Tab> <gv
-
-" vim tabs
-nmap <Leader>t :tabnew<RETURN>
-
-" super tab
-let g:SuperTabSetDefaultCompletionType='context'
 
 """" }}} general
