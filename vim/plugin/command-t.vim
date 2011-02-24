@@ -127,6 +127,7 @@ endfunction
 
 ruby << EOF
   # require Ruby files
+  $LOAD_PATH.unshift("/home/rocky/local/lib/ruby/site_ruby/1.9.1", "/home/rocky/local/lib/ruby/site_ruby/1.9.1/i686-linux", "/home/rocky/local/lib/ruby/site_ruby", "/home/rocky/local/lib/ruby/vendor_ruby/1.9.1", "/home/rocky/local/lib/ruby/vendor_ruby/1.9.1/i686-linux", "/home/rocky/local/lib/ruby/vendor_ruby", "/home/rocky/local/lib/ruby/1.9.1", "/home/rocky/local/lib/ruby/1.9.1/i686-linux")
   begin
     # prepare controller
     require 'command-t/vim'
@@ -136,7 +137,7 @@ ruby << EOF
     load_path_modified = false
     ::VIM::evaluate('&runtimepath').to_s.split(',').each do |path|
       lib = "#{path}/ruby"
-      if !$LOAD_PATH.include?(lib) and File.exist?(lib)
+      if !$LOAD_PATH.include?(lib) and Dir.exist?(lib)
         $LOAD_PATH << lib
         load_path_modified = true
       end
