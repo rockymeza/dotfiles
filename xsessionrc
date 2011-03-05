@@ -5,7 +5,7 @@
   if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
     eval `dbus-launch --sh-syntax --exit-with-session`
   fi
-  nm-applet &             # assuming you're using Network Manager
+  xhost + && nm-applet &             # assuming you're using Network Manager
 #  gnome-power-manager &   # for laptops and stuff
 #  wicd &
 #  wicd-client &
