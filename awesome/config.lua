@@ -33,9 +33,8 @@ layouts =
 {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.top,
     awful.layout.suit.tile.bottom,
+    awful.layout.suit.fair,
     awful.layout.suit.max
 }
 -- }}}
@@ -57,7 +56,7 @@ naughty.config.hover_timeout    = nil
 shifty.config.tags = {
    ["octavio"] = { position = 1, persist = true                         },
      ["tulia"] = { position = 2, init = true                            },
-  ["thaddeus"] = { position = 3, init = true, layout = layouts[6]       },
+  ["thaddeus"] = { position = 3, init = true                            },
      ["frida"] = { position = 4, init = true                            },
    ["facundo"] = { position = 5, init = true                            },
     ["simone"] = { position = 6, persist = true                         },
