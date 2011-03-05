@@ -50,7 +50,7 @@ power = {}
 clock = {}
 volume.widget = widget({ type = "textbox", name = "rocky_volume", align = "right" })
 power.widget = widget({ type = "textbox", name = "rocky_power", align = "right" })
-clock.widget = widget({ type = "textbox", name = "rocky_clock", align = "right" })
+clock.widget = widget({ type = "textbox", name = "rocky_clock", align = "left" })
 
 -- volume stuff
 function volume.update(widget)
