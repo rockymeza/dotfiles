@@ -85,4 +85,11 @@ imap <S-Tab> <ESC>v<<<ESC>i
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
+" ack.vim
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+map <Leader>a :Ack
+
+" wildmenu
+set wildmenu
+
 """" }}} general
