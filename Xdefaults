@@ -12,6 +12,7 @@ URxvt.urgentOnBell: True
 URxvt.insecure: true
 
 URxvt*font: xft:Terminus:pixelsize=13 
+#URxvt*font: xft:Inconsolata:pixelsize=11
 
 URxvt*background: #3f3f3f
 URxvt*foreground: #dcdccc
