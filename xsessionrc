@@ -7,5 +7,11 @@ fi
 
 # assuming you're using Network Manager
 xhost + && nm-applet &
+
+# scim stuff
+export XMODIFIERS="@im=SCIM"
+export GTK_IM_MODULE="scim"
+scim -d
+
 # awesome receives xinit's process id; when it terminates, X will be terminated
 exec awesome
