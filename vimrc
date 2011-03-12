@@ -55,8 +55,7 @@ nmap <F3> :noh<RETURN>
 set showbreak=">"
 
 " folding
-set nofoldenable
-set foldmethod=syntax
+set foldmethod=marker
 
 """ feel
 " mouse
