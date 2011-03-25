@@ -60,7 +60,8 @@ fi
 
 if [ -n $1 ] && [ -n $2 ]; then
   sudo ln -s "`readlink -f $1`" /var/www/$2
-  b $2 "`readlink -f $1`"
+  dir=`readlink -f $1 | sed "s#/public[^/]*##"`
+  b $2 $dir
 
   sudo chattr -i /etc/hosts
   sudo sed -i "s/\(127\.0\.0\.1.*\)/\1 $2/" /etc/hosts 

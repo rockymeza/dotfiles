@@ -39,19 +39,7 @@ __b_add()
   if [[ -n "$__b_mark" ]]; then
     echo "That bookmark is already in use."
   else
-    if [[ $2 == "." ]]; then # simple expansion
-      dir=$PWD
-    elif [[ $2 == ".." ]]; then
-      dir=$(echo $PWD | sed 's/^\(\/.*\)\/[^/]*$/\1/')
-    else
-      dir=$2
-    fi
-    
-    case $dir in
-      '/'*) ;;
-      '~'*) ;;
-      *) dir=$PWD/$2 ;;
-    esac
+    dir=`readlink -f $1`
 
     echo "$1,$dir" >> $BOOKMARKS_FILE
     echo "Added $1,$dir to bookmarks list"
