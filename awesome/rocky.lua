@@ -63,10 +63,10 @@ function volume.update(widget)
 
   local percent = v / 100
 
-  if string.find(status, "on", 1, true) then
+  if string.find(status, "[on]", 1, true) then
     text = string.format('%3d%%', v)
   else
-    text = "   M"
+    text = "M"
   end
 
   widget.text = gradient(text, percent, volume.colors)
@@ -106,15 +106,24 @@ function volume.mute(percent)
 end
 
 -- power stuff
-function power.update(widget)
+function power.getStatus()
   local fd = io.popen("acpi -b")
   local status = fd:read("*all")
   fd:close()
 
+  return status
+end
+
+function power.getPercent(status)
   local p = tonumber(string.match(status, "(%d?%d?%d)%%"))
   if not p then return end
-  local percent = p / 100
+  return p / 100
+end
 
+power.up = "&#8593;"
+power.down = "&#8595;"
+power.charged = "&#9889;"
+function power.getText(status, percent)
   local hour, min = string.match(status, "([1-9]?[1-9]?):(%d%d):%d%d")
   if hour and min then
     if string.len(hour) > 0 then
@@ -125,21 +134,44 @@ function power.update(widget)
   end
 
   if string.find(status, "Discharging", 1, true) then
-    if percent < .05 then
-      naughty.notify({
-        title = "I'm dying!",
-        text = "Please plug me in",
-        timeout = 0,
-        fg = '#FFFFFF',
-        bg = '#FF0000'
-      })
-    end
-    text = "↓(" .. time .. ")"
+    text = power.down .. "(" .. time .. ")"
   elseif string.find(status, "Charging", 1, true) then
-    text = "↑(" .. time .. ")"
+    text = power.up .. "(" .. time .. ")"
   else
-    text = "⚡"
+    text = power.charged
   end
+
+  return text
+end
+
+power.notification = false
+function power.notify(text, percent)
+  local t = text:sub(1,7)
+
+  if t == power.down and percent < .05 and not power.notification then
+    power.notification = naughty.notify({
+      title = "I'm dying!",
+      text = "Please plug me in",
+      timeout = 0,
+      fg = '#FFFFFF',
+      bg = '#FF0000'
+    })
+  elseif t == power.up and power.notification then
+    power.notification.die()
+    power.notification = false
+  elseif t == power.charged then
+    naughty.notify({
+      title = "I'm full",
+      text = "No need to charge me anymore"
+    })
+  end
+end
+
+function power.update(widget)
+  local status = power.getStatus()
+  local percent = power.getPercent(status)
+  local text = power.getText(status, percent)
+  power.notify(text, percent)
 
   widget.text = gradient(text, percent, power.colors)
 end
