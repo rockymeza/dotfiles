@@ -18,7 +18,7 @@ terminal = "urxvt"
 editor = os.getenv("EDITOR") or "gedit"
 editor_cmd = terminal .. " -e " .. editor
 browser = os.getenv("BROWSER") or "chromium-browser"
-dmenu_cmd = "exe=`echo | /home/rocky/.cabal/bin/yeganesh -- -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && exec $exe"
+dmenu_cmd = "cmd=`echo | /home/rocky/.cabal/bin/yeganesh -- -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && exec $cmd"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -228,15 +228,13 @@ globalkeys = awful.util.table.join(
     awful.key({ },      "XF86AudioRaiseVolume", rocky.volume.up     ),
     awful.key({ },      "XF86AudioLowerVolume", rocky.volume.down   ),
     awful.key({ },      "XF86AudioMute",        rocky.volume.mute   ),
+    awful.key({ },      "Print",                function () awful.util.spawn('gnome-screenshot -i') end),
 
     -- dmenu
     awful.key({ modkey }, "space", function() awful.util.spawn_with_shell( dmenu_cmd )   end),
     
     -- cool time idea
-    awful.key({ modkey }, "d",
-        function ()
-            naughty.notify({text = rocky.clock.date()})
-        end),
+    awful.key({ modkey }, "d", function () naughty.notify({text = rocky.clock.date()}) end),
     
     -- switch background
     awful.key({ modkey }, "w", function () awful.util.spawn_with_shell(theme.wallpaper_cmd[1]) end),
