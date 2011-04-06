@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Looks for an executable by the name of whatever you are calling this file
+# in this directory or any parent directory and then passes along
+
+orig_dir=`pwd`
+while [ 1 ]; do
+  if [[ -f $1 ]]; then
+    cur_dir=`pwd`
+    cd $orig_dir
+    $cur_dir/"$@"
+    exit $?
+  elif [[ "$PWD" == "/" ]]; then
+    echo "this is not a(n) $1 directory"
+    exit 1
+  fi
+  cd ..
+done
