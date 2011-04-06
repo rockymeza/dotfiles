@@ -7,10 +7,11 @@ local timer = timer
 local io = io
 local string = string
 local tonumber = tonumber
-local naughty = require('naughty')
-local beautiful = require('beautiful')
+local naughty = naughty
+local beautiful = beautiful
 local os = os
 module('rocky')
+beautiful.init("/home/rocky/.config/awesome/rocky_theme.lua")
 
 -- colors
 colors = {}
