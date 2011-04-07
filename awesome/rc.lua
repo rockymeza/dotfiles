@@ -16,7 +16,7 @@ if rc then
     end
 end
 
-dofile("/usr/local/etc/xdg/awesome/rc.lua");
+dofile(confdir .. "/backup.lua");
 
 for s = 1,screen.count() do
     mypromptbox[s].text = awful.util.escape(err:match("[^\n]*"));

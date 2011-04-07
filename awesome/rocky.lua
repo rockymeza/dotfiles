@@ -211,15 +211,17 @@ function chinese(callback)
 end
 
 volume.update(volume.widget)
-power.update(power.widget)
 clock.update(clock.widget)
 
 volume.timer = timer({ timeout = 10 })
 volume.timer:add_signal("timeout", function() volume.update(volume.widget) end)
 volume.timer:start()
-power.timer = timer({ timeout = 60 })
-power.timer:add_signal("timeout", function() power.update(power.widget) end)
-power.timer:start()
+if string.len(power.getStatus()) > 0 then
+  power.update(power.widget)
+  power.timer = timer({ timeout = 60 })
+  power.timer:add_signal("timeout", function() power.update(power.widget) end)
+  power.timer:start()
+end
 clock.timer = timer({ timeout = 30 })
 clock.timer:add_signal("timeout", function() clock.update(clock.widget) end)
 clock.timer:start()
