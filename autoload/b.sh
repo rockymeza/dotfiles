@@ -39,7 +39,7 @@ __b_add()
   if [[ -n "$__b_mark" ]]; then
     echo "That bookmark is already in use."
   else
-    dir=`readlink -f $1`
+    dir=`readlink -f $2`
 
     echo "$1,$dir" >> $BOOKMARKS_FILE
     echo "Added $1,$dir to bookmarks list"
