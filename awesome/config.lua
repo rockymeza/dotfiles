@@ -18,7 +18,7 @@ terminal = "urxvt"
 editor = os.getenv("EDITOR") or "gedit"
 editor_cmd = terminal .. " -e " .. editor
 browser = os.getenv("BROWSER") or "chromium-browser"
-dmenu_cmd = "cmd=`echo | /home/rocky/.cabal/bin/yeganesh -- -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && exec $cmd"
+dmenu_cmd = "cmd=`echo | /home/rocky/.cabal/bin/yeganesh -- -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && zsh -ic $cmd"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -228,6 +228,7 @@ globalkeys = awful.util.table.join(
     awful.key({ },      "XF86AudioRaiseVolume", rocky.volume.up     ),
     awful.key({ },      "XF86AudioLowerVolume", rocky.volume.down   ),
     awful.key({ },      "XF86AudioMute",        rocky.volume.mute   ),
+    awful.key({ },      "XF86Sleep",            function () awful.util.spawn_with_shell('zsh -ic rest') end),
     awful.key({ },      "Print",                function () awful.util.spawn('gnome-screenshot -i') end),
 
     -- dmenu
