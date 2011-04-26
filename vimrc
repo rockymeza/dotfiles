@@ -3,8 +3,6 @@
 " (C) 2010 Rocky Meza "
 """""""""""""""""""""""
 
-"""" {{{ general
-
 """ basic
 set nocompatible
 set shm=I
@@ -90,5 +88,3 @@ map <Leader>a :Ack
 
 " wildmenu
 set wildmenu
-
-"""" }}} general
