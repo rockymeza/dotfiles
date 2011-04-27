@@ -1,7 +1,12 @@
 URxvt*perl-ext:           default,matcher
-URxvt*urlLauncher:        chromium-browser
+URxvt*urlLauncher:        google-chrome
 URxvt*keysym.C-Delete:    perl:matcher
 URxvt*underlineURLs:      true
+
+URxvt.transparent: true
+URxvt.shading: 30
+URxvt.depth: 24
+URxvt.inheritPixmap: true
 
 URxvt*saveLines: 12000
 URxvt*scrollBar: false
@@ -40,4 +45,3 @@ URxvt*color14: #93e0e3
 
 URxvt*color7:  #dcdccc
 URxvt*color15: #ffffff
-
