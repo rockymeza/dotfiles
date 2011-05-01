@@ -13,7 +13,7 @@ export XMODIFIERS="@im=SCIM"
 export GTK_IM_MODULE="scim"
 scim -d
 
-urxvtd
+urxvtd &
 
 # awesome receives xinit's process id; when it terminates, X will be terminated
 exec awesome
