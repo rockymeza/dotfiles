@@ -6,7 +6,7 @@
 """ basic
 set nocompatible
 set shm=I
-set bs=2
+set bs=indent,eol,start
 nmap <F1> <Esc>
 imap <F1> <Esc>
 
@@ -88,3 +88,4 @@ map <Leader>a :Ack
 
 " wildmenu
 set wildmenu
+set wildignore=node_modules,*.old,*.swo,*.swp
