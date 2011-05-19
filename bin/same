@@ -9,7 +9,7 @@ while [ 1 ]; do
     cd $orig_dir
     $cur_dir/"$@"
     exit $?
-  elif [[ "$PWD" == "/" ]]; then
+  elif [[ `pwd` == "/" ]]; then
     echo "this is not a(n) $1 directory"
     exit 1
   fi
