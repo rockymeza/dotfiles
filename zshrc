@@ -17,7 +17,11 @@
 dotfile_dir=$(dirname $(readlink "${HOME}/.zshrc"))
 typeset -U path manpath fpath
 autoload colors zsh/terminfo
+
+# completion stuff
+fpath=($dotfile_dir/zsh/completion_files/ $fpath)
 autoload -U compinit
+
 autoload run-help
 compinit
 
