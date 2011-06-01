@@ -40,16 +40,14 @@ layouts =
 -- }}}
 
 -- {{{ Naughty
-naughty.config.timeout          = 5
-naughty.config.screen           = 1
-naughty.config.position         = "top_right"
-naughty.config.margin           = 4
-naughty.config.height           = 16
-naughty.config.width            = 500
-naughty.config.gap              = 1
-naughty.config.ontop            = true
-naughty.config.border_width     = 1
-naughty.config.hover_timeout    = nil
+naughty.config.presets.normal.timeout          = 5
+naughty.config.presets.normal.screen           = 1
+naughty.config.presets.normal.position         = "top_right"
+naughty.config.presets.normal.margin           = 4
+naughty.config.presets.normal.gap              = 1
+naughty.config.presets.normal.ontop            = true
+naughty.config.presets.normal.border_width     = 1
+naughty.config.presets.normal.hover_timeout    = nil
 -- }}}
 
 -- {{{ Shifty
@@ -205,6 +203,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('cat ~/projects/dotfiles/resources/lorem | xclip -i') end),
+    awful.key({ modkey,           }, "P",      function () awful.util.spawn_with_shell('cat ~/projects/dotfiles/resources/lorem.html | xclip -i') end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "b",      function () awful.util.spawn(browser)  end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
