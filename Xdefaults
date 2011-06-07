@@ -3,11 +3,6 @@ URxvt*urlLauncher:        google-chrome
 URxvt*keysym.C-Delete:    perl:matcher
 URxvt*underlineURLs:      true
 
-URxvt.transparent: true
-URxvt.shading: 30
-URxvt.depth: 24
-URxvt.inheritPixmap: true
-
 URxvt*saveLines: 12000
 URxvt*scrollBar: false
 URxvt*scrollstyle: rxvt
