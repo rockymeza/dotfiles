@@ -65,7 +65,7 @@ shifty.config.apps = {
   { match = { "Buddy List", "Contact List", "Skype" }, tag="octavio",                screen = 1, },
   { match = { "^conversation$"  }, tag="octavio", slave = true,  screen = 1, },
   { match = { "VIM"  }, tag="thaddeus",  screen = 1, },
-  { match = { "Google Chrome", "Chromium", "Mozilla Firefox"   }, tag="frida",               screen = 1, },
+  { match = { "Google Chrome", "Chromium", "Mozilla Firefox", "Pentadactyl" }, tag="frida",               screen = 1, },
   { match = { "Mozilla Thunderbird"           }, tag="facundo",             screen = 1, },
 
   { match = { "" }, buttons = awful.util.table.join(
