@@ -35,7 +35,8 @@ layouts =
     awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.fair,
-    awful.layout.suit.max
+    awful.layout.suit.max,
+    awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -52,7 +53,7 @@ naughty.config.presets.normal.hover_timeout    = nil
 
 -- {{{ Shifty
 shifty.config.tags = {
-   ["octavio"] = { position = 1, persist = true                         },
+   ["octavio"] = { position = 1, persist = true, mwfact = 0.2           },
      ["tulia"] = { position = 2, init = true                            },
   ["thaddeus"] = { position = 3, init = true                            },
      ["frida"] = { position = 4, init = true                            },
@@ -63,10 +64,11 @@ shifty.config.tags = {
 
 shifty.config.apps = {
   { match = { "Buddy List", "Contact List", "Skype" }, tag="octavio",                screen = 1, },
-  { match = { "^conversation$"  }, tag="octavio", slave = true,  screen = 1, },
+  { match = { "^conversation$"  }, tag="octavio",  screen = 1, },
   { match = { "VIM"  }, tag="thaddeus",  screen = 1, },
   { match = { "Google Chrome", "Chromium", "Mozilla Firefox"   }, tag="frida",               screen = 1, },
   { match = { "Mozilla Thunderbird"           }, tag="facundo",             screen = 1, },
+  { match = { "FileZilla"           }, tag="simone",             screen = 1, },
 
   { match = { "" }, buttons = awful.util.table.join(
       awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
