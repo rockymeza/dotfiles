@@ -1,0 +1,7 @@
+colorscheme zenburn
+nmap x d
+nmap go :o http://google.com<CR>
+set guioptions=c
+set hintkeys=asdfglkjh
+
+" vim: set ft=pentadactyl:
