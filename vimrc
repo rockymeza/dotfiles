@@ -85,4 +85,4 @@ map <Leader>a :Ack
 
 " wildmenu
 set wildmenu
-set wildignore=node_modules,*.old,*.swo,*.swp
+set wildignore=node_modules,*.old,*.swo,*.swp,*.pyc
