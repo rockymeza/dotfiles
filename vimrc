@@ -46,9 +46,6 @@ set autoindent
 set hlsearch
 set incsearch
 
-" clear search
-nmap <F3> :noh<RETURN>
-
 " line breaks
 set showbreak=">"
 
