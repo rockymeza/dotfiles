@@ -27,29 +27,6 @@ def diffs(entries):
     ret.append(('total', total))
     return ret
 
-def test_everything():
-    def make_time(n):
-        return time.strftime(TIME_FORMAT, time.gmtime(n))
-    def make_file(data):
-        from StringIO import StringIO
-        return StringIO("\n".join(["%s: %s" % (make_time(i), j) for (i, j) in data]))
-
-    data = [(0, 'a'),
-            (60, 'b'),
-            (3 * 60, 'c')]
-    assert diffs(read_file(make_file(data))) == [('a', 60), ('b', 2 * 60)]
-
-    data = [(0, 'a'),
-            (60, 'b'),
-            (3 * 60, 'c'),
-            (4 * 60, 'd')]
-    assert diffs(read_file(make_file(data))) == [('a', 60), ('b', 2 * 60), ('c', 60)]
-
-def test_diffs():
-    assert diffs([('a', 0), ('b', 1)]) == [('a', 1)]
-    assert diffs([('a', 1), ('b', 3), ('c', 4)]) == [('a', 2), ('b', 1)]
-
-
 def actual(n):
     return round(n/60/60, 2)
 
