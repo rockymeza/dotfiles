@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import time
+from math import ceil
 
 TIME_FORMAT = '%Y-%m-%d %H:%M'
 
@@ -10,7 +11,7 @@ def read_file(file):
     for line in file:
         when, ignore, action = line.rpartition(':')
         t = time.mktime(time.strptime(when, TIME_FORMAT))
-        out.append((when + ' ' + action.strip(), t))
+        out.append((when + ': ' + action.strip(), t))
     return out
 
 def diffs(entries):
@@ -49,12 +50,14 @@ def test_diffs():
     assert diffs([('a', 1), ('b', 3), ('c', 4)]) == [('a', 2), ('b', 1)]
 
 
-def hours(n):
-    #return round(n*4/60/60)/4
+def actual(n):
     return round(n/60/60, 2)
+
+def rounded(n):
+    return ceil(n*4/60/60)/4
 
 
 if __name__ == "__main__":
     import sys
     for diff in diffs(read_file(open(sys.argv[1]))):
-        print "%s: %s" % (diff[0], hours(diff[1]))
+        print "%s: %s %s" % (diff[0], actual(diff[1]), rounded(diff[1]))
