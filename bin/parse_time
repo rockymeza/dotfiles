@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+import time
+from math import ceil
+
+TIME_FORMAT = '%Y-%m-%d %H:%M'
+
+
+def read_file(file):
+    out = []
+    for line in file:
+        when, ignore, action = line.rpartition(':')
+        t = time.mktime(time.strptime(when, TIME_FORMAT))
+        out.append((when + ': ' + action.strip(), t))
+    return out
+
+def diffs(entries):
+    prev = entries.pop(0)
+    ret = []
+    total = 0
+    for entry in entries:
+        diff = entry[1] - prev[1]
+        ret.append((prev[0], diff))
+        if not prev[0].endswith('home'):
+            total += entry[1] - prev[1]
+        prev = entry
+    ret.append(('total', total))
+    return ret
+
+def actual(n):
+    return round(n/60/60, 2)
+
+def rounded(n):
+    return ceil(n*4/60/60)/4
+
+
+if __name__ == "__main__":
+    import sys
+    for diff in diffs(read_file(open(sys.argv[1]))):
+        print "%s: %s %s" % (diff[0], actual(diff[1]), rounded(diff[1]))

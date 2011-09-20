@@ -46,9 +46,6 @@ set autoindent
 set hlsearch
 set incsearch
 
-" clear search
-nmap <F3> :noh<RETURN>
-
 " line breaks
 set showbreak=">"
 
@@ -88,4 +85,4 @@ map <Leader>a :Ack
 
 " wildmenu
 set wildmenu
-set wildignore=node_modules,*.old,*.swo,*.swp
+set wildignore=node_modules,*.old,*.swo,*.swp,*.pyc
