@@ -14,27 +14,31 @@ def read_file(file):
         out.append((when + ': ' + action.strip(), t))
     return out
 
-def diffs(entries):
-    prev = entries.pop(0)
-    ret = []
-    total = 0
-    for entry in entries:
-        diff = entry[1] - prev[1]
-        ret.append((prev[0], diff))
-        if not prev[0].endswith('home'):
-            total += entry[1] - prev[1]
-        prev = entry
-    ret.append(('total', total))
-    return ret
-
 def actual(n):
     return round(n/60/60, 2)
 
 def rounded(n):
     return ceil(n*4/60/60)/4
 
+def diffs(entries):
+    prev = entries.pop(0)
+    ret = []
+    total = 0
+    total_a = 0
+
+    for entry in entries:
+        diff = rounded(entry[1] - prev[1])
+        diff_a = actual(entry[1] - prev[1])
+        ret.append((prev[0], diff, diff_a))
+        if not prev[0].endswith('home'):
+            total += diff
+            total_a += diff_a
+        prev = entry
+    ret.append(('total', total, total_a))
+    return ret
+
 
 if __name__ == "__main__":
     import sys
     for diff in diffs(read_file(open(sys.argv[1]))):
-        print "%s: %s %s" % (diff[0], actual(diff[1]), rounded(diff[1]))
+        print "%s: %s %s" % (diff[0], diff[1], diff[2])
