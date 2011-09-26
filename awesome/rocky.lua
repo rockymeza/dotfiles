@@ -130,7 +130,7 @@ function power.getText(status, percent)
     if string.len(hour) > 0 then
       time = hour .. "点" .. min
     else
-      time = min .. "分"
+      time = min .. "分钟"
     end
   end
 
