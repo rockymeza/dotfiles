@@ -1,0 +1,8 @@
+#/usr/bin/env sh
+if [ $# -eq 0 ]; then
+  cat ~/time_card
+elif [ "$1" = "-e" ]; then
+  exec $EDITOR ~/time_card
+else
+  echo `date '+%F %R: '` $@ >> ~/time_card
+fi

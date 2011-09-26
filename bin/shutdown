@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo /sbin/shutdown -h 0
+sudo su -c '/sbin/shutdown -h 0'
