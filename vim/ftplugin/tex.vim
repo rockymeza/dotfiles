@@ -11,7 +11,8 @@ imap natl national
 imap intl international
 
 " pdflatex
-map <Leader>l :! xelatex %<RETURN>
+map <Leader>x :! xelatex %<RETURN>
+map <Leader>l :! pdflatex %<RETURN>
 map <Leader>b :! basename % \| sed -e 's/\.tex$//' \| xargs bibtex<RETURN>
 
 " tricks up my sleeve
