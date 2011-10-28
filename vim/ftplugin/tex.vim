@@ -17,8 +17,9 @@ map <Leader>b :! basename % \| sed -e 's/\.tex$//' \| xargs bibtex<RETURN>
 
 " tricks up my sleeve
 nmap <Leader>e F`s\emph{<Esc>f'r}
-nmap <Leader>q T{cF\`<Esc>f}r'
+nmap <Leader>' T{cF\`<Esc>f}r'
 " color
 vmap <Leader>c <Esc>`<i\textbf{\color{red} <Esc>`>20la}<Esc>
 " clean up from import
 nmap <Leader>c :%s/’/'/g<RETURN>:%s/“/``/g<RETURN>:%s/”/''/g<RETURN>
+vmap <Leader>v <Esc>`<i\verb\|<Esc>`>6la\|<Esc>
