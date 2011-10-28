@@ -205,6 +205,7 @@ function virtualenvwrapper_setup_tab_completion {
 # Set up virtualenvwrapper properly
 function virtualenvwrapper_initialize {
     export WORKON_HOME="$(virtualenvwrapper_derive_workon_home)"
+    export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
     virtualenvwrapper_verify_workon_home -q || return 1
 
