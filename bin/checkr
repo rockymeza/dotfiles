@@ -26,7 +26,7 @@ def check(original, destination):
         elif http200.search(i):
             break
         else:
-            print response
+            print original, destination, response
             return False
     location_match = location.search(final_redirect)
     if location_match and location_match.group(1) == destination:
@@ -34,6 +34,7 @@ def check(original, destination):
             print '%s => %s' % (original, destination)
         return True
     else:
+        print location_match
         print response
         return False
 
@@ -50,8 +51,6 @@ if __name__ == '__main__':
             options['old-prefix'] = arg.partition('=')[2]
         elif arg.startswith('--new-prefix='):
             options['new-prefix'] = arg.partition('=')[2]
-        else:
-            input_file = open(arg)
 
     csv_file = csv.reader(input_file)
 
