@@ -18,8 +18,8 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
   alias fgrep='fgrep --color=auto'
   alias grep='grep --color=auto'
-  alias ll='ls --color=auto -alh'
-  alias ls='ls --color=auto -h'
+  alias ls='ls --color=auto -h -I "*.pyc"'
+  alias ll='ls -al'
 fi
 
 alias ack='ack-grep'
