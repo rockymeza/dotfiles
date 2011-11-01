@@ -565,6 +565,7 @@ function workon {
     
     virtualenvwrapper_run_hook "post_activate"
     
+  b $env_name
 	return 0
 }
 
