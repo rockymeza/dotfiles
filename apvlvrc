@@ -1,4 +1,0 @@
-set content=yes
-
-map ZZ :q<CR>
-map r R

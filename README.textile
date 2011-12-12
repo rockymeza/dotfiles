@@ -1,7 +1,0 @@
-h1. dotfiles
-
-It's awesome
-
-h2. this is rocky's version...
-
-It's slightly awesomer

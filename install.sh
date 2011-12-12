@@ -1,27 +1,11 @@
 #!/usr/bin/env bash
-#-------------------------------------------------------
-#   Rakefile - Overview
-#-------------------------------------------------------
-#   This is the shell-based method to install dotfiles.
-#   This does the exact same thing as the Rakefile, but
-#   is primarily intended for those who do not have
-#   access to Ruby on their system.
 
-#--------------------------------------------------
-#   Function to regenerate .gitconfig and place it
-#   in the user's home directory
-#--------------------------------------------------
 gitconfig_setup()
 {
   name=$(git config --global user.name)
   email=$(git config --global user.email)
   
-  if [ -a ${HOME}/.gitconfig ]; then
-    rm ${HOME}/.gitconfig
-    cp ${PWD}/git/gitconfig ${HOME}/.gitconfig
-  else
-    cp ${PWD}/git/gitconfig ${HOME}/.gitconfig
-  fi
+  cp ${PWD}/git/gitconfig ${HOME}/.gitconfig
   
   read -p "Git Name (leave blank to default to '${name}'): " new_name
   read -p "Git Email (leave blank to default to '${email}'): " new_email
@@ -41,20 +25,7 @@ gitconfig_setup()
   git config --global core.excludesfile $PWD/git/gitignore
 }
 
-#--------------------------------------------------
-#   If the user simply runs `./install.sh`, display
-#   the possible options
-#--------------------------------------------------
-help_message()
-{
-  echo "Usage: ./install.sh [option]"
-  echo "Possible options: install, gc"
-}
-
-#--------------------------------------------------
-#   Creates a symbolically linked "." version of a
-#   file in the user's home directory
-#--------------------------------------------------
+# Links the specified file prepend a `.` to the name
 link_file()
 {
   if [[ -a ${HOME}/.${1} ]]; then
@@ -66,15 +37,14 @@ link_file()
   ln -s ${PWD}/${1} ${HOME}/.${1}
 }
 
-#--------------------------------------------------
-#   Main program
-#--------------------------------------------------
+# Main
 link_file zshrc
 link_file vimrc
 link_file vim
 link_file Xdefaults
 link_file xinitrc
 link_file xsession
-link_file apvlvrc
+link_file pentadactyl
+link_file pentadactylrc
 
 gitconfig_setup
