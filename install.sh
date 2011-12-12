@@ -29,12 +29,11 @@ gitconfig_setup()
 link_file()
 {
   if [[ -a ${HOME}/.${1} ]]; then
-    echo "Removing old ~/.${1}..."
-    rm ${HOME}/.${1}
+    echo "You already have a .$1"
+  else
+    echo "Linking ~/.${1}..."
+    ln -s ${PWD}/${1} ${HOME}/.${1}
   fi
-
-  echo "Linking ~/.${1}..."
-  ln -s ${PWD}/${1} ${HOME}/.${1}
 }
 
 # Main
@@ -48,3 +47,5 @@ link_file pentadactyl
 link_file pentadactylrc
 
 gitconfig_setup
+git submodule init
+git submodule update
