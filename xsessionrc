@@ -16,5 +16,7 @@ export XMODIFIERS="@im=SCIM"
 export GTK_IM_MODULE="scim"
 scim -d
 
+xmodmap ~/.xmodmap
+
 # awesome receives xinit's process id; when it terminates, X will be terminated
 exec awesome
