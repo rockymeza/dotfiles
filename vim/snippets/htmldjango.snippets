@@ -1,0 +1,12 @@
+snippet %%
+	{% ${1:block} ${2} %}
+	${3}
+	{% end$1 %}${4}
+snippet %
+	{% ${1} %}${2}
+snippet =
+	{{ ${1} }}${2}
+snippet extends
+	{% extends "${1:base.html}" %}${2}
+snippet url
+	{% url ${1} %}${2}
