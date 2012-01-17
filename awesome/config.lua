@@ -69,6 +69,8 @@ shifty.config.apps = {
   { match = { "Google Chrome", "Chromium", "Mozilla Firefox", "Pentadactyl" }, tag="frida",               screen = 1, },
   { match = { "Mozilla Thunderbird"           }, tag="facundo",             screen = 1, },
   { match = { "FileZilla"           }, tag="simone",             screen = 1, },
+  { match = { "VirtualBox Manager"           }, tag="simone",             screen = 1, },
+  { match = { "VM VirtualBox"           }, tag="frida",             screen = 1, },
 
   { match = { "" }, buttons = awful.util.table.join(
       awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
