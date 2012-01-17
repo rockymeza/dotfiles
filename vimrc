@@ -22,6 +22,7 @@ filetype indent on
 " for sup
 au BufRead *-sup.*        set ft=mail
 au BufRead *.shpaml       so ~/.vim/ftplugin/shpaml.vim
+au BufRead *.md           set ft=markdown
 
 
 """ look
