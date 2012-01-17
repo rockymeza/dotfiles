@@ -30,7 +30,7 @@ def diffs(entries):
         diff = rounded(entry[1] - prev[1])
         diff_a = actual(entry[1] - prev[1])
         ret.append((prev[0], diff, diff_a))
-        if not prev[0].endswith('#'):
+        if not prev[0].endswith('-'):
             total += diff
             total_a += diff_a
         prev = entry
