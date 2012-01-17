@@ -7,9 +7,9 @@
 #   file must be an absolute path in .gitconfig, `rake gc`
 #   and `./install.sh gc` copy it to .gitconfig.
 
-.DS_Store
 *~
 *#
 *.swp
 *.swo
+*.sqlite3
 log/
