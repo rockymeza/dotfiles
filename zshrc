@@ -28,7 +28,7 @@ compinit
 #-------------------------------------------------
 #   Set the PATH
 #-------------------------------------------------
-export PATH=$HOME/bin:$HOME/local/bin:$dotfile_dir/bin:.:$HOME/.cabal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$HOME/bin:$HOME/local/bin:$dotfile_dir/bin:.:$HOME/.cabal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/lib/gems/1.8/bin
 export EDITOR='vim'
 
 #--------------------------------------------------
@@ -49,6 +49,9 @@ done
 for snippet in ${dotfile_dir}/zsh/*[^~]; do
   source $snippet
 done
+#
+# Load RVM into a shell session *as a function*
+[[ -s "/home/rocky/.rvm/scripts/rvm" ]] && source "/home/rocky/.rvm/scripts/rvm"
 
 #--------------------------------------------------
 #   Set the title
