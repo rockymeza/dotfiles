@@ -30,6 +30,7 @@ fy()
 __fy_stdin()
 {
   while read output; do
+    echo $output
     notify-send "fy: $@" "$output"
   done
 }
