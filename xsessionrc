@@ -7,6 +7,8 @@ fi
 
 # assuming you're using Network Manager
 xhost + && nm-applet &
+# wicd &
+
 if ssh-add -l | grep "The agent has no identities"; then
   ssh-add .ssh/identity .ssh/id_rsa </dev/null
 fi
