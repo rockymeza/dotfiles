@@ -13,3 +13,4 @@
 *.swo
 *.sqlite3
 log/
+*.pyc
