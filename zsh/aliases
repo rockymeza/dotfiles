@@ -26,4 +26,4 @@ alias ack='ack-grep'
 alias configtest='sudo /usr/sbin/apache2ctl configtest'
 
 alias vi='vim'
-alias w='workon'
+alias wo='workon'
