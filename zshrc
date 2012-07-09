@@ -1,19 +1,4 @@
 #!/usr/bin/env zsh
-#-------------------------------------------------------
-#   zshrc - Overview
-#-------------------------------------------------------
-#   This file is the gateway to configuring the entire
-#   dotfiles system for zsh.  In terms of base aliases,
-#   functions, environment exports, etc., this is the
-#   only file that needs to be symlinked to one's home
-#   directory.  Beyond that, the remainder is contained
-#   wherever the Git repository was cloned.
-
-#--------------------------------------------------
-#   Determines operating system, root directory
-#   of dotfiles, and autoloads several basic zsh
-#   options
-#--------------------------------------------------
 dotfile_dir=$(dirname $(readlink "${HOME}/.zshrc"))
 typeset -U path manpath fpath
 autoload colors zsh/terminfo
@@ -30,6 +15,8 @@ compinit
 #-------------------------------------------------
 export PATH=$HOME/bin:$HOME/local/bin:$dotfile_dir/bin:.:$HOME/.cabal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/lib/gems/1.8/bin
 export EDITOR='vim'
+export PYTHONSTARTUP=$dotfile_dir/pystartup
+
 
 #--------------------------------------------------
 #   Sets shorthand variables for some common colors
