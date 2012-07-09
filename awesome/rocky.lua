@@ -128,7 +128,7 @@ function power.getText(status, percent)
   local hour, min = string.match(status, "([1-9]?[1-9]?):(%d%d):%d%d")
   if hour and min then
     if string.len(hour) > 0 then
-      time = hour .. "点" .. min
+      time = hour .. "小时" .. min .. "分钟"
     else
       time = min .. "分钟"
     end
