@@ -221,7 +221,6 @@ function virtualenvwrapper_initialize {
         export VIRTUALENVWRAPPER_LOG_DIR="$WORKON_HOME"
     fi
 
-    virtualenvwrapper_run_hook "initialize"
     if [ $? -ne 0 ]
     then
         echo "virtualenvwrapper.sh: There was a problem running the initialization hooks. If Python could not import the module virtualenvwrapper.hook_loader, check that virtualenv has been installed for VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON and that PATH is set properly." 1>&2
@@ -565,7 +564,7 @@ function workon {
     
     virtualenvwrapper_run_hook "post_activate"
     
-  b $env_name
+  b $1
 	return 0
 }
 
