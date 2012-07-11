@@ -27,3 +27,5 @@ alias configtest='sudo /usr/sbin/apache2ctl configtest'
 
 alias vi='vim'
 alias wo='workon'
+
+alias gpfs='gpp && fab stage'
