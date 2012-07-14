@@ -9,9 +9,12 @@ fy()
   if [[ "$#" -lt 1 ]] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     __fy_usage
   else
-    task="$@"
+    task=""
+    for i in $@; do
+      task="$task$i "
+    done
 
-    $@ | __fy_stdin $task
+    $@
     ret=$?
 
     if [[ "$ret" -eq 0 ]]; then
@@ -25,14 +28,6 @@ fy()
 
     return $ret
   fi
-}
-
-__fy_stdin()
-{
-  while read output; do
-    echo $output
-    notify-send "fy: $@" "$output"
-  done
 }
 
 __fy_usage()
