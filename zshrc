@@ -64,3 +64,7 @@ fi
 stty -ixon
 
 bindkey -e
+
+if [[ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]]; then
+  source /usr/local/bin/virtualenvwrapper_lazy.sh
+fi
