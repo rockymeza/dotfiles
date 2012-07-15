@@ -9,6 +9,7 @@ fy()
   if [[ "$#" -lt 1 ]] || [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     __fy_usage
   else
+    [ $FY_PROGRAM_NAME ] && fy=$FY_PROGRAM_NAME || fy="fy"
     task=""
     for i in $@; do
       task="$task$i "
@@ -18,12 +19,12 @@ fy()
     ret=$?
 
     if [[ "$ret" -eq 0 ]]; then
-      notify-send 'fy: completed task' "$task"
+      notify-send "$fy: completed task" "$task"
     else
-      notify-send -u critical 'fy: task failed!' "$task"
+      notify-send -u critical "$fy: task failed!" "$task"
 
       # alert bell
-      echo -ne '\a'
+      echo -ne "\a"
     fi
 
     return $ret
