@@ -3,6 +3,6 @@
 function observe()
 {
   while inotifywait --exclude '^\..*\.swp$' --event modify --recursive .; do
-    $@ && FY_PROGRAM_NAME='observe' fy $@
+    FY_PROGRAM_NAME='observe' fy $@
   done
 }
