@@ -6,5 +6,5 @@ function md()
 
 function wo()
 {
-  wo $1 && b $1;
+  workon $1 && b $1;
 }
