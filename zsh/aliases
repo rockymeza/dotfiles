@@ -28,3 +28,5 @@ alias configtest='sudo /usr/sbin/apache2ctl configtest'
 alias vi='vim'
 
 alias gpfs='gpp && fab stage'
+
+alias ma='./manage.py'
