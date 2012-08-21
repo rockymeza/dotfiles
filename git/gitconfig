@@ -16,7 +16,7 @@
 	ftp = !~/.zsh.d/functions.d/git-ftp.py
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
 	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Cblue (%cn)%Creset' --abbrev-commit --date=relative
-	mg = merge
+	mm = merge --no-commit --no-ff
 	newbr = !sh -c 'git branch $1 && git push origin $1 && git branch -f $1 origin/$1 && git checkout $1' -
 	pp = !git pull -- && git push --
 	rmbr = !sh -c 'git branch -D $1 && git push origin :$1' -
