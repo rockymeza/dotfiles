@@ -21,5 +21,11 @@ scim -d
 
 xmodmap ~/.Xmodmap
 
+export TERMINAL='urxvt'
+export EDITOR='vim'
+export SHELL='/usr/bin/zsh'
+export PATH="$HOME/bin:$HOME/local/bin:$HOME/projects/dotfiles/bin:.:$HOME/.cabal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/lib/gems/1.8/bin"
+
 # awesome receives xinit's process id; when it terminates, X will be terminated
+# exec i3
 exec awesome
