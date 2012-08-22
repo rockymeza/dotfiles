@@ -30,3 +30,5 @@ alias vi='vim'
 alias gpfs='gpp && fab stage'
 
 alias ma='./manage.py'
+
+alias tags="ctags '--exclude=*.min.*' --exclude='*/CACHE/*' -R"

@@ -52,6 +52,7 @@
 :CommandTBuffer	command-t.txt	/*:CommandTBuffer*
 :CommandTFlush	command-t.txt	/*:CommandTFlush*
 :CommandTJumps	command-t.txt	/*:CommandTJumps*
+:CommandTTag	command-t.txt	/*:CommandTTag*
 :FufAddBookmark	fuf.txt	/*:FufAddBookmark*
 :FufAddBookmarkAsSelectedText	fuf.txt	/*:FufAddBookmarkAsSelectedText*
 :FufBookmark	fuf.txt	/*:FufBookmark*
@@ -182,6 +183,7 @@ command-t	command-t.txt	/*command-t*
 command-t-authors	command-t.txt	/*command-t-authors*
 command-t-commands	command-t.txt	/*command-t-commands*
 command-t-contents	command-t.txt	/*command-t-contents*
+command-t-development	command-t.txt	/*command-t-development*
 command-t-donations	command-t.txt	/*command-t-donations*
 command-t-history	command-t.txt	/*command-t-history*
 command-t-installation	command-t.txt	/*command-t-installation*
@@ -309,10 +311,13 @@ g:CommandTMaxCachedDirectories	command-t.txt	/*g:CommandTMaxCachedDirectories*
 g:CommandTMaxDepth	command-t.txt	/*g:CommandTMaxDepth*
 g:CommandTMaxFiles	command-t.txt	/*g:CommandTMaxFiles*
 g:CommandTMaxHeight	command-t.txt	/*g:CommandTMaxHeight*
+g:CommandTMinHeight	command-t.txt	/*g:CommandTMinHeight*
 g:CommandTNeverShowDotFiles	command-t.txt	/*g:CommandTNeverShowDotFiles*
+g:CommandTRefreshMap	command-t.txt	/*g:CommandTRefreshMap*
 g:CommandTScanDotDirectories	command-t.txt	/*g:CommandTScanDotDirectories*
 g:CommandTSelectNextMap	command-t.txt	/*g:CommandTSelectNextMap*
 g:CommandTSelectPrevMap	command-t.txt	/*g:CommandTSelectPrevMap*
+g:CommandTTagIncludeFilenames	command-t.txt	/*g:CommandTTagIncludeFilenames*
 g:CommandTToggleFocusMap	command-t.txt	/*g:CommandTToggleFocusMap*
 g:SuperTabCompletionContexts	supertab.txt	/*g:SuperTabCompletionContexts*
 g:SuperTabContextDefaultCompletionType	supertab.txt	/*g:SuperTabContextDefaultCompletionType*

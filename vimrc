@@ -87,3 +87,6 @@ map <Leader>a :Ack
 " wildmenu
 set wildmenu
 set wildignore=node_modules,*.old,*.swo,*.swp,*.pyc
+
+" tags
+nmap <Leader>c :CommandTTag<CR>
