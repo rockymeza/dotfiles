@@ -45,6 +45,7 @@ link_file xinitrc
 link_file xsession
 link_file pentadactyl
 link_file pentadactylrc
+link_file pystartup
 
 gitconfig_setup
 git submodule init
