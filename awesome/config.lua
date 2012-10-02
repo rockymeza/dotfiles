@@ -15,10 +15,18 @@ beautiful.init("/home/rocky/.config/awesome/rocky_theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
-editor = os.getenv("EDITOR") or "gedit"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
-browser = os.getenv("BROWSER") or "chromium-browser"
-dmenu_cmd = "cmd=`echo | /home/rocky/.cabal/bin/yeganesh -- -b -nf '#DCDCCC' -nb '#3F3F3F' -sf '#F0DFAF' -sb '#1E2320'` && zsh -ic $cmd"
+browser = os.getenv("BROWSER") or "sensible-browser"
+dotfiles = os.getenv("DOTFILES") or "/home/rocky/dotfiles"
+
+function dmenu_run()
+  local f_reader = io.popen("echo | /home/rocky/.cabal/bin/yeganesh -- -b -nb '#3F3F3F' -nf '#DCDCCC' -sb '#1E2320' -sf '#F0DFAF'")
+  local command = assert(f_reader:read('*a'))
+  f_reader:close()
+  if command == "" then return end
+  awful.util.spawn(command)
+end
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -53,26 +61,82 @@ naughty.config.presets.normal.hover_timeout    = nil
 
 -- {{{ Shifty
 shifty.config.tags = {
-   ["octavio"] = { position = 1, persist = true, mwfact = 0.2           },
-     ["tulia"] = { position = 2, init = true                            },
-  ["thaddeus"] = { position = 3, init = true                            },
-     ["frida"] = { position = 4, init = true                            },
-   ["facundo"] = { position = 5, init = true                            },
-    ["simone"] = { position = 6, persist = true                         },
-     ["sybil"] = { position = 7, persist = true                         }
+  ["octavio"] = {
+    position = 1,
+    persist = true,
+    mwfact = 0.2,
+  },
+  ["tulia"] = {
+    position = 2,
+    init = true,
+  },
+  ["thaddeus"] = {
+    position = 3,
+    init = true,
+    mwfact = 0.7,
+  },
+  ["frida"] = {
+    position = 4,
+    init = true,
+  },
+  ["facundo"] = {
+    position = 5,
+    init = true,
+  },
+  ["simone"] = {
+    position = 6,
+    persist = true,
+  },
+  ["sybil"] = {
+    position = 7,
+    persist = true,
+  },
 }
 
 shifty.config.apps = {
-  { match = { "Buddy List", "Contact List", "Skype" }, tag="octavio",                screen = 1, },
-  { match = { "^conversation$"  }, tag="octavio",  screen = 1, },
-  { match = { "VIM"  }, tag="thaddeus",  screen = 1, },
-  { match = { "Google Chrome", "Chromium", "Mozilla Firefox", "Pentadactyl" }, tag="frida",               screen = 1, },
-  { match = { "Mozilla Thunderbird"           }, tag="facundo",             screen = 1, },
-  { match = { "FileZilla"           }, tag="simone",             screen = 1, },
-  { match = { "VirtualBox Manager"           }, tag="simone",             screen = 1, },
-  { match = { "VM VirtualBox"           }, tag="frida",             screen = 1, },
-
-  { match = { "" }, buttons = awful.util.table.join(
+  {
+    match = { "Buddy List", "Contact List", "Skype" },
+    tag="octavio",
+    screen = 1,
+  },
+  {
+    match = { "^conversation$"  },
+    tag="octavio",
+    screen = 1,
+  },
+  {
+    match = { "VIM"  },
+    tag="thaddeus",
+    screen = 1,
+  },
+  {
+    match = { "Google Chrome", "Chromium", "Mozilla Firefox", "Pentadactyl" },
+    tag="frida",
+    screen = 1,
+  },
+  {
+    match = { "Mozilla Thunderbird" },
+    tag="facundo",
+    screen = 1,
+  },
+  {
+    match = { "FileZilla" },
+    tag="simone",
+    screen = 1,
+  },
+  {
+    match = { "VirtualBox Manager" },
+    tag="simone",
+    screen = 1,
+  },
+  {
+    match = { "VM VirtualBox"},
+    tag="frida",
+    screen = 1,
+  },
+  {
+    match = { "" },
+    buttons = awful.util.table.join(
       awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
       awful.button({ modkey }, 1, function (c) awful.mouse.client.move() end),
       awful.button({ modkey }, 3, awful.mouse.client.resize )
@@ -84,7 +148,6 @@ shifty.config.defaults = {
   layout = awful.layout.suit.tile, 
 }
 
-shifty.init()
 -- }}}
 
 -- {{{ Wibox
@@ -103,6 +166,7 @@ mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 4, awful.tag.viewnext),
                     awful.button({ }, 5, awful.tag.viewprev)
                     )
+
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
@@ -129,6 +193,7 @@ mytasklist.buttons = awful.util.table.join(
                                               if client.focus then client.focus:raise() end
                                           end))
 
+
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
@@ -143,34 +208,48 @@ for s = 1, screen.count() do
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
     -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = {
-        {
-            rocky.clock.widget,
-            mytaglist[s],
-            layout = awful.widget.layout.horizontal.leftright
-        },
-        mysystray,
-        rocky.volume.widget,
-        rocky.power.widget,
-        mypromptbox[s],
-        mytasklist[s],
-        layout = awful.widget.layout.horizontal.rightleft
-    }
+
+    -- Master has a clock and stuff, other screens don't.
+    if s == 1 then
+      mywibox[s].widgets = {
+          {
+              rocky.clock.widget,
+              mytaglist[s],
+              layout = awful.widget.layout.horizontal.leftright,
+          },
+          mysystray,
+          rocky.volume.widget,
+          rocky.power.widget,
+          mypromptbox[s],
+          mytasklist[s],
+          layout = awful.widget.layout.horizontal.rightleft
+      }
+    else
+      mywibox[s].widgets = {
+          {
+              mytaglist[s],
+              layout = awful.widget.layout.horizontal.leftright,
+          },
+          mypromptbox[s],
+          mytasklist[s],
+          layout = awful.widget.layout.horizontal.rightleft
+      }
+    end
 end
 -- }}}
 
--- {{{ Mouse bindings
+shifty.taglist = mytaglist
+shifty.init()
+
 root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
 
 -- {{{ Key bindings
-in_scratchpad = false
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Escape", rodentbane.start         ),
+    awful.key({ modkey,           }, "Escape", awful.tag.history.restore ),
     awful.key({ modkey, "Control" }, "Left",   shifty.shift_prev        ),
     awful.key({ modkey, "Control" }, "Right",  shifty.shift_next        ),
     awful.key({ modkey,           }, "t",      function() shifty.add({ rel_index = 1 }) end),
@@ -206,8 +285,8 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('cat ~/projects/dotfiles/resources/lorem | xclip -i') end),
-    awful.key({ modkey, "Shift"   }, "p",      function () awful.util.spawn_with_shell('cat ~/projects/dotfiles/resources/lorem.html | xclip -i') end),
+    awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('xclip < ' .. dotfiles .. '/resources/lorem') end),
+    awful.key({ modkey, "Shift"   }, "p",      function () awful.util.spawn_with_shell('xclip < ' .. dotfiles .. '/resources/lorem.html') end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "b",      function () awful.util.spawn(browser)  end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
@@ -217,6 +296,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "-",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey, "Control" }, "n",     awful.client.restore),
     awful.key({ modkey,           }, "`",
         function ()
             awful.layout.inc(layouts,  1)
@@ -235,7 +315,7 @@ globalkeys = awful.util.table.join(
     awful.key({ },      "Print",                function () awful.util.spawn('gnome-screenshot -i') end),
 
     -- dmenu
-    awful.key({ modkey }, "space", function() awful.util.spawn_with_shell( dmenu_cmd )   end),
+    awful.key({ modkey }, "space", dmenu_run),
     
     -- cool time idea
     awful.key({ modkey }, "d", function () naughty.notify({text = rocky.clock.date()}) end),
@@ -244,7 +324,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "w", function () awful.util.spawn_with_shell(theme.wallpaper_cmd[1]) end),
     
     -- lock screen
-    awful.key({ "Control", altkey}, "l",     function () awful.util.spawn_with_shell('slock') end),
+    awful.key({ "Control", altkey}, "l",     function () awful.util.spawn('slock') end),
     
     -- scratchpad
     awful.key({ modkey, "Shift"   }, "Return",
@@ -255,17 +335,18 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
+    awful.key({ modkey,           }, "q",      function (c) c:kill() end),
+    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
-    awful.key({ modkey,           }, "n",      function (c) c.minimized = not c.minimized    end),
+    awful.key({ modkey,           }, "o",      awful.client.movetoscreen),
+    awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw() end),
+    awful.key({ modkey,           }, "n",      function (c) c.minimized = true end),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end)
+        end),
+    awful.key({ modkey, "Shift" }, "s", function (c) scratch.pad.set(c) end)
 )
 
 -- Compute the maximum number of digit we need, limited to 9
@@ -315,36 +396,4 @@ clientbuttons = awful.util.table.join(
 root.keys(globalkeys)
 shifty.config.globalkeys = globalkeys
 shifty.config.clientkeys = clientkeys
--- }}}
-
-
--- {{{ Signals
--- Signal function to execute when a new client appears.
-client.add_signal("manage", function (c, startup)
-    -- Add a titlebar
-    -- awful.titlebar.add(c, { modkey = modkey })
-
-    -- Enable sloppy focus
-    c:add_signal("mouse::enter", function(c)
-        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-            and awful.client.focus.filter(c) then
-            client.focus = c
-        end
-    end)
-
-    if not startup then
-        -- Set the windows at the slave,
-        -- i.e. put it at the end of others instead of setting it master.
-        -- awful.client.setslave(c)
-
-        -- Put windows in a smart way, only if they does not set an initial position.
-        if not c.size_hints.user_position and not c.size_hints.program_position then
-            awful.placement.no_overlap(c)
-            awful.placement.no_offscreen(c)
-        end
-    end
-end)
-
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}

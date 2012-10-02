@@ -87,7 +87,7 @@ function volume.colors(which)
 end
 
 function volume.change(percent)
-  awful.util.spawn("amixer set Master " .. percent)
+  awful.util.spawn("amixer set Master " .. percent, false)
   volume.update(volume.widget)
 end
 
