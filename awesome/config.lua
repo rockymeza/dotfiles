@@ -60,6 +60,8 @@ naughty.config.presets.normal.hover_timeout    = nil
 -- }}}
 
 -- {{{ Shifty
+screen2 = screen.count()
+
 shifty.config.tags = {
   ["octavio"] = {
     position = 1,
@@ -78,14 +80,17 @@ shifty.config.tags = {
   ["frida"] = {
     position = 4,
     init = true,
+    screen = screen2,
   },
   ["facundo"] = {
     position = 5,
     init = true,
+    screen = screen2,
   },
   ["simone"] = {
     position = 6,
     persist = true,
+    screen = screen2,
   },
   ["sybil"] = {
     position = 7,
@@ -115,7 +120,7 @@ shifty.config.apps = {
     screen = 1,
   },
   {
-    match = { "Mozilla Thunderbird" },
+    match = { "Mozilla Thunderbird", "Icedove" },
     tag="facundo",
     screen = 1,
   },
