@@ -5,9 +5,9 @@ if ssh-add -l | grep "The agent has no identities"; then
 fi
 
 # scim stuff
-export XMODIFIERS="@im=SCIM"
-export GTK_IM_MODULE="scim"
-scim -d
+export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE="fcitx"
+fcitx -d
 export LANG="en_US.utf8"
 
 export EDITOR="vim"
