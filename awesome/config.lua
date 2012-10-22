@@ -66,6 +66,7 @@ shifty.config.tags = {
   ["octavio"] = {
     position = 1,
     persist = true,
+    init = true,
     mwfact = 0.2,
   },
   ["tulia"] = {
@@ -317,7 +318,6 @@ globalkeys = awful.util.table.join(
     awful.key({ },      "XF86AudioLowerVolume", rocky.volume.down   ),
     awful.key({ },      "XF86AudioMute",        rocky.volume.mute   ),
     awful.key({ },      "XF86Sleep",            function () awful.util.spawn_with_shell('zsh -ic rest') end),
-    awful.key({ },      "Print",                function () awful.util.spawn('gnome-screenshot -i') end),
 
     -- dmenu
     awful.key({ modkey }, "space", dmenu_run),
