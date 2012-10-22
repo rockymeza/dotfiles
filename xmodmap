@@ -1,14 +1,14 @@
-clear Lock
+! Alt_L -> Super_L for the Model M
+remove Mod1 = Alt_L
+remove Mod4 = Super_L
+keycode 64 = Super_L
+add Mod4 = Super_L
 
+clear Lock
 ! Caps_Lock -> Control_L
 keycode 66 = Control_L
-! Alt_L -> Super_L for the Model M
-keycode 64 = Super_L
-! Control_L -> Alt_L because of the previous line
-keycode 37 = Alt_L
+
+add Control = Control_L
 
 ! Compose Key
-keycode 135 = Multi_key
-
-! refresh the modifiers
-add Control = Control_L
+keycode 107 = Multi_key
