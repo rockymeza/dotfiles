@@ -9,15 +9,16 @@ import csv
 
 http301 = re.compile('^HTTP/1\.1 301')
 http200 = re.compile('^HTTP/1\.1 200')
-location = re.compile('Location: (.*)\r')
+location = re.compile('Location: (.*)$')
 options = {
-        'verbose': False,
-        'old-prefix': '',
-        'new-prefix': '',
-        }
+    'verbose': False,
+    'old-prefix': '',
+    'new-prefix': '',
+}
+
 
 def check(original, destination):
-    response = os.popen('curl -s -I -L "%s"' % original, 'r').read()
+    response = os.popen('curl -s -k -I -L "%s"' % original, 'r').read()
     response_list = response.split("\r\n\r\n")
     final_redirect = ''
     for i in response_list:
@@ -38,9 +39,10 @@ def check(original, destination):
         print response
         return False
 
+
 if __name__ == '__main__':
     input_file = sys.stdin
-    sys.argv.pop(0) # ./checkr
+    sys.argv.pop(0)
 
     for arg in sys.argv:
         if arg == '-v' or arg == '--verbose':
