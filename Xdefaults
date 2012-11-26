@@ -11,23 +11,23 @@ URxvt.urgentOnBell: True
 
 URxvt.insecure: true
 
-URxvt*font: xft:Terminus:pixelsize=13 
+URxvt*font: xft:Terminus:pixelsize=14
 #URxvt*font: xft:Inconsolata:pixelsize=11
 
 URxvt*background: #3f3f3f
 URxvt*foreground: #dcdccc
 
 URxvt*color0:  #1E2320
-URxvt*color1:  #705050
-URxvt*color2:  #60b48a
+URxvt*color1:  #d78787
+URxvt*color2:  #87af87
 URxvt*color3:  #dfaf8f
 URxvt*color4:  #506070
 URxvt*color5:  #dc8cc3
 URxvt*color6:  #8cd0d3
 URxvt*color7:  #dcdccc
 URxvt*color8:  #709080
-URxvt*color9:  #dca3a3
-URxvt*color10: #c3bf9f
+URxvt*color9:  #d78787
+URxvt*color10: #87af87
 URxvt*color11: #f0dfaf
 URxvt*color12: #94bff3
 URxvt*color13: #ec93d3
