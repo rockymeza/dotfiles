@@ -279,8 +279,8 @@ globalkeys = awful.util.table.join(
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,           }, "e", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey,           }, "w", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -294,7 +294,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "p",      function () awful.util.spawn_with_shell('xclip < ' .. dotfiles .. '/resources/lorem') end),
     awful.key({ modkey, "Shift"   }, "p",      function () awful.util.spawn_with_shell('xclip < ' .. dotfiles .. '/resources/lorem.html') end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey,           }, "b",      function () awful.util.spawn(browser)  end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
@@ -326,7 +325,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "d", function () naughty.notify({text = rocky.clock.date()}) end),
     
     -- switch background
-    awful.key({ modkey }, "w", function () awful.util.spawn_with_shell(theme.wallpaper_cmd[1]) end),
+    awful.key({ modkey }, "b", function () awful.util.spawn_with_shell(theme.wallpaper_cmd[1]) end),
     
     -- lock screen
     awful.key({ "Control", altkey}, "l",     function () awful.util.spawn('slock') end),
