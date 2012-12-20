@@ -89,3 +89,7 @@ export PATH=$HOME/bin:$HOME/dotfiles/bin:$PATH
 for f in ~/dotfiles/autoload/*; do
   . $f
 done
+
+for f in ~/autoload/*; do
+  . $f
+done
