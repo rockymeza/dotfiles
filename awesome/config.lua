@@ -60,7 +60,8 @@ naughty.config.presets.normal.hover_timeout    = nil
 -- }}}
 
 -- {{{ Shifty
-screen2 = screen.count()
+screen2 = 1
+screen1 = screen.count()
 
 shifty.config.tags = {
   ["octavio"] = {
@@ -68,15 +69,18 @@ shifty.config.tags = {
     persist = true,
     init = true,
     mwfact = 0.2,
+    screen = screen2,
   },
   ["tulia"] = {
     position = 2,
     init = true,
+    screen = screen1,
   },
   ["thaddeus"] = {
     position = 3,
     init = true,
     mwfact = 0.7,
+    screen = screen1,
   },
   ["frida"] = {
     position = 4,
@@ -91,11 +95,12 @@ shifty.config.tags = {
   ["simone"] = {
     position = 6,
     persist = true,
-    screen = screen2,
+    screen = screen1,
   },
   ["sybil"] = {
     position = 7,
     persist = true,
+    screen = screen1,
   },
 }
 
