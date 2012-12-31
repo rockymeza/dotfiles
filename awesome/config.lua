@@ -14,7 +14,7 @@ require("rocky")
 beautiful.init("/home/rocky/.config/awesome/rocky_theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt"
+terminal = os.getenv("TERMINAL") or "urxvt"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 browser = os.getenv("BROWSER") or "sensible-browser"
@@ -338,7 +338,7 @@ globalkeys = awful.util.table.join(
     -- scratchpad
     awful.key({ modkey, "Shift"   }, "Return",
           function ()
-                scratch.drop(terminal, "center", "center", 0.50, 0.50, true)
+                scratch.drop("tabbed urxvt -embed", "center", "center", 0.50, 0.50, true)
           end)
 )
 

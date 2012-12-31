@@ -3,11 +3,14 @@ URxvt*urlLauncher:        google-chrome
 URxvt*keysym.C-Delete:    perl:matcher
 URxvt*underlineURLs:      true
 
+URxvt*iso14755: false
+URxvt*iso14755_52: false
+
 URxvt*saveLines: 12000
 URxvt*scrollBar: false
 URxvt*scrollstyle: rxvt
 
-URxvt.urgentOnBell: True
+URxvt.urgentOnBell: true
 
 URxvt.insecure: true
 
