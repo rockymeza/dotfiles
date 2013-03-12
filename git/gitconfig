@@ -8,31 +8,32 @@
 #   that machine/account-specific information.
 
 [alias]
-	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\t=> \\2/' | sort
-	all = add -A
-	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
-	ci = commit
-	co = checkout
-	ftp = !~/.zsh.d/functions.d/git-ftp.py
-	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
-	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Cblue (%cn)%Creset' --abbrev-commit --date=relative
-	mm = merge --no-commit --no-ff
-	newbr = !sh -c 'git branch $1 && git push origin $1 && git branch -f $1 origin/$1 && git checkout $1' -
-	pp = !git pull -- && git push --
-	rmbr = !sh -c 'git branch -D $1 && git push origin :$1' -
-	rmdel = !git ls-files -d | sed 's/ /\\\\ /' | xargs git rm --ignore-unmatch
-	st = status
-	undo = !git reset --hard && git rmdel && git clean -fq
-	unstage = reset HEAD --
-	unstash = !git stash show -p | git apply -R
-	who = !git shortlog -s -- | sort -r
+  aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\t=> \\2/' | sort
+  all = add -A
+  amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+  br = branch
+  ci = commit
+  co = checkout
+  ftp = !~/.zsh.d/functions.d/git-ftp.py
+  ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Cblue (%cn)%Creset' --abbrev-commit --date=relative
+  mm = merge --no-commit --no-ff
+  newbr = !sh -c 'git branch $1 && git push origin $1 && git branch -f $1 origin/$1 && git checkout $1' -
+  pp = !git pull -- && git push --
+  rmbr = !sh -c 'git branch -D $1 && git push origin :$1' -
+  rmdel = !git ls-files -d | sed 's/ /\\\\ /' | xargs git rm --ignore-unmatch
+  st = status
+  undo = !git reset --hard && git rmdel && git clean -fq
+  unstage = reset HEAD --
+  unstash = !git stash show -p | git apply -R
+  who = !git shortlog -s -- | sort -r
 [push]
-	default = matching
+  default = matching
 [color]
-	pager = true
-	ui = true
+  pager = true
+  ui = true
 [user]
-	name = Rocky Meza
-	email = rocky@fusionbox.com
+  name = Rocky Meza
+  email = rocky@fusionbox.com
 [core]
-	excludesfile = /home/rocky/projects/dotfiles/git/gitignore
+  excludesfile = /home/rocky/projects/dotfiles/git/gitignore
