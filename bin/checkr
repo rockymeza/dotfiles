@@ -9,7 +9,7 @@ import csv
 
 http301 = re.compile('^HTTP/1\.1 301')
 http200 = re.compile('^HTTP/1\.1 200')
-location = re.compile('Location: (.*)$')
+location = re.compile('Location: (.*)$', re.MULTILINE)
 options = {
     'verbose': False,
     'old-prefix': '',
@@ -29,13 +29,15 @@ def check(original, destination):
         else:
             print original, destination, response
             return False
+
     location_match = location.search(final_redirect)
-    if location_match and location_match.group(1) == destination:
+    assert location_match, "There is something wrong with the regex"
+
+    if location_match.group(1).strip() == destination:
         if options['verbose']:
             print '%s => %s' % (original, destination)
         return True
     else:
-        print location_match
         print response
         return False
 
