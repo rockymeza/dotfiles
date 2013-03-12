@@ -84,7 +84,7 @@ done
 
 export EDITOR='vim'
 export PYTHONSTARTUP=$HOME/.pystartup
-export PATH=$HOME/bin:$HOME/dotfiles/bin:$PATH
+export PATH=$HOME/bin:$HOME/dotfiles/bin:$HOME/.cabal/bin:$HOME/.local/share/Steam/debian_bin:$PATH
 
 for f in ~/dotfiles/autoload/*; do
   . $f
