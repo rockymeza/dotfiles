@@ -124,6 +124,7 @@ end
 power.up = "&#8593;"
 power.down = "&#8595;"
 power.charged = "&#9889;"
+power.no_battery = "&#x1F6AB;"
 function power.getText(status, percent)
   local hour, min = string.match(status, "([1-9]?[1-9]?):(%d%d):%d%d")
   if hour and min then
@@ -170,11 +171,14 @@ end
 
 function power.update(widget)
   local status = power.getStatus()
-  local percent = power.getPercent(status)
-  local text = power.getText(status, percent)
-  power.notify(text, percent)
-
-  widget.text = gradient(text, percent, power.colors)
+  if string.len(power.getStatus()) > 0 then
+    local percent = power.getPercent(status)
+    local text = power.getText(status, percent)
+    power.notify(text, percent)
+    widget.text = gradient(text, percent, power.colors)
+  else
+    widget.text = "<span font='monospace' color='#dcdccc' background='#3f3f3f'>" .. power.no_battery .. "</span>"
+  end
 end
 
 function power.colors(which)
@@ -216,12 +220,10 @@ clock.update(clock.widget)
 volume.timer = timer({ timeout = 10 })
 volume.timer:add_signal("timeout", function() volume.update(volume.widget) end)
 volume.timer:start()
-if string.len(power.getStatus()) > 0 then
-  power.update(power.widget)
-  power.timer = timer({ timeout = 60 })
-  power.timer:add_signal("timeout", function() power.update(power.widget) end)
-  power.timer:start()
-end
+power.update(power.widget)
+power.timer = timer({ timeout = 60 })
+power.timer:add_signal("timeout", function() power.update(power.widget) end)
+power.timer:start()
 clock.timer = timer({ timeout = 30 })
 clock.timer:add_signal("timeout", function() clock.update(clock.widget) end)
 clock.timer:start()
