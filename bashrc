@@ -90,6 +90,8 @@ for f in ~/dotfiles/autoload/*; do
   . $f
 done
 
-for f in ~/autoload/*; do
-  . $f
-done
+if [ -f ~/autoload ] && [ "$(ls -A ~/autoload)" ]; then
+  for f in ~/autoload/*; do
+    . $f
+  done
+fi
