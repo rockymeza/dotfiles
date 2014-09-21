@@ -12,6 +12,7 @@ export LANG="en_US.utf8"
 
 export EDITOR="vim"
 export DOTFILES="$(readlink -f $0 | xargs dirname)"
+xmodmap ~/.Xmodmap
 
 # awesome receives xinit's process id; when it terminates, X will be terminated
 exec awesome
