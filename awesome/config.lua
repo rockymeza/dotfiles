@@ -102,6 +102,16 @@ shifty.config.tags = {
     persist = true,
     screen = screen1,
   },
+  ["enoch"] = {
+    position = 8,
+    persist = true,
+    screen = screen1,
+  },
+  ["nicola"] = {
+    position = 9,
+    persist = true,
+    screen = screen1,
+  },
 }
 
 shifty.config.apps = {
