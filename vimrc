@@ -90,5 +90,6 @@ set wildignore=node_modules,*.old,*.swo,*.swp,*.pyc,build
 " ctrlp
 nmap <Leader>t :CtrlP<Enter>
 nmap <Leader>c :CtrlPTag<Enter>
+nmap <Leader>b :CtrlPBuffer<Enter>
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:50'
 let g:ctrlp_clear_cache_on_exit = 0
