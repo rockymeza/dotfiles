@@ -67,3 +67,19 @@ snippet	jQ
 	{
 		${1}
 	});
+snippet define
+	define([
+		'${1}'
+	], function(
+		${2}
+	) {
+		${3}
+	});
+snippet RcC
+	var ${1:ComponentName} = React.createClass({
+		render: function() {
+			return (
+				${2}
+			);
+		}
+	});

@@ -85,7 +85,7 @@ map <Leader>a :Ack
 
 " wildmenu
 set wildmenu
-set wildignore=node_modules,*.old,*.swo,*.swp,*.pyc,build
+set wildignore=node_modules,*.old,*.swo,*.swp,*.pyc,build,solr
 
 " ctrlp
 nmap <Leader>t :CtrlP<Enter>
