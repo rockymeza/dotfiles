@@ -60,8 +60,8 @@ naughty.config.presets.normal.hover_timeout    = nil
 -- }}}
 
 -- {{{ Shifty
-screen2 = 1
-screen1 = screen.count()
+screen1 = 1
+screen2 = screen.count()
 
 shifty.config.tags = {
   ["octavio"] = {
@@ -69,48 +69,55 @@ shifty.config.tags = {
     persist = true,
     init = true,
     mwfact = 0.2,
-    screen = screen2,
+    screen = screen1,
   },
   ["tulia"] = {
     position = 2,
-    init = true,
+    persist = true,
+    init = screen1 ~= screen2,
     screen = screen1,
   },
   ["thaddeus"] = {
     position = 3,
-    init = true,
-    mwfact = 0.7,
-    screen = screen1,
+    persist = true,
+    init = screen1 ~= screen2,
+    screen = screen2,
   },
   ["frida"] = {
     position = 4,
-    init = true,
+    persist = true,
+    init = screen1 ~= screen2,
     screen = screen2,
   },
   ["facundo"] = {
     position = 5,
-    init = true,
+    persist = true,
+    init = screen1 ~= screen2,
     screen = screen2,
   },
   ["simone"] = {
     position = 6,
     persist = true,
-    screen = screen1,
+    init = screen1 ~= screen2,
+    screen = screen2,
   },
   ["sybil"] = {
     position = 7,
     persist = true,
-    screen = screen1,
+    init = screen1 ~= screen2,
+    screen = screen2,
   },
   ["enoch"] = {
     position = 8,
     persist = true,
-    screen = screen1,
+    init = screen1 ~= screen2,
+    screen = screen2,
   },
   ["nicola"] = {
     position = 9,
     persist = true,
-    screen = screen1,
+    init = screen1 ~= screen2,
+    screen = screen2,
   },
 }
 
@@ -132,7 +139,7 @@ shifty.config.apps = {
   },
   {
     match = { "Google Chrome", "Chromium", "Mozilla Firefox", "Pentadactyl" },
-    tag="frida",
+    tag="tulia",
     screen = 1,
   },
   {
@@ -231,7 +238,7 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
 
     -- Master has a clock and stuff, other screens don't.
-    if s == 1 then
+    if s == screen.count() then
       mywibox[s].widgets = {
           {
               rocky.clock.widget,
@@ -248,6 +255,7 @@ for s = 1, screen.count() do
     else
       mywibox[s].widgets = {
           {
+              rocky.clock.widget,
               mytaglist[s],
               layout = awful.widget.layout.horizontal.leftright,
           },
