@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# tutum.co
+ip route add 162.159.250.124 dev ppp0
+ip route add 162.159.251.124 dev ppp0

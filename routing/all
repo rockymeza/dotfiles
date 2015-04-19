@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# turn off wlan0
+ip route del default dev wlan0 
+
+# turn on ppp0
+ip route add default dev ppp0

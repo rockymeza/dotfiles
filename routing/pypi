@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# pypi.python.org
+ip route add 103.245.222.175 dev ppp0

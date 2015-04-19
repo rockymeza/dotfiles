@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# github.com
+ip route add 192.30.252.0/24 dev ppp0
+
+# assets-cdn.github.com
+ip route add 103.245.222.133 dev ppp0

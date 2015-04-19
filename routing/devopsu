@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# devopsu.com
+ip route add 162.159.244.150 dev ppp0
+ip route add 162.159.245.150 dev ppp0

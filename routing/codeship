@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# codeship.io
+ip route add 54.225.183.154 dev ppp0
+ip route add 54.221.255.140 dev ppp0
+ip route add 107.20.135.171 dev ppp0
