@@ -5,36 +5,43 @@
 
 """ basic
 set nocompatible
-set shm=I
 set bs=indent,eol,start
-nmap <F1> <Esc>
-imap <F1> <Esc>
 
 " pathogen stuff (must be before filetype stuff)
 filetype off
-call pathogen#runtime_append_all_bundles()
+
+" Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'AutoTag'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'Syntastic'
+Plugin 'garbas/vim-snipmate'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mgedmin/python-imports.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-surround'
+
+call vundle#end()
 
 " filetype stuff
-filetype on
-filetype plugin on
-filetype indent on
-
-" for sup
-au BufRead *-sup.*        set ft=mail
-au BufRead *.shpaml       so ~/.vim/ftplugin/shpaml.vim
-au BufRead *.md           set ft=markdown
+filetype indent plugin on
 
 
-""" look
 " theme
 syntax enable
 set number
 colors zenburn|+
-
-"statusline
-set showmode
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)\ %{fugitive#statusline()}
-set showcmd
 
 " tabs
 set tabstop=2
@@ -42,46 +49,22 @@ set shiftwidth=2
 set expandtab
 set autoindent
 
-" searching
 set hlsearch
 set incsearch
 
-" line breaks
-set showbreak=">"
-
-" folding
-set foldmethod=marker
-
-""" feel
 " mouse
 set mouse=a
 
-"" mappings
-" for saving files more quickly
+" fat fingers
+nmap <F1> <Esc>
+imap <F1> <Esc>
 cmap W w
-
-" remap ZZ for safer saving
-nmap ZZ :q<RETURN>
-
-" for editing vimrc
-nmap <Leader>s :source $MYVIMRC
-nmap <Leader>v :e $MYVIMRC
-nmap <Leader>r :exec ReloadAllSnippets()
 
 " undo
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000
 set undoreload=10000
-
-" tab bindings
-imap <S-Tab> <ESC>v<<<ESC>i
-vmap <Tab> >gv
-vmap <S-Tab> <gv
-
-" ack.vim
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-map <Leader>a :Ack
 
 " wildmenu
 set wildmenu

@@ -1,48 +1,6 @@
-[submodule "vim/bundle/vim-coffee-script"]
-	path = vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "modules/b"]
 	path = modules/b
 	url = git://github.com/rockymeza/b.git
-[submodule "vim/bundle/scss-syntax.vim"]
-	path = vim/bundle/scss-syntax.vim
-	url = https://github.com/cakebaker/scss-syntax.vim.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/puppet"]
-	path = vim/bundle/puppet
-	url = git://github.com/rodjek/vim-puppet.git
-[submodule "vim/bundle/vim-python-pep8-indent"]
-	path = vim/bundle/vim-python-pep8-indent
-	url = https://github.com/hynek/vim-python-pep8-indent.git
-[submodule "vim/bundle/vim-less"]
-	path = vim/bundle/vim-less
-	url = https://github.com/groenewege/vim-less.git
-[submodule "vim/bundle/badwolf"]
-	path = vim/bundle/badwolf
-	url = git://github.com/sjl/badwolf.git
-[submodule "vim/bundle/CoVim"]
-	path = vim/bundle/CoVim
-	url = git://github.com/FredKSchott/CoVim.git
-[submodule "vim/bundle/ctrlp"]
-	path = vim/bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim
-[submodule "vim/bundle/vim-surround"]
-	path = vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/vim-repeat"]
-	path = vim/bundle/vim-repeat
-	url = git://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/vim-jsx"]
-	path = vim/bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx.git
-[submodule "vim/bundle/elm.vim"]
-	path = vim/bundle/elm.vim
-	url = https://github.com/lambdatoast/elm.vim.git
-[submodule "vim/bundle/vim-yaml"]
-	path = vim/bundle/vim-yaml
-	url = https://github.com/avakhov/vim-yaml.git
-[submodule "vim/bundle/Dockerfile.vim"]
-	path = vim/bundle/Dockerfile.vim
-	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "vim/bundle/Vundle.vim"]
+	path = vim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
