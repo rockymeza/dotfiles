@@ -37,12 +37,6 @@
 [submodule "vim/bundle/vim-jsx"]
 	path = vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
-[submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vim/bundle/vim-autoformat"]
-	path = vim/bundle/vim-autoformat
-	url = https://github.com/Chiel92/vim-autoformat.git
 [submodule "vim/bundle/elm.vim"]
 	path = vim/bundle/elm.vim
 	url = https://github.com/lambdatoast/elm.vim.git
