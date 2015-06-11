@@ -78,15 +78,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
-for f in ~/dotfiles/bash_completion.d/*; do
-  . $f
-done
+
+DOTFILES_LOCATION=$HOME/projects/dotfiles
 
 export EDITOR='vim'
 export PYTHONSTARTUP=$HOME/.pystartup
-export PATH=$HOME/bin:$HOME/dotfiles/bin:$HOME/.cabal/bin:$HOME/.local/share/Steam/debian_bin:$PATH
+export PATH=$HOME/bin:$DOTFILES_LOCATION/bin:$HOME/.cabal/bin:$PATH
 
-for f in ~/dotfiles/autoload/*; do
+. $DOTFILES_LOCATION/modules/b/b.sh
+. $DOTFILES_LOCATION/modules/b/b_completion.sh
+
+for f in $DOTFILES_LOCATION/autoload/*; do
   . $f
 done
 
