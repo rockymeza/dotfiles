@@ -28,25 +28,28 @@ gitconfig_setup()
 # Links the specified file prepend a `.` to the name
 link_file()
 {
-  if [[ -a ${HOME}/.${1} ]]; then
-    echo "You already have a .$1"
+  src=$(readlink -f ${1})
+  target=${2-${HOME}/.${1}}
+
+  if [[ -a $target ]]; then
+    echo "$target already exists."
   else
-    echo "Linking ~/.${1}..."
-    ln -s ${PWD}/${1} ${HOME}/.${1}
+    echo "Linking $src -> $target..."
+    ln -s $src $target
   fi
 }
 
 # Main
-link_file zshrc
-link_file vimrc
-link_file vim
+link_file bashrc
+link_file Xmodmap
 link_file Xdefaults
-link_file xinitrc
-link_file xsession
-link_file pentadactyl
+link_file vim/
+link_file vimrc
+link_file qtile/ ~/.config/qtile
+link_file pentadactyl/
 link_file pentadactylrc
-link_file pystartup
 
 gitconfig_setup
+
 git submodule init
 git submodule update
