@@ -1,7 +1,0 @@
-#compdef b
-
-_arguments \
-  "1:bookmark:($(awk 'BEGIN{ FS=","; ORS=" "} { print $1 }' ~/.b_bookmarks ))"\
-  '::directory:_path_files -/'
-
-# This was written by William Scales, thanks buddy
