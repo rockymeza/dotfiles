@@ -1,9 +1,12 @@
 # coding:utf-8
 from __future__ import unicode_literals
 
+import os
+import subprocess
+
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
-from libqtile import layout, bar, widget
+from libqtile import layout, bar, widget, hook
 
 mod = "mod4"
 
@@ -111,6 +114,14 @@ bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating()
 auto_fullscreen = True
+
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~')
+    path = os.path.join(home, '.config', 'qtile', 'autostart.sh')
+    subprocess.call([path])
+
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
