@@ -38,6 +38,9 @@ keys = [
     # yeganesh
     Key([mod], "p", lazy.spawn('/home/rocky/projects/dotfiles/bin/yeganeshwrapper')),
 
+    # wallpaper
+    Key([mod], "b", lazy.spawn('/home/rocky/.config/qtile/wallpaper.sh')),
+
     # Screen movement
     Key([mod], "w", lazy.prev_screen()),
     Key([mod], "e", lazy.next_screen()),
