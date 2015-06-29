@@ -126,6 +126,13 @@ def autostart():
     subprocess.call([path])
 
 
+@hook.subscribe.startup
+def startup():
+    home = os.path.expanduser('~')
+    path = os.path.join(home, '.config', 'qtile', 'wallpaper.sh')
+    subprocess.call([path])
+
+
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
 # mailing lists, github issues, and other WM documentation that suggest setting
