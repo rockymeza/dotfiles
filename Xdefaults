@@ -14,8 +14,8 @@ URxvt.urgentOnBell: true
 
 URxvt.insecure: true
 
-URxvt*font: xft:Terminus:pixelsize=14
-#URxvt*font: xft:Inconsolata:pixelsize=11
+URxvt*font: xft:Terminus:pixelsize=16, \
+            xft:Source Han Sans CN
 
 URxvt*background: #3f3f3f
 URxvt*foreground: #dcdccc
