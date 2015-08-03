@@ -16,3 +16,4 @@ log/
 *.pyc
 tags
 .b_hook
+.agignore

@@ -25,10 +25,12 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mgedmin/python-imports.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
@@ -77,3 +79,12 @@ nmap <Leader>c :CtrlPTag<Enter>
 nmap <Leader>b :CtrlPBuffer<Enter>
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:50'
 let g:ctrlp_clear_cache_on_exit = 0
+
+" make Ack use ag
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+let g:ack_use_dispatch = 1
+
+" \\ to search for the current word in the entire project
+nnoremap <Leader><Leader> :let @/ = expand('<cword>')\|AckFromSearch<Enter>
