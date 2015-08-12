@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export SOCKS_SERVER='http://localhost:8080'
+export SOCKS_VERSION=5
+
+exec google-chrome --host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE localhost"
