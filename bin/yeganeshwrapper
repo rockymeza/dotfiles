@@ -3,4 +3,5 @@
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 program=`echo | $DIR/yeganesh`
+PATH="$DIR:$PATH"
 exec $program

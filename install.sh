@@ -46,9 +46,10 @@ link_file Xmodmap
 link_file Xdefaults
 link_file vim/
 link_file vimrc
-link_file qtile/ ~/.config/qtile
 link_file pentadactyl/
 link_file pentadactylrc
+link_file xmonad/
+link_file xmobarrc
 
 gitconfig_setup
 

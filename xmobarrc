@@ -1,0 +1,12 @@
+Config { font = "Terminus"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Bottom
+       , persistent = True
+       , commands = [ Run Date "%a %Y-%m-%d %H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ <fc=#ee9a00>%date%</fc>            "
+       }

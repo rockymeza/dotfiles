@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export DOTFILES_PATH="$HOME/projects/dotfiles"
+export PATH="$DOTFILES_PATH/bin:$PATH"
+
+fcitx &
+stalonetray \
+  --geometry 5x1-0-0 \
+  --icon-size 8 \
+  --background "#000000" \
+  --window-strut none &
+set_wallpaper
