@@ -13,10 +13,14 @@ main = xmonad =<< xmobar myConfig
 myConfig = defaultConfig
     { modMask = mod4Mask
     , terminal = "urxvt256c-ml"
-    , manageHook = manageDocks <+> manageHook defaultConfig
+    , manageHook = manageDocks <+> myManageHook
     , layoutHook = avoidStruts $ layoutHook defaultConfig
     , keys = myKeys
     }
+
+-- put new windows at the bottom
+-- https://wiki.haskell.org/Xmonad/Frequently_asked_questions#Force_all_new_windows_down
+myManageHook = doF W.swapDown
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launching and killing programs
