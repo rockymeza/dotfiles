@@ -9,4 +9,4 @@ stalonetray \
   --icon-size 8 \
   --background "#000000" \
   --window-strut none &
-set_wallpaper
+set_wallpaper &
