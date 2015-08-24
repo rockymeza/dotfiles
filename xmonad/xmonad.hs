@@ -5,6 +5,7 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(safeSpawnProg)
+import XMonad.Hooks.ManageHelpers
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
@@ -22,7 +23,7 @@ myConfig = defaultConfig
 
 -- put new windows at the bottom
 -- https://wiki.haskell.org/Xmonad/Frequently_asked_questions#Force_all_new_windows_down
-myManageHook = doF W.swapDown
+myManageHook = isDialog --> doF W.shiftMaster <+> doF W.swapDown
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launching and killing programs
