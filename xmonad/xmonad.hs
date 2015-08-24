@@ -1,6 +1,7 @@
 import System.Exit
 
 import XMonad
+import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(safeSpawnProg)
@@ -16,6 +17,7 @@ myConfig = defaultConfig
     , manageHook = manageDocks <+> myManageHook
     , layoutHook = avoidStruts $ layoutHook defaultConfig
     , keys = myKeys
+    , logHook = updatePointer (Relative 0.5 0.5)
     }
 
 -- put new windows at the bottom
