@@ -4,8 +4,11 @@ import XMonad
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.Run(safeSpawnProg)
 import XMonad.Hooks.ManageHelpers
+import XMonad.Util.Run(safeSpawnProg, safeSpawn)
+import XMonad.Util.EZConfig
+
+import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
@@ -24,6 +27,8 @@ myConfig = defaultConfig
 -- put new windows at the bottom
 -- https://wiki.haskell.org/Xmonad/Frequently_asked_questions#Force_all_new_windows_down
 myManageHook = isDialog --> doF W.shiftMaster <+> doF W.swapDown
+
+amixerMaster arg = safeSpawn "amixer" ["set", "Master", arg]
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launching and killing programs
@@ -54,6 +59,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- quit, or restart
     , ((modMask .|. controlMask, xK_q     ), io (exitWith ExitSuccess)) -- %! Quit xmonad
     , ((modMask .|. controlMask, xK_r     ), safeSpawnProg "/home/rocky/projects/dotfiles/bin/restart_xmonad") -- %! Restart xmonad
+
+    -- volume
+    , ((0, xF86XK_AudioLowerVolume), amixerMaster "2-")
+    , ((0, xF86XK_AudioRaiseVolume), amixerMaster "2+")
+    , ((0, xF86XK_AudioMute       ), amixerMaster "toggle")
 
     -- miscellaneous
     , ((modMask,                 xK_b     ), safeSpawnProg "/home/rocky/projects/dotfiles/bin/set_wallpaper") -- %! Change the wallpaper
