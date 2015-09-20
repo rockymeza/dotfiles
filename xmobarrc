@@ -4,9 +4,10 @@ Config { font = "Terminus"
        , position = Bottom
        , persistent = True
        , commands = [ Run Date "%a %Y-%m-%d %H:%M" "date" 10
+                    , Run Battery [] 50
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ <fc=#ee9a00>%date%</fc>            "
+       , template = "%StdinReader% }{ %default:Master% %battery% <fc=#ee9a00>%date%</fc>            "
        }
