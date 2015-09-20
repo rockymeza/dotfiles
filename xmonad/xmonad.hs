@@ -13,7 +13,11 @@ import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
-main = xmonad =<< xmobar myConfig
+main = xmonad =<< myXmobar myConfig
+
+myToggleStrutsKey XConfig{modMask = modm} = (modm, xK_f)
+
+myXmobar conf = statusBar "xmobar" xmobarPP myToggleStrutsKey conf
 
 myConfig = defaultConfig
     { modMask = mod4Mask
@@ -54,7 +58,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,                 xK_l     ), sendMessage Expand) -- %! Expand the master area
 
     -- floating layer support
-    , ((modMask,                 xK_f     ), withFocused $ windows . W.sink) -- %! Push window back into tiling
+    , ((modMask .|. shiftMask,   xK_t     ), withFocused $ windows . W.sink) -- %! Push window back into tiling
 
     -- quit, or restart
     , ((modMask .|. controlMask, xK_q     ), io (exitWith ExitSuccess)) -- %! Quit xmonad
