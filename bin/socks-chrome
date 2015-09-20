@@ -1,5 +1,6 @@
 #!/bin/sh
 
-DOTFILES_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )
+export SOCKS_SERVER='http://localhost:8080'
+export SOCKS_VERSION=5
 
-exec google-chrome --proxy-pac-url=file://$DOTFILES_DIR/resources/flora_pac.pac
+exec google-chrome --host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE localhost"
