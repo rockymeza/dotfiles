@@ -61,8 +61,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. controlMask, xK_r     ), safeSpawnProg "/home/rocky/projects/dotfiles/bin/restart_xmonad") -- %! Restart xmonad
 
     -- volume
-    , ((0, xF86XK_AudioLowerVolume), amixerMaster "2-")
-    , ((0, xF86XK_AudioRaiseVolume), amixerMaster "2+")
+    , ((0, xF86XK_AudioLowerVolume), amixerMaster "2%-")
+    , ((0, xF86XK_AudioRaiseVolume), amixerMaster "2%+")
     , ((0, xF86XK_AudioMute       ), amixerMaster "toggle")
 
     -- miscellaneous
