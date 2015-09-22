@@ -71,6 +71,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- miscellaneous
     , ((modMask,                 xK_b     ), safeSpawnProg "/home/rocky/projects/dotfiles/bin/set_wallpaper") -- %! Change the wallpaper
+    , ((0,                    xF86XK_Tools), safeSpawnProg "gnome-control-center")
+    , ((0,          xF86XK_MonBrightnessUp), safeSpawn "xbacklight" ["-inc", "10%"])
+    , ((0,        xF86XK_MonBrightnessDown), safeSpawn "xbacklight" ["-dec", "10%"])
 
     ]
     ++

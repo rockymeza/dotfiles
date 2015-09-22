@@ -63,7 +63,8 @@ sudo dnf install \
   tabbed rxvt-unicode-256color-ml terminus-fonts-console \
   feh \
   python python-pip python-virtualenv python-virtualenvwrapper python-flake8 \
-  python3 python3-pip python3-flake8
+  python3 python3-pip python3-flake8 \
+  xbacklight
 
 vim +PluginInstall +qa
 
