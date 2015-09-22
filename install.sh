@@ -55,3 +55,16 @@ gitconfig_setup
 
 git submodule init
 git submodule update
+
+# Fedora-specific installation
+sudo dnf install \
+  vim-enhanced vim-X11 \
+  xmonad xmobar stalonetray \
+  tabbed rxvt-unicode-256color-ml terminus-fonts-console \
+  feh \
+  python python-pip python-virtualenv python-virtualenvwrapper python-flake8 \
+  python3 python3-pip python3-flake8
+
+vim +PluginInstall +qa
+
+xmonad --recompile
