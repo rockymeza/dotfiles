@@ -3,7 +3,11 @@
 export DOTFILES_PATH="$HOME/projects/dotfiles"
 export PATH="$DOTFILES_PATH/bin:$PATH"
 
-fcitx &
+export XMODIFIERS="@im=ibus"
+export GTK_IM_MODULE="ibus"
+export QT_IM_MODULE="ibus"
+
+ibus-daemon --xim --daemonize --desktop=xmonad --replace
 stalonetray \
   --geometry 5x1-0-0 \
   --icon-size 8 \
