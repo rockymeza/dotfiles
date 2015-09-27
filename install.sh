@@ -48,6 +48,7 @@ link_file vim/
 link_file vimrc
 link_file pentadactyl/
 link_file pentadactylrc
+link_file pystartup
 link_file xmonad/
 link_file xmobarrc
 
