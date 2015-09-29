@@ -66,7 +66,7 @@ sudo dnf install \
   python python-pip python-virtualenv python-virtualenvwrapper python-flake8 \
   python3 python3-pip python3-flake8 \
   htop the_silver_searcher \
-  inotify-tools \
+  inotify-tools dunst \
   xbacklight \
   xclip
 
