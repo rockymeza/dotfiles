@@ -68,7 +68,7 @@ sudo dnf install \
   htop the_silver_searcher \
   inotify-tools dunst \
   xbacklight \
-  xclip
+  xclip acpi
 
 vim +PluginInstall +qa
 
