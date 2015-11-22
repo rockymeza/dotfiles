@@ -15,7 +15,7 @@ URxvt.urgentOnBell: true
 URxvt.insecure: true
 
 URxvt*font: xft:Terminus:pixelsize=13, \
-            xft:Source Han Sans CN
+            xft:WenQuanYi Micro Hei Mono
 
 URxvt*background: #3f3f3f
 URxvt*foreground: #dcdccc
