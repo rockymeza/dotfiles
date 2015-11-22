@@ -5,6 +5,7 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Grid
 import XMonad.Util.Run(safeSpawnProg, safeSpawn)
 import XMonad.Util.EZConfig
 
@@ -19,11 +20,22 @@ myToggleStrutsKey XConfig{modMask = modm} = (modm, xK_f)
 
 myXmobar conf = statusBar "xmobar" xmobarPP myToggleStrutsKey conf
 
+myLayout = tiled ||| Mirror tiled ||| Full ||| Grid
+  where
+    -- default tiling algorithm partitions the screen into two panes
+    tiled   = Tall nmaster delta ratio
+    -- The default number of windows in the master pane
+    nmaster = 1
+    -- Default proportion of screen occupied by master pane
+    ratio   = 1/2
+    -- Percent of screen to increment by when resizing panes
+    delta   = 3/100
+
 myConfig = defaultConfig
     { modMask = mod4Mask
     , terminal = "urxvt256c-ml"
     , manageHook = manageDocks <+> myManageHook
-    , layoutHook = avoidStruts $ layoutHook defaultConfig
+    , layoutHook = avoidStruts $ myLayout
     , keys = myKeys
     , logHook = updatePointer (Relative 0.5 0.5)
     }
