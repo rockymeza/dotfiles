@@ -3,6 +3,7 @@ import System.Exit
 import XMonad
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.Grid
@@ -31,7 +32,7 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| Grid
     -- Percent of screen to increment by when resizing panes
     delta   = 3/100
 
-myConfig = defaultConfig
+myConfig = ewmh defaultConfig
     { modMask = mod4Mask
     , terminal = "urxvt256c-ml"
     , manageHook = manageDocks <+> myManageHook
