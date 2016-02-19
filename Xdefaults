@@ -14,6 +14,9 @@ URxvt.urgentOnBell: true
 
 URxvt.insecure: true
 
+URxvt.inputMethod: ibus
+URxvt.preeditType: OnTheSpot,None
+
 URxvt*font: xft:Terminus:pixelsize=13, \
             xft:WenQuanYi Micro Hei Mono
 
