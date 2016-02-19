@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+"""
+Tool for unzipping Chinese zip archives. Occasionally, the normal unzip program
+spits out files that have an invalid encoding for the filename which makes
+using the files in the command line very hard. This one will decode the
+filenames during extraction so that we can have good filenames.
+
+Based on: https://www.zhihu.com/question/20523036
+"""
+import os
+import sys
+import zipfile
+
+
+def unzip(zippath, encoding='gbk'):
+    with zipfile.ZipFile(zippath, 'r') as archive:
+        for original_name in archive.namelist():
+            filename = original_name.decode(encoding)
+
+            path = os.path.dirname(filename)
+            if path and not os.path.exists(path):
+                os.makedirs(path)
+
+            if not os.path.exists(filename):
+                with open(filename, 'w') as out:
+                    out.write(archive.read(original_name))
+
+
+if __name__ == '__main__':
+    unzip(sys.argv[1])
