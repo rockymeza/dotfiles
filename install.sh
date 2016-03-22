@@ -51,6 +51,7 @@ link_file pentadactylrc
 link_file pystartup
 link_file xmonad/
 link_file xmobarrc
+link_file xscreensaver
 
 gitconfig_setup
 
@@ -68,6 +69,7 @@ sudo dnf install \
   htop the_silver_searcher \
   inotify-tools dunst \
   xbacklight \
+  xscreensaver \
   xclip acpi
 
 vim +PluginInstall +qa

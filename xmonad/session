@@ -14,3 +14,4 @@ stalonetray \
   --background "#000000" \
   --window-strut none &
 set_wallpaper &
+xscreensaver &
