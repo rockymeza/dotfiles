@@ -6,8 +6,9 @@ Config { font = "Terminus"
        , commands = [ Run Date "%a %Y-%m-%d %H:%M" "date" 10
                     , Run Battery [] 50
                     , Run StdinReader
+                    , Run CoreTemp [] 50
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %default:Master% %battery% <fc=#ee9a00>%date%</fc>            "
+       , template = "%StdinReader% }{ %default:Master% %battery% %coretemp% <fc=#ee9a00>%date%</fc>            "
        }
