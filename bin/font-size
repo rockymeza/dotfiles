@@ -1,0 +1,5 @@
+#!/bin/bash
+# Change the font size on urxvt
+# https://bbs.archlinux.org/viewtopic.php?pid=332106#p332106
+
+printf '\33]50;%s%d%s\007' "xft:Terminus:pixelsize=" $1 ", xft:WenQuanYi Micro Hei Mono"
