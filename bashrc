@@ -83,7 +83,7 @@ DOTFILES_LOCATION=$HOME/projects/dotfiles
 
 export EDITOR='vimx'
 export PYTHONSTARTUP=$HOME/.pystartup
-export PATH=$HOME/bin:$DOTFILES_LOCATION/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/bin:$DOTFILES_LOCATION/bin:$HOME/.cargo/bin:$HOME/.cabal/bin:$PATH
 
 . $DOTFILES_LOCATION/modules/b/b.sh
 . $DOTFILES_LOCATION/modules/b/b_completion.sh

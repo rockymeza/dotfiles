@@ -92,5 +92,8 @@ if executable('ag')
 endif
 let g:ack_use_dispatch = 1
 
+" rust.vim
+let g:rustfmt_autosave = 1
+
 " \\ to search for the current word in the entire project
 nnoremap <Leader><Leader> :let @/ = expand('<cword>')\|AckFromSearch<Enter>

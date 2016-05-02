@@ -73,6 +73,10 @@ sudo dnf install \
   xscreensaver \
   xclip acpi
 
+# Rust
+curl -sSf https://static.rust-lang.org/rustup.sh > /tmp/rustup.sh && sh /tmp/rustup.sh --yes
+cargo install rustfmt
+
 vim +PluginInstall +qa
 
 xmonad --recompile
