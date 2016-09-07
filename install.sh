@@ -52,6 +52,7 @@ link_file pystartup
 link_file xmonad/
 link_file xmobarrc
 link_file xscreensaver
+link_file /usr/share/backgrounds/
 
 gitconfig_setup
 
