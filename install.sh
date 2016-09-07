@@ -78,6 +78,7 @@ sudo dnf install \
 curl -sSf https://static.rust-lang.org/rustup.sh > /tmp/rustup.sh && sh /tmp/rustup.sh --yes
 cargo install rustfmt
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qa
 
 xmonad --recompile

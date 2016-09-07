@@ -15,15 +15,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'AutoTag'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'garbas/vim-snipmate'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jnurmine/Zenburn'
 Plugin 'mgedmin/python-imports.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'mitsuhiko/vim-jinja'
