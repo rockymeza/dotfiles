@@ -17,7 +17,7 @@ URxvt.insecure: true
 URxvt.inputMethod: ibus
 URxvt.preeditType: OnTheSpot,None
 
-URxvt*font: xft:Terminus:pixelsize=13, \
+URxvt*font: xft:Terminus:pixelsize=16, \
             xft:WenQuanYi Micro Hei Mono
 
 URxvt*background: #3f3f3f
