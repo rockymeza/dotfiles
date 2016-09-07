@@ -63,7 +63,7 @@ git submodule update
 sudo dnf install \
   vim-enhanced vim-X11 \
   xmonad xmobar stalonetray \
-  tabbed rxvt-unicode-256color-ml terminus-fonts-console \
+  tabbed rxvt-unicode-256color-ml terminus-fonts \
   feh \
   python python-pip python-virtualenv python-virtualenvwrapper python-flake8 \
   python3 python3-pip python3-flake8 \
