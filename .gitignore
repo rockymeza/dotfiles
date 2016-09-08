@@ -5,7 +5,6 @@ vim/ruby/command-t
 vim/undodir/
 vim/spell/*
 vim/bundle/
-!vim/bundle/Vundle.vim/
 pentadactyl/info/
 /xmonad/xmonad-x86_64-linux
 /xmonad/xmonad.errors
