@@ -18,3 +18,7 @@ alias mam="ma migrate"
 alias mash="ma shell_plus"
 
 alias fab="fy fab"
+
+# Rails
+alias fs="foreman start -f Procfile.dev"
+alias fr="foreman run bundle exec"
