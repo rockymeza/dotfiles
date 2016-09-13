@@ -71,7 +71,7 @@ sudo dnf install \
   htop the_silver_searcher \
   inotify-tools dunst \
   xbacklight \
-  xscreensaver \
+  xscreensaver xss-lock \
   xclip acpi
 
 # Rust
