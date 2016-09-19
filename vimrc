@@ -37,6 +37,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
@@ -98,3 +99,6 @@ let g:rustfmt_autosave = 1
 
 " \\ to search for the current word in the entire project
 nnoremap <Leader><Leader> :let @/ = expand('<cword>')\|AckFromSearch<Enter>
+
+" haml-coffee
+autocmd BufNewFile,BufRead *.hamlc setf haml
