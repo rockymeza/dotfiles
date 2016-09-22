@@ -21,7 +21,7 @@ myToggleStrutsKey XConfig{modMask = modm} = (modm, xK_f)
 
 myXmobar conf = statusBar "xmobar" xmobarPP myToggleStrutsKey conf
 
-myLayout = tiled ||| Mirror tiled ||| Full ||| Grid
+myLayout = tiled ||| Full
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
