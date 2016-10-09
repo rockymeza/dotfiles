@@ -99,8 +99,10 @@ if [ -f ~/autoload ] && [ "$(ls -A ~/autoload)" ]; then
 fi
 
 # rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+if command -v rbenv &>/dev/null; then
+  export PATH=$HOME/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
+fi
 
 # nvm
 export NVM_DIR="/home/rocky/.nvm"
