@@ -14,13 +14,14 @@ Here's where I keep a lot of my configuration stuff.
 
         $ cd ~
         $ mkdir projects
+        $ cd projects
         $ git clone git@github.com:rockymeza/dotfiles
         $ cd dotfiles
 
 4.  Delete some default files.
 
-        $ rm ~/.bashrc ~/.bash_aliases
-        $ rm ~/Music ~/Pictures # etc.
+        $ rm ~/.bashrc
+        $ rm -r ~/Music ~/Pictures # etc.
 
 5.  Password-less sudo
 
@@ -31,3 +32,15 @@ Here's where I keep a lot of my configuration stuff.
     of packages.
 
         $ ./install.sh
+
+7.  Run yeganesh a couple of times in order for it to learn about your programs.
+
+        $ yeganesh -x
+        (Hit Esc)
+        $ yeganesh -x
+        (Hit Esc)
+
+8.  Kill the `gdm` process so that it can pick up on xmonad. (Note this will log
+    out out).
+
+        $ sudo pkill gdm
