@@ -44,15 +44,15 @@ link_file bashrc
 link_file bash_aliases
 link_file Xmodmap
 link_file Xdefaults
-link_file vim/
+link_file vim
 link_file vimrc
-link_file pentadactyl/
+link_file pentadactyl
 link_file pentadactylrc
 link_file pystartup
-link_file xmonad/
+link_file xmonad
 link_file xmobarrc
 link_file xscreensaver
-link_file /usr/share/backgrounds/
+link_file /usr/share/backgrounds "${HOME}/.backgrounds"
 
 gitconfig_setup
 
