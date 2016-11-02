@@ -74,6 +74,9 @@ sudo dnf install \
   xscreensaver xss-lock \
   xclip acpi
 
+sudo dnf copr enable carlgeorge/ripgrep
+sudo dnf install ripgrep
+
 # Rust
 curl -sSf https://static.rust-lang.org/rustup.sh > /tmp/rustup.sh && sh /tmp/rustup.sh --yes
 cargo install rustfmt
