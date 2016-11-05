@@ -1,0 +1,24 @@
+#!/bin/sh
+
+DOTFILES_LOCATION=$HOME/projects/dotfiles
+
+# Haskell
+export PATH=$HOME/.cabal/bin:$PATH
+
+# Rust
+export PATH=$HOME/.cargo/bin:$PATH
+
+# Ruby (rbenv)
+if command -v rbenv &>/dev/null; then
+  export PATH=$HOME/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
+fi
+
+# Node (nvm)
+
+# nvm
+export NVM_DIR="/home/rocky/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# my stuff
+export PATH=$HOME/bin:$DOTFILES_LOCATION/bin:$PATH

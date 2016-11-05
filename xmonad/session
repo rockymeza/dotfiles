@@ -1,7 +1,8 @@
 #!/bin/sh
 
 export DOTFILES_PATH="$HOME/projects/dotfiles"
-export PATH="$DOTFILES_PATH/bin:$PATH"
+
+. "$DOTFILES_PATH/paths"
 
 export XMODIFIERS="@im=ibus"
 export GTK_IM_MODULE="ibus"

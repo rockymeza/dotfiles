@@ -83,7 +83,6 @@ DOTFILES_LOCATION=$HOME/projects/dotfiles
 
 export EDITOR='vimx'
 export PYTHONSTARTUP=$HOME/.pystartup
-export PATH=$HOME/bin:$DOTFILES_LOCATION/bin:$HOME/.cargo/bin:$HOME/.cabal/bin:$PATH
 
 . $DOTFILES_LOCATION/modules/b/b.sh
 . $DOTFILES_LOCATION/modules/b/b_completion.sh
@@ -98,12 +97,4 @@ if [ -f ~/autoload ] && [ "$(ls -A ~/autoload)" ]; then
   done
 fi
 
-# rbenv
-if command -v rbenv &>/dev/null; then
-  export PATH=$HOME/.rbenv/bin:$PATH
-  eval "$(rbenv init -)"
-fi
-
-# nvm
-export NVM_DIR="/home/rocky/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+. "$DOTFILES_LOCATION/paths"

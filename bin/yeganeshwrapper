@@ -7,5 +7,6 @@ export QT_IM_MODULE="ibus"
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 program=`echo | $DIR/yeganesh`
-PATH="$DIR:$PATH"
+
+. "$DIR/../paths"
 exec $program
