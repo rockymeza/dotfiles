@@ -95,9 +95,7 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:50'
 let g:ctrlp_clear_cache_on_exit = 0
 
 " make Ack use ag
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+let g:ackprg = 'rg --vimgrep'
 let g:ack_use_dispatch = 1
 
 " rust.vim
