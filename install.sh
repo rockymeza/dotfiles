@@ -78,7 +78,7 @@ sudo dnf copr enable carlgeorge/ripgrep
 sudo dnf install ripgrep
 
 # Rust
-curl -sSf https://static.rust-lang.org/rustup.sh > /tmp/rustup.sh && sh /tmp/rustup.sh --yes
+curl https://sh.rustup.rs -sSf | sh
 cargo install rustfmt
 
 # vim
