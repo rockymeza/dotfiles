@@ -1,6 +1,7 @@
 set ts=2
 set sw=2
 
+let g:jsx_ext_required = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
 " https://github.com/othree/javascript-libraries-syntax.vim#config
