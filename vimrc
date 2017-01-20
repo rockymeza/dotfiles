@@ -87,7 +87,7 @@ set undoreload=10000
 
 " wildmenu
 set wildmenu
-set wildignore=venv,node_modules,*.old,*.swo,*.swp,*.pyc,build,solr
+set wildignore=venv,node_modules,*.old,*.swo,*.swp,*.pyc,solr
 
 " ctrlp
 nmap <Leader>t :CtrlP<Enter>
