@@ -95,6 +95,7 @@ nmap <Leader>c :CtrlPTag<Enter>
 nmap <Leader>b :CtrlPBuffer<Enter>
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:50'
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 0
 
 " make Ack use ag
 let g:ackprg = 'rg --vimgrep'
