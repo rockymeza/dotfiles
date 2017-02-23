@@ -5,3 +5,9 @@ let g:jsx_ext_required = 0
 
 " https://github.com/othree/javascript-libraries-syntax.vim#config
 let g:used_javascript_libs = 'jquery,lodash,angular,angularui,jasmine'
+
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
