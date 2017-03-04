@@ -27,10 +27,10 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'ivalkeen/vim-simpledb'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'jnurmine/Zenburn'
+Plugin 'jremmen/vim-ripgrep'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'mgedmin/python-imports.vim'
-Plugin 'mileszs/ack.vim'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'mxw/vim-jsx'
@@ -99,14 +99,13 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 
 " make Ack use ag
-let g:ackprg = 'rg --vimgrep'
-let g:ack_use_dispatch = 1
+let g:rg_derive_root = 1
 
 " rust.vim
 let g:rustfmt_autosave = 1
 
 " \\ to search for the current word in the entire project
-nnoremap <Leader><Leader> :let @/ = expand('<cword>')\|AckFromSearch<Enter>
+nnoremap <Leader><Leader> :Rg<Enter>
 
 " haml-coffee
 autocmd BufNewFile,BufRead *.hamlc setf haml
