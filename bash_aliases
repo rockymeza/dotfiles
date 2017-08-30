@@ -22,3 +22,6 @@ alias fab="fy fab"
 # Rails
 alias fs="foreman start -f Procfile.dev"
 alias fr="foreman run bundle exec"
+alias frc="fr rails console"
+alias frd="fr rails db"
+alias ys="yarn start"
