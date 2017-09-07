@@ -21,6 +21,8 @@ myToggleStrutsKey XConfig{modMask = modm} = (modm, xK_f)
 
 myXmobar conf = statusBar "xmobar" xmobarPP myToggleStrutsKey conf
 
+myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
 myLayout = tiled ||| Full ||| Grid
   where
     -- default tiling algorithm partitions the screen into two panes
@@ -39,6 +41,7 @@ myConfig = ewmh defaultConfig
     , layoutHook = avoidStruts $ myLayout
     , keys = myKeys
     , logHook = updatePointer (Relative 0.5 0.5)
+    , workspaces = myWorkspaces
     }
 
 -- put new windows at the bottom
@@ -94,7 +97,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- mod-[1..9] %! Switch to workspace N
     -- mod-shift-[1..9] %! Move client to workspace N
     [((m .|. modMask, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip myWorkspaces ([xK_1 .. xK_9] ++ [xK_0])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
     -- mod-{w,e,r} %! Switch to physical/Xinerama screens 1, 2, or 3
