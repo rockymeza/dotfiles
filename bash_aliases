@@ -17,6 +17,9 @@ alias marsp="ma runserver_plus 0.0.0.0:8000"
 alias mam="ma migrate"
 alias mash="ma shell_plus"
 
+alias hr="heroku local:run"
+alias hma="hr python manage.py"
+
 alias fab="fy fab"
 
 # Rails
