@@ -7,61 +7,56 @@
 set nocompatible
 set bs=indent,eol,start
 
-" pathogen stuff (must be before filetype stuff)
-filetype off
+" vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'AutoTag'
-Plugin 'GutenYe/json5.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'MaxMEllon/vim-jsx-pretty'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'ivalkeen/vim-simpledb'
-Plugin 'jnurmine/Zenburn'
-Plugin 'jremmen/vim-ripgrep'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mattn/emmet-vim'
-Plugin 'mgedmin/python-imports.vim'
-Plugin 'mitsuhiko/vim-jinja'
-Plugin 'mtscout6/syntastic-local-eslint.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'rust-lang/rust.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'w0rp/ale'
-
-call vundle#end()
-
-" filetype stuff
-filetype indent plugin on
-
+call plug#begin('~/.vim/bundle')
+Plug 'GutenYe/json5.vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'airblade/vim-gitgutter'
+Plug 'burnettk/vim-angular'
+Plug 'chase/vim-ansible-yaml'
+Plug 'craigemery/vim-autotag'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'garbas/vim-snipmate'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'ivalkeen/vim-simpledb'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'jnurmine/Zenburn'
+Plug 'jremmen/vim-ripgrep'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mattn/emmet-vim'
+Plug 'mgedmin/python-imports.vim'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'mxw/vim-jsx'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'rust-lang/rust.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-ruby/vim-ruby'
+Plug 'w0rp/ale'
+call plug#end()
 
 " theme
-syntax enable
 set number
 colors zenburn|+
 

@@ -81,10 +81,5 @@ sudo dnf install ripgrep
 curl https://sh.rustup.rs -sSf | sh
 cargo install rustfmt
 
-# vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-mkdir vim/undodir
-vim +PluginInstall +qa
-
 # xmonad
 xmonad --recompile
