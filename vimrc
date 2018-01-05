@@ -18,6 +18,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'AutoTag'
+Plugin 'GutenYe/json5.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'airblade/vim-gitgutter'
