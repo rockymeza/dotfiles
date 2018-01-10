@@ -20,8 +20,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'AutoTag'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'MaxMEllon/vim-jsx-pretty'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'ivalkeen/vim-simpledb'
@@ -44,6 +46,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
@@ -107,5 +110,9 @@ nnoremap <Leader><Leader> :Rg<Enter>
 
 " haml-coffee
 autocmd BufNewFile,BufRead *.hamlc setf haml
+
+" Map movement through errors without wrapping.
+nmap <silent> <C-k> <Plug>(ale_previous)
+nmap <silent> <C-j> <Plug>(ale_next)
 
 set conceallevel=1
