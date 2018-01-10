@@ -20,8 +20,9 @@ alias mash="ma shell_plus"
 alias fab="fy fab"
 
 # Rails
-alias fs="foreman start -f Procfile.dev"
-alias fr="foreman run bundle exec"
+alias dc="b tasmania && sudo /usr/local/bin/docker-compose"
+alias ds="dc up -d"
+alias dl="dc logs -t -f --tail 1"
+alias fr="dc exec rails foreman run bundle exec"
 alias frc="fr rails console"
-alias frd="fr rails db"
-alias ys="yarn start"
+alias djs="dc exec js"
