@@ -19,13 +19,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'AutoTag'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'burnettk/vim-angular'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'ivalkeen/vim-simpledb'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'jnurmine/Zenburn'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'kchmck/vim-coffee-script'
@@ -33,7 +32,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'mgedmin/python-imports.vim'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
-Plugin 'mxw/vim-jsx'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rust-lang/rust.vim'
@@ -109,3 +107,5 @@ nnoremap <Leader><Leader> :Rg<Enter>
 
 " haml-coffee
 autocmd BufNewFile,BufRead *.hamlc setf haml
+
+set conceallevel=1

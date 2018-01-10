@@ -11,3 +11,8 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
+
+" https://github.com/pangloss/vim-javascript#concealing-characters
+let g:javascript_conceal_arrow_function = "⇒"
+
+let g:javascript_plugin_flow = 1
