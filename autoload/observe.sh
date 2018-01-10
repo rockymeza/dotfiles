@@ -4,7 +4,7 @@ function observe()
 {
   ($@)
 
-  while inotifywait --quiet --exclude '^\.git/|^\..*\.swp$|\.pyc$|sqlite_database|^\.tox/|.*egg-info' --event modify --recursive .; do
+  while inotifywait --quiet --exclude '^\/.git/|^\..*\.swp$|^\..*\.swp$|^\..*\.log$|\.pyc$|sqlite_database|^\.tox/|.*egg-info|.*/tmp/.*' --event modify --recursive .; do
     sleep .1
     FY_PROGRAM_NAME='observe' fy $@
   done
