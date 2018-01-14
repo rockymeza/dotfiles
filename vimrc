@@ -19,6 +19,10 @@ Plug 'GutenYe/json5.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'install.sh',
+    \ }
 Plug 'burnettk/vim-angular'
 Plug 'chase/vim-ansible-yaml'
 Plug 'craigemery/vim-autotag'
@@ -38,6 +42,7 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rust-lang/rust.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tomtom/tlib_vim'
@@ -112,3 +117,19 @@ nmap <silent> <C-k> <Plug>(ale_previous)
 nmap <silent> <C-j> <Plug>(ale_next)
 
 set conceallevel=1
+
+" LanguageClient
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'reason': ['ocaml-language-server', '--stdio'],
+    \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ }
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<cr>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
+nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
+nnoremap <silent> <f2> :call LanguageClient_textDocument_rename()<cr>
+
+let g:LanguageClient_loggingLevel = 'DEBUG'
