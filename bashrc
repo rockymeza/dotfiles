@@ -98,3 +98,5 @@ if [ -f ~/autoload ] && [ "$(ls -A ~/autoload)" ]; then
 fi
 
 . "$DOTFILES_LOCATION/paths"
+
+export FZF_DEFAULT_COMMAND="rg --files --hidden"

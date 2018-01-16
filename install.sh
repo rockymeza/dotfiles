@@ -62,6 +62,7 @@ git submodule update
 # Fedora-specific installation
 sudo dnf install \
   vim-enhanced vim-X11 \
+  fzf \
   xmonad xmobar stalonetray \
   tabbed rxvt-unicode-256color-ml terminus-fonts \
   feh \
@@ -74,12 +75,9 @@ sudo dnf install \
   xscreensaver xss-lock \
   xclip acpi
 
-sudo dnf copr enable carlgeorge/ripgrep
-sudo dnf install ripgrep
-
 # Rust
 curl https://sh.rustup.rs -sSf | sh
-cargo install rustfmt
+cargo install rustfmt ripgrep
 
 # xmonad
 xmonad --recompile

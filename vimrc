@@ -26,14 +26,13 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'burnettk/vim-angular'
 Plug 'chase/vim-ansible-yaml'
 Plug 'craigemery/vim-autotag'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'garbas/vim-snipmate'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'ivalkeen/vim-simpledb'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'jnurmine/Zenburn'
-Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/emmet-vim'
 Plug 'mgedmin/python-imports.vim'
@@ -92,16 +91,16 @@ set undoreload=10000
 set wildmenu
 set wildignore=venv,node_modules,*.old,*.swo,*.swp,*.pyc,solr
 
-" ctrlp
-nmap <Leader>t :CtrlP<Enter>
-nmap <Leader>c :CtrlPTag<Enter>
-nmap <Leader>b :CtrlPBuffer<Enter>
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:50'
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_max_files = 0
-
-" make Ack use ag
-let g:rg_derive_root = 1
+" FZF
+nmap <Leader>t :Files<Enter>
+nmap <Leader>c :Tags<Enter>
+nmap <Leader>b :Buffers<Enter>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " rust.vim
 let g:rustfmt_autosave = 1
