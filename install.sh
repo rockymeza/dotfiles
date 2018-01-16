@@ -75,6 +75,12 @@ sudo dnf install \
   xscreensaver xss-lock \
   xclip acpi
 
+# Node
+curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+
+sudo dnf install nodejs yarn
+
 # Rust
 curl https://sh.rustup.rs -sSf | sh
 cargo install rustfmt ripgrep
