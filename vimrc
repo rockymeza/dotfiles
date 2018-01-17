@@ -95,18 +95,21 @@ set wildignore=venv,node_modules,*.old,*.swo,*.swp,*.pyc,solr
 nmap <Leader>t :Files<Enter>
 nmap <Leader>c :Tags<Enter>
 nmap <Leader>b :Buffers<Enter>
+function! Ripgrep(q)
+  call fzf#vim#grep(
+        \ 'rg --column --line-number --no-heading --color=always '.a:q,
+        \ 1,
+        \ fzf#vim#with_preview('right:50%:hidden', '?'))
+endfunction
+
 command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+  \ call Ripgrep(<q-args>)
 
 " rust.vim
 let g:rustfmt_autosave = 1
 
 " \\ to search for the current word in the entire project
-nnoremap <Leader><Leader> :Rg<Enter>
+nnoremap <Leader><Leader> :call Ripgrep(expand('<cword>'))<Enter>
 
 " haml-coffee
 autocmd BufNewFile,BufRead *.hamlc setf haml
