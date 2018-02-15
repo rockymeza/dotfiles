@@ -13,7 +13,7 @@ stalonetray \
   --geometry 5x1-0-0 \
   --icon-size 8 \
   --background "#000000" \
-  --window-strut none &
+  --window-strut auto &
 set_wallpaper &
 xscreensaver &
 xss-lock -- xscreensaver-command -lock &

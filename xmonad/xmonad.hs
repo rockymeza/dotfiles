@@ -1,25 +1,33 @@
 import System.Exit
+import System.IO
 
 import XMonad
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.EwmhDesktops(ewmh)
+import XMonad.Hooks.ManageDocks(docks, avoidStruts)
 import XMonad.Layout.Grid
-import XMonad.Util.Run(safeSpawnProg, safeSpawn)
-import XMonad.Util.EZConfig
+import XMonad.Util.Run(safeSpawnProg, spawnPipe, safeSpawn)
 
 import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
-main = xmonad =<< myXmobar myConfig
+main = do
+  xmobar <- spawnPipe "xmobar"
 
-myToggleStrutsKey XConfig{modMask = modm} = (modm, xK_f)
-
-myXmobar conf = statusBar "xmobar" xmobarPP myToggleStrutsKey conf
+  xmonad $ ewmh $ docks def
+    { modMask    = mod4Mask
+    , keys       = myKeys
+    , layoutHook = avoidStruts myLayout
+    , logHook    = myLogHook >> (dynamicLogWithPP $ xmobarPP
+                     { ppOutput = hPutStrLn xmobar
+                     , ppTitle = xmobarColor "green" "" . shorten 50
+                     })
+    , terminal   = "urxvt256c-ml"
+    , workspaces = myWorkspaces
+    }
 
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
@@ -34,19 +42,7 @@ myLayout = tiled ||| Full ||| Grid
     -- Percent of screen to increment by when resizing panes
     delta   = 3/100
 
-myConfig = ewmh defaultConfig
-    { modMask = mod4Mask
-    , terminal = "urxvt256c-ml"
-    , manageHook = manageDocks <+> myManageHook
-    , layoutHook = avoidStruts $ myLayout
-    , keys = myKeys
-    , logHook = updatePointer (Relative 0.5 0.5)
-    , workspaces = myWorkspaces
-    }
-
--- put new windows at the bottom
--- https://wiki.haskell.org/Xmonad/Frequently_asked_questions#Force_all_new_windows_down
-myManageHook = isDialog --> doF W.shiftMaster <+> doF W.swapDown
+myLogHook = updatePointer (0.5, 0.5) (0, 0)
 
 amixerMaster arg = safeSpawn "amixer" ["set", "Master", arg]
 
