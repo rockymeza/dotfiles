@@ -95,6 +95,9 @@ set wildignore=venv,node_modules,*.old,*.swo,*.swp,*.pyc,solr
 nmap <Leader>t :Files<Enter>
 nmap <Leader>c :Tags<Enter>
 nmap <Leader>b :Buffers<Enter>
+
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 function! Ripgrep(q)
   call fzf#vim#grep(
         \ 'rg --column --line-number --no-heading --color=always '.a:q,

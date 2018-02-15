@@ -99,4 +99,4 @@ fi
 
 . "$DOTFILES_LOCATION/paths"
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --iglob '!.git'"
