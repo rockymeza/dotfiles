@@ -21,7 +21,7 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
-    \ 'do': 'install.sh',
+    \ 'do': 'bash install.sh',
     \ }
 Plug 'burnettk/vim-angular'
 Plug 'chase/vim-ansible-yaml'
