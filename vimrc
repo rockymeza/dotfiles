@@ -121,8 +121,6 @@ autocmd BufNewFile,BufRead *.hamlc setf haml
 nmap <silent> <C-k> <Plug>(ale_previous)
 nmap <silent> <C-j> <Plug>(ale_next)
 
-set conceallevel=1
-
 " LanguageClient
 set hidden
 
