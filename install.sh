@@ -41,7 +41,6 @@ link_file()
 
 # Main
 link_file bashrc
-link_file bash_aliases
 link_file Xmodmap
 link_file Xdefaults
 link_file vim

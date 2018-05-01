@@ -54,14 +54,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
 fi
 
-# some more ls aliases
+# Alias definitions.
 alias ll='ls -l'
 alias tags="ctags '--exclude=*.min.*' --exclude='*/CACHE/*' -R"
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+alias rmpyc="find . -name '*.pyc' -delete"
+alias rmswp="find . -name '*.swp' -delete"
+
+alias vim="vimx"
+
+alias ssh="TERM=xterm-color ssh"
+
+alias ppsql="sqlformat --reindent --keywords upper -"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -100,3 +104,10 @@ fi
 . "$DOTFILES_LOCATION/paths"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --iglob '!.git'"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/rocky/.config/yarn/global/node_modules/tabtab/.completions/serverless.bash ] && . /home/rocky/.config/yarn/global/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/rocky/.config/yarn/global/node_modules/tabtab/.completions/sls.bash ] && . /home/rocky/.config/yarn/global/node_modules/tabtab/.completions/sls.bash
