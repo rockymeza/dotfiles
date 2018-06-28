@@ -1,4 +1,4 @@
-URxvt*perl-ext:           default,matcher
+URxvt*perl-ext:           default,matcher,font-size
 URxvt*urlLauncher:        google-chrome
 URxvt*keysym.C-Delete:    perl:matcher
 URxvt*underlineURLs:      true
