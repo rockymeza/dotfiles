@@ -7,8 +7,14 @@ add Mod4 = Super_L
 clear Lock
 ! Caps_Lock -> Control_L
 keycode 66 = Control_L
+add Control = Control_L
 
+! Shuffle (TypeMatrix) -> Control_L
+keycode 102 = Control_L
 add Control = Control_L
 
 ! Compose Key
 keycode 107 = Multi_key
+
+! Menu (TypeMatrix) -> Compose Key
+keycode 135 = Multi_key
