@@ -63,7 +63,7 @@ sudo dnf install \
   vim-enhanced vim-X11 \
   fzf \
   xmonad xmobar stalonetray \
-  tabbed rxvt-unicode-256color-ml terminus-fonts \
+  tabbed rxvt-unicode-256color-ml terminus-fonts terminus-fonts-console \
   feh \
   python python-pip python-virtualenv python-virtualenvwrapper python-flake8 \
   python3 python3-pip python3-flake8 \
