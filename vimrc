@@ -17,13 +17,7 @@ endif
 call plug#begin('~/.vim/bundle')
 Plug 'GutenYe/json5.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'burnettk/vim-angular'
 Plug 'chase/vim-ansible-yaml'
 Plug 'craigemery/vim-autotag'
 Plug 'editorconfig/editorconfig-vim'
@@ -31,17 +25,15 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'garbas/vim-snipmate'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'ivalkeen/vim-simpledb'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'jnurmine/Zenburn'
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
-Plug 'mattn/emmet-vim'
 Plug 'mgedmin/python-imports.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'mxw/vim-jsx'
-Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rust-lang/rust.vim'
 Plug 'tomtom/tcomment_vim'
@@ -117,22 +109,24 @@ nnoremap <Leader><Leader> :call Ripgrep(expand('<cword>'))<Enter>
 " haml-coffee
 autocmd BufNewFile,BufRead *.hamlc setf haml
 
-" Map movement through errors without wrapping.
+" ALE
+let g:ale_linters = {
+\   'javascript': ['eslint', 'flow-language-server'],
+\}
+
+let g:ale_fixers = {
+\   'javascript': ['eslint', 'prettier'],
+\}
+
+nnoremap <silent> K <Plug>(ale_hover)
+nnoremap <silent> gd <Plug>(ale_go_to_definition)
+nnoremap <silent> gf <Plug>(ale_fix)
 nmap <silent> <C-k> <Plug>(ale_previous)
 nmap <silent> <C-j> <Plug>(ale_next)
 
-" LanguageClient
-set hidden
+" asyncomplete
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'reason': ['ocaml-language-server', '--stdio'],
-    \ 'ocaml': ['ocaml-language-server', '--stdio'],
-    \ }
-
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<cr>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
-nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
-nnoremap <silent> <f2> :call LanguageClient_textDocument_rename()<cr>
-
-let g:LanguageClient_loggingLevel = 'DEBUG'
+" Use ALE's function for asyncomplete defaults
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#ale#get_source_options({
+    \ 'priority': 10,
+    \ }))
