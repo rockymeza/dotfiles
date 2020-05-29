@@ -17,6 +17,7 @@ endif
 call plug#begin('~/.vim/bundle')
 Plug 'GutenYe/json5.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
 Plug 'chase/vim-ansible-yaml'
 Plug 'craigemery/vim-autotag'
@@ -31,8 +32,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'mgedmin/python-imports.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rust-lang/rust.vim'
@@ -50,6 +49,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-ruby/vim-ruby'
 Plug 'w0rp/ale'
+Plug 'yuezk/vim-js'
 call plug#end()
 
 " theme
