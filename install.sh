@@ -73,7 +73,8 @@ sudo dnf install \
   inotify-tools dunst \
   xbacklight \
   xscreensaver xss-lock \
-  xclip acpi
+  xclip acpi \
+  flameshot
 
 # Node
 curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -

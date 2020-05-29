@@ -86,6 +86,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0,                    xF86XK_Tools), safeSpawnProg "gnome-control-center")
     , ((0,          xF86XK_MonBrightnessUp), safeSpawn "xbacklight" ["-inc", "10%"])
     , ((0,        xF86XK_MonBrightnessDown), safeSpawn "xbacklight" ["-dec", "10%"])
+    , ((0,                 xF86XK_Explorer), safeSpawn "flameshot" ["gui"])
     , ((modMask .|. controlMask, xK_l     ), safeSpawn "xscreensaver-command" ["-lock"])
 
     ]
